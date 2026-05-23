@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 300" fill="currentColor">
+  <!-- Classic Parisian buildings (left side) -->
+  <rect x="0" y="220" width="60" height="80" opacity="0.6"/>
+  <rect x="70" y="200" width="50" height="100" opacity="0.7"/>
+  <rect x="130" y="210" width="55" height="90" opacity="0.65"/>
+  <rect x="195" y="215" width="45" height="85" opacity="0.6"/>
+  
+  <!-- Arc de Triomphe (simplified) -->
+  <g opacity="0.75">
+    <rect x="260" y="180" width="80" height="120"/>
+    <rect x="275" y="200" width="50" height="80" fill="#000"/>
+    <rect x="285" y="240" width="30" height="60" fill="currentColor"/>
+  </g>
+  
+  <!-- More buildings around Arc -->
+  <rect x="350" y="205" width="40" height="95" opacity="0.65"/>
+  <rect x="400" y="195" width="55" height="105" opacity="0.7"/>
+  
+  <!-- Eiffel Tower (prominent centerpiece) -->
+  <g opacity="0.85">
+    <!-- Base platform -->
+    <rect x="540" y="240" width="100" height="8"/>
+    <!-- Tower structure -->
+    <path d="M 545,240 L 565,120 L 575,120 L 575,80 L 585,80 L 590,40 L 600,40 L 605,80 L 615,80 L 615,120 L 625,120 L 645,240 Z"/>
+    <!-- Internal details (simplified) -->
+    <rect x="575" y="180" width="40" height="6" opacity="0.4"/>
+    <rect x="580" y="150" width="30" height="5" opacity="0.4"/>
+  </g>
+  
+  <!-- Buildings around Eiffel Tower -->
+  <rect x="660" y="215" width="45" height="85" opacity="0.65"/>
+  <rect x="715" y="205" width="50" height="95" opacity="0.7"/>
+  <rect x="775" y="220" width="40" height="80" opacity="0.6"/>
+  
+  <!-- Notre-Dame Cathedral (stylized) -->
+  <g opacity="0.75">
+    <!-- Main building -->
+    <rect x="840" y="200" width="90" height="100"/>
+    <!-- Left tower -->
+    <rect x="840" y="165" width="25" height="35"/>
+    <rect x="845" y="155" width="15" height="10"/>
+    <!-- Right tower -->
+    <rect x="905" y="165" width="25" height="35"/>
+    <rect x="910" y="155" width="15" height="10"/>
+    <!-- Spire (central) -->
+    <path d="M 875,200 L 885,140 L 895,200 Z"/>
+  </g>
+  
+  <!-- More Parisian buildings (right side) -->
+  <rect x="945" y="210" width="50" height="90" opacity="0.7"/>
+  <rect x="1005" y="215" width="45" height="85" opacity="0.65"/>
+  <rect x="1060" y="205" width="55" height="95" opacity="0.7"/>
+  <rect x="1125" y="220" width="40" height="80" opacity="0.6"/>
+  <rect x="1175" y="210" width="50" height="90" opacity="0.65"/>
+  <rect x="1235" y="215" width="45" height="85" opacity="0.7"/>
+  <rect x="1290" y="220" width="110" height="80" opacity="0.6"/>
+</svg>

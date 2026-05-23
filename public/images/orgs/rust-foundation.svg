@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 80" width="280" height="80">
+  <rect width="280" height="80" rx="8" fill="#ffffff"/>
+  <circle cx="32" cy="40" r="14" fill="none" stroke="#E05A00" stroke-width="4"/>
+  <circle cx="32" cy="40" r="6" fill="#E05A00"/>
+  <rect x="29" y="22" width="6" height="8" rx="2" fill="#E05A00"/>
+  <rect x="29" y="50" width="6" height="8" rx="2" fill="#E05A00"/>
+  <rect x="14" y="37" width="8" height="6" rx="2" fill="#E05A00"/>
+  <rect x="42" y="37" width="8" height="6" rx="2" fill="#E05A00"/>
+  <text x="56" y="34" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="#1a1a1a">Rust</text>
+  <text x="56" y="52" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="#1a1a1a">Foundation</text>
+</svg>

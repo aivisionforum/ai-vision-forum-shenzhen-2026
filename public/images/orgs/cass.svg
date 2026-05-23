@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 80" width="240" height="80">
+  <rect width="240" height="80" rx="8" fill="#f0f4f8"/>
+  <text x="120" y="30" font-family="Arial,sans-serif" font-size="12" font-weight="bold" fill="#2d5a8e" text-anchor="middle">Chinese Academy of</text>
+  <text x="120" y="48" font-family="Arial,sans-serif" font-size="12" font-weight="bold" fill="#2d5a8e" text-anchor="middle">Social Sciences</text>
+  <text x="120" y="66" font-family="Arial,sans-serif" font-size="11" fill="#5a82a6" text-anchor="middle">CASS</text>
+</svg>
