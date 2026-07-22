@@ -30,39 +30,39 @@ export const cn: Translations = {
 
   about: {
     title: "关于 AI Vision Forum",
-    subtitle: "汇聚远见者，共同塑造智能代理 AI、教育、治理与开源协作的未来",
+    subtitle: "汇聚远见者，共同塑造智能体软件工程、AI 原生组织与智能体时代的开源",
     guidingQuestionLabel: "核心问题",
-    guidingQuestion: "当 AI 重塑人类角色时，我们如何确保人类核心价值观始终居于中心？",
-    guidingQuestionNote: "在巴黎2026，这一问题因智能代理经济的兴起和开放治理框架的需求而变得更加尖锐。",
-    whyNowTitle: "为什么是现在：从 LAMP 到 Claw",
-    whyNowIntro: "AI Vision Forum 2026 恰逢计算历史的关键时刻。我们正在见证一场堪比2000年代 LAMP 堆栈革命的范式转变——但这一次，基础设施服务的是 AI 代理，而非仅仅是人类。",
+    guidingQuestion: "当 AI 智能体编写大部分软件时，人如何保有意图、决策与问责？",
+    guidingQuestionNote: "在深圳 2026，人的主体性从原则走向实践：工程流水线、组织结构与开源社区都需要给出答案。",
+    whyNowTitle: "为什么是现在：从写代码到指挥智能体",
+    whyNowIntro: "软件生产正跨越第三个门槛。每个时代都改变了由谁——或由什么——来生产软件，也随之重新定义了工程、组织与开源。智能体时代迫使我们直面本论坛存在的意义：在一个能自我构建的系统里，人的主体性安放在哪里？",
     whyNowShifts: [
       {
-        title: "时代1（2000年代）：LAMP 堆栈",
-        description: "Linux、Apache、MySQL、PHP/Python——使 Web 开发民主化的开源技术。LAMP 通过大规模实现网站和应用来服务人类。",
+        title: "时代一：人写代码",
+        description: "我们熟悉的开源——维护者、代码评审，以及建立在“知道谁写了什么”之上的信任。组织靠增加工程师来扩张。",
       },
       {
-        title: "时代2（2010年代）：云/SaaS",
-        description: "云原生计算、API 经济、中心化平台。弹性扩展、快速交付、全球连接——但控制日益集中。",
+        title: "时代二：AI 辅助编程",
+        description: "补全与副驾驶工具让每个开发者更快，但仍由人来编写、评审并对每次变更负责。组织架构基本未变。",
       },
       {
-        title: "时代3（现在）：Claw 堆栈",
-        description: "计算（Compute）、语言模型（Language Models）、代理（Agents）、工作流（Workflow）——智能系统的统一框架。Claw 堆栈标志着智能代理经济的到来：自主智能、去中心化网络和开放治理。",
+        title: "时代三：智能体生产软件",
+        description: "智能体集群依据规范进行规划、编写、测试与交付。工程变成驾驭工程与规范纪律；组织围绕判断力与上下文重构；开源必须在溯源而非作者身份之上重建信任。",
       },
     ],
     valuePropositionTitle: "我们的独特价值",
     valueProposition: [
-      { title: "双层治理", description: "我们同时连接人类层面的伦理和代理层面的治理。" },
-      { title: "最佳时机", description: "在 MCP 开发者峰会（4月2-3日纽约）之后、EU AI Act 执行（8月2日）之前、IAPP 都柏林（6月）之前。我们可以设定议程。" },
-      { title: "跨文化桥梁", description: "通过 GOSIM、开源社和欧洲合作伙伴，我们是唯一同时讨论美/欧/中开源动态的论坛。" },
-      { title: "持久框架而非炒作", description: "我们不追逐今天的热点。我们构建持久的结构性问题框架，用当前证据作为说明。" },
+      { title: "从工程到组织", description: "同一现场贯通智能体工程流水线与它所迫使的组织重构——实践者与理论者同堂对话。" },
+      { title: "时机优势", description: "紧邻 GOSIM 深圳（10 月 16–17 日）之前，欧盟 AI 法案执法满一年，新的智能体 AI 联盟正在形成。我们可以定义议程。" },
+      { title: "跨文化桥梁", description: "携手 GOSIM、开源社（KAIYUANSHE）与欧洲伙伴，我们是唯一同时探讨美/欧/中开源动态的论坛。" },
+      { title: "持久框架而非炒作", description: "我们不追逐当下热点，而是提出持久的结构性问题，用当前证据作为例证。" },
     ],
     invitedParticipants: "受邀参与者",
     exclusiveAccess: "专属参与",
     inviteOnly: "仅限邀请",
     colocated: "联合举办",
     chathamHouseTitle: "查塔姆宫规则",
-    chathamHouseDescription: "参与者可以自由使用获得的信息，但不得透露发言者或其他参与者的身份或所属机构。此规则鼓励对敏感话题进行开放对话和坦诚讨论。",
+    chathamHouseDescription: "参与者可以自由使用所获得的信息，但不得透露发言者或任何其他参与者的身份或所属机构。这一规则鼓励就敏感话题进行开放和坦诚的讨论。",
   },
 
   tracksSection: {
@@ -151,6 +151,8 @@ export const cn: Translations = {
     legal: "法律信息",
     privacyPolicy: "隐私政策",
     contact: "联系我们",
+    mainSite: "AI Vision Forum 主站",
+    paris2026: "巴黎 2026 回顾",
     underChathamHouseRule: "遵循查塔姆宫规则",
     connect: "关注我们",
     colocatedWith: "联合举办",
@@ -309,6 +311,35 @@ export const cn: Translations = {
     ],
   },
 
+
+  pastEditions: {
+    title: "往届活动",
+    subtitle: "AI Vision Forum 源于 2024 年以来与 GOSIM 大会同期举办的一系列闭门论坛",
+    visitSite: "访问网站",
+    readReport: "阅读论坛报告",
+    editions: [
+      {
+        name: "AI Vision Forum 巴黎 2026",
+        date: "2026 年 5 月 4 日 · 法国巴黎",
+        description: "聚焦智能体转型的软件层——人机协同、治理与开源——并依据查塔姆宫规则发布了完整论坛报告。",
+      },
+      {
+        name: "GOSIM AI Vision Forum 杭州 2025",
+        date: "2025 年 9 月 12 日 · 中国杭州",
+        description: "首次以 AI Vision Forum 命名——70–100 位受邀者围绕 AI 时代的人类核心价值展开对话，与 GOSIM 杭州大会同期举办。",
+      },
+      {
+        name: "GOSIM 开源 AI 战略论坛",
+        date: "2025 年 5 月 5 日 · 法国巴黎",
+        description: "前身论坛，于 Station F 举行——依据查塔姆宫规则的闭门开源 AI 战略对话，与 GOSIM AI 巴黎大会同期举办。",
+      },
+    ],
+  },
+
+  pastOrgs: {
+    title: "往届活动参与机构",
+    subtitle: "往届活动的参与者来自以下大学、研究机构、基金会与 AI 企业",
+  },
 
   logo: {
     tagline: "智能代理塑造明天",
