@@ -126,6 +126,8 @@ export interface Translations {
     legal: string;
     privacyPolicy: string;
     contact: string;
+    mainSite: string;
+    paris2026: string;
     underChathamHouseRule: string;
     connect: string;
     colocatedWith: string;
@@ -215,6 +217,19 @@ export interface Translations {
   trackAgenticSE: TrackDetailContent;
   trackAiNativeOrg: TrackDetailContent;
   trackOpenSource: TrackDetailContent;
+
+  pastEditions: {
+    title: string;
+    subtitle: string;
+    visitSite: string;
+    readReport: string;
+    editions: { name: string; date: string; description: string }[];
+  };
+
+  pastOrgs: {
+    title: string;
+    subtitle: string;
+  };
 
   // Logo
   logo: {

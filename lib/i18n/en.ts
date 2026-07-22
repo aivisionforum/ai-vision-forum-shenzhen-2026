@@ -32,28 +32,28 @@ export const en: Translations = {
     title: "About AI Vision Forum",
     subtitle: "A gathering of visionaries shaping agentic software engineering, the AI-native organization, and open source in the agent era",
     guidingQuestionLabel: "Guiding Question",
-    guidingQuestion: "As AI reshapes human roles, how do we ensure human core values remain central?",
-    guidingQuestionNote: "For Shenzhen 2026, sharpened by the emergence of the Agentic Economy and the need for open governance frameworks.",
-    whyNowTitle: "Why Now: From LAMP to Claw",
-    whyNowIntro: "The AI Vision Forum 2026 arrives at a pivotal moment in computing history. We are witnessing a paradigm shift comparable to the LAMP stack revolution of the 2000s — but this time, the infrastructure serves AI agents, not just humans.",
+    guidingQuestion: "When AI agents write most of the software, how do humans retain intent, decision-making, and accountability?",
+    guidingQuestionNote: "For Shenzhen 2026, the question of human agency moves from principle to practice: engineering pipelines, organizational structures, and open source communities all need an answer.",
+    whyNowTitle: "Why Now: From Writing Code to Directing Agents",
+    whyNowIntro: "Software production is crossing its third threshold. Each era changed who \u2014 or what \u2014 does the producing, and each redefined engineering, organizations, and open source. The agent era forces the question the Forum exists to answer: where does human agency live in a system that builds itself?",
     whyNowShifts: [
       {
-        title: "Era 1 (2000s): LAMP Stack",
-        description: "Linux, Apache, MySQL, PHP/Python — open-source technologies that democratized web development. LAMP served humans by enabling websites and applications at scale.",
+        title: "Era 1: Humans Write Code",
+        description: "Open source as we know it \u2014 maintainers, code review, and trust built on knowing who wrote what. Organizations scaled by adding engineers.",
       },
       {
-        title: "Era 2 (2010s): Cloud/SaaS",
-        description: "Cloud-native computing, API economy, centralized platforms. Elastic scaling, rapid delivery, global connectivity — but increasingly centralized control.",
+        title: "Era 2: AI-Assisted Coding",
+        description: "Completion and copilot tools made every developer faster, but humans still authored, reviewed, and owned every change. The org chart survived intact.",
       },
       {
-        title: "Era 3 (Now): Claw Stack",
-        description: "Compute, Language Models, Agents, Workflow — a unified framework for intelligent systems. The Claw Stack marks the arrival of the Agentic Economy: autonomous intelligence, decentralized networks, and open governance.",
+        title: "Era 3: Agents Produce Software",
+        description: "Agent swarms plan, write, test, and ship against specifications. Engineering becomes harness and spec discipline; organizations restructure around judgment and context; open source must rebuild trust on provenance rather than authorship.",
       },
     ],
     valuePropositionTitle: "Our Unique Value Proposition",
     valueProposition: [
-      { title: "Two-layer governance", description: "We bridge human-level ethics AND agent-level governance." },
-      { title: "Timing sweet spot", description: "Post-MCP Dev Summit (April 2–3 NYC), pre-EU AI Act enforcement (August 2), pre-IAPP Dublin (June). We can set the agenda." },
+      { title: "Engineering to organization", description: "One room connects the agentic engineering pipeline with the organizational redesign it forces \u2014 practitioners and theorists together." },
+      { title: "Timing sweet spot", description: "Directly before GOSIM Shenzhen (Oct 16\u201317), one year into EU AI Act enforcement, and at the formation of new agentic-AI consortia. We can set the agenda." },
       { title: "Cross-cultural bridge", description: "With GOSIM, KAIYUANSHE, and European partners, we are the only forum addressing US/EU/China open-source dynamics together." },
       { title: "Durable framing over hype", description: "We don't chase what's hot today. We frame enduring structural questions and use current evidence as illustrations." },
     ],
@@ -151,6 +151,8 @@ export const en: Translations = {
     legal: "Legal",
     privacyPolicy: "Privacy Policy",
     contact: "Contact",
+    mainSite: "AI Vision Forum \u2014 Main Site",
+    paris2026: "Paris 2026 Archive",
     underChathamHouseRule: "Under Chatham House Rule",
     connect: "Connect",
     colocatedWith: "Co-located with",
@@ -306,6 +308,35 @@ export const en: Translations = {
       "A shared position on AI-BOM and provenance standards",
       "Recommendations for maintainer sustainability",
     ],
+  },
+
+  pastEditions: {
+    title: "Past Events",
+    subtitle: "The AI Vision Forum builds on a series of invitation-only gatherings since 2024, held alongside GOSIM conferences",
+    visitSite: "Visit site",
+    readReport: "Read the forum report",
+    editions: [
+      {
+        name: "AI Vision Forum Paris 2026",
+        date: "May 4, 2026 \u00b7 Paris, France",
+        description: "Convened at the agentic transition's software layer \u2014 human-AI synergy, governance, and open source \u2014 and published a full forum report under the Chatham House Rule.",
+      },
+      {
+        name: "GOSIM AI Vision Forum Hangzhou 2025",
+        date: "September 12, 2025 \u00b7 Hangzhou, China",
+        description: "First edition under the AI Vision Forum name \u2014 70\u2013100 invited participants on human core values in the AI era, held alongside GOSIM Hangzhou.",
+      },
+      {
+        name: "GOSIM Open-Source AI Strategy Forum",
+        date: "May 5, 2025 \u00b7 Paris, France",
+        description: "The precursor gathering at Station F \u2014 an invitation-only strategy dialogue on open-source AI under the Chatham House Rule, alongside GOSIM AI Paris.",
+      },
+    ],
+  },
+
+  pastOrgs: {
+    title: "Organizations at Past Events",
+    subtitle: "Participants of previous events came from these universities, research labs, foundations, and AI companies",
   },
 
   logo: {

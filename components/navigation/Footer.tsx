@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { Github, Twitter, Linkedin } from "lucide-react";
 import { Logo } from "@/components/branding/Logo";
-import { EVENT_CONFIG, SOCIAL_LINKS } from "@/lib/constants";
+import { EVENT_CONFIG, REFERENCE_SITES, SOCIAL_LINKS } from "@/lib/constants";
 import { useTranslation } from "@/lib/i18n";
 
 /**
@@ -57,6 +57,26 @@ export function Footer() {
                 >
                   {t.footer.schedule}
                 </Link>
+              </li>
+              <li>
+                <a
+                  href={REFERENCE_SITES.mainSite}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[#94A3B8] transition-colors hover:text-[#00E5FF]"
+                >
+                  {t.footer.mainSite}
+                </a>
+              </li>
+              <li>
+                <a
+                  href={REFERENCE_SITES.paris2026}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[#94A3B8] transition-colors hover:text-[#00E5FF]"
+                >
+                  {t.footer.paris2026}
+                </a>
               </li>
             </ul>
           </div>

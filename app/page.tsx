@@ -19,6 +19,53 @@ const TRACK_ICONS: Record<string, React.ReactNode> = {
 // Panelist & partner roster — to be curated by the Shenzhen program committee.
 const PANELIST_ORGS: { name: string; logo: string; url: string }[] = [];
 
+// Organizations represented at past editions (Paris 2026 roster)
+const PAST_EDITION_ORGS = [
+{ name: "Google DeepMind", logo: "/images/orgs/google-deepmind.png", url: "https://deepmind.google" },
+  { name: "Probabl", logo: "/images/orgs/probabl.png", url: "https://probabl.ai" },
+  { name: "ZhipuAI", logo: "/images/orgs/zhipuai.png", url: "https://zhipuai.cn" },
+  { name: "Moonshot AI", logo: "/images/orgs/moonshot-ai.png", url: "https://moonshot.cn" },
+  { name: "Minimax", logo: "/images/orgs/minimax.png", url: "https://minimaxi.com" },
+  { name: "BAAI", logo: "/images/orgs/baai.png", url: "https://baai.ac.cn" },
+  { name: "CSDN", logo: "/images/orgs/csdn.png", url: "https://csdn.net" },
+  { name: "LF AI & Data", logo: "/images/orgs/lf-ai-data.svg", url: "https://lfaidata.foundation" },
+  { name: "Rust Foundation", logo: "/images/orgs/rust-foundation.png", url: "https://rustfoundation.org" },
+  { name: "Kaiyuanshe", logo: "/images/orgs/kaiyuanshe.svg", url: "https://kaiyuanshe.cn" },
+  { name: "CNRS", logo: "/images/orgs/cnrs.png", url: "https://cnrs.fr" },
+  { name: "Fudan University", logo: "/images/orgs/fudan.svg", url: "https://fudan.edu.cn" },
+  { name: "Tulane University", logo: "/images/orgs/tulane.png", url: "https://tulane.edu" },
+  { name: "McGill University", logo: "/images/orgs/mcgill.png", url: "https://mcgill.ca" },
+  { name: "BNBU", logo: "/images/orgs/bnbu.png", url: "https://bnbu.edu.cn" },
+  { name: "SOLEIL Synchrotron", logo: "/images/orgs/soleil.png", url: "https://www.synchrotron-soleil.fr/en" },
+  { name: "United Nations University", logo: "/images/orgs/unu.png", url: "https://unu.edu" },
+  { name: "Chinese Academy of Social Sciences", logo: "/images/orgs/cass.png", url: "https://cssn.cn" },
+  { name: "China Electronics Standardization Institute", logo: "/images/orgs/cesi.png", url: "https://csa-iot.org/member/china-electronics-standardization-institute/" },
+  { name: "Egen AI", logo: "/images/orgs/egen.png", url: "https://egen.ai" },
+  { name: "Advanced AI Society", logo: "/images/orgs/advanced-ai-society.png", url: "https://advancedaisociety.org" },
+  { name: "Alma AI", logo: "/images/orgs/alma-ai.png", url: "https://centri.unibo.it/alma-ai" },
+  { name: "University of Bologna", logo: "/images/orgs/university-of-bologna.png", url: "https://www.unibo.it/en" },
+  { name: "Voice Interoperability", logo: "/images/orgs/voice-interoperability.svg", url: "https://voiceinteroperability.ai" },
+  { name: "Institute for Technoscience and Society", logo: "/images/orgs/technoscience-society.png", url: "https://www.yorku.ca/research/its/" },
+];
+
+const PAST_EDITIONS = [
+  {
+    key: "paris2026",
+    url: "https://paris2026.visionforum.ai/",
+    reportUrl: "https://paris2026.visionforum.ai/report/",
+  },
+  {
+    key: "hangzhou2025",
+    url: "https://hangzhou2025.gosim.org/",
+    reportUrl: "",
+  },
+  {
+    key: "paris2025",
+    url: "https://paris2025.gosim.org/os-ai-strategy-forum/",
+    reportUrl: "",
+  },
+];
+
 const TRACK_ICON_KEYS = ["laptop", "scale", "globe"];
 const TRACK_SLUGS = ["agentic-engineering", "ai-native-org", "open-source"];
 const TRACK_HIGHLIGHTS = [true, false, false];
@@ -145,7 +192,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Panelists Representing Section */}
+      {/* Panelists Representing Section — hidden until the roster has confirmed orgs */}
+      {PANELIST_ORGS.length > 0 && (
       <section className="py-24 px-4 bg-[#0A0E1A]">
         <div className="container mx-auto max-w-6xl">
           <div className="mb-16 text-center">
@@ -173,6 +221,88 @@ export default function Home() {
                     alt={org.name}
                     className="h-10 max-w-[120px] object-contain"
                   />
+                </div>
+                <span className="text-center text-xs font-medium text-[#94A3B8] leading-tight">
+                  {org.name}
+                </span>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+      )}
+
+      {/* Past Editions Section */}
+      <section className="py-24 px-4 bg-[#0A0E1A]">
+        <div className="container mx-auto max-w-6xl">
+          <div className="mb-16 text-center">
+            <h2 className="mb-4 text-4xl font-bold md:text-5xl lg:text-6xl">
+              <span className="text-[#E1E8F0]">{t.pastEditions.title}</span>
+            </h2>
+            <p className="mx-auto max-w-3xl text-lg text-[#94A3B8] md:text-xl">
+              {t.pastEditions.subtitle}
+            </p>
+          </div>
+          <div className="grid gap-6 md:grid-cols-3 lg:gap-8">
+            {PAST_EDITIONS.map((ed, index) => {
+              const copy = t.pastEditions.editions[index];
+              return (
+                <div
+                  key={ed.key}
+                  className="rounded-2xl border border-[#1E293B] bg-[#0F172A]/70 p-8 transition-all hover:border-[#00E5FF]/60"
+                >
+                  <h3 className="mb-1 text-2xl font-bold text-[#00E5FF]">{copy.name}</h3>
+                  <p className="mb-4 text-sm font-medium text-[#FFC857]">{copy.date}</p>
+                  <p className="mb-6 text-[#94A3B8]">{copy.description}</p>
+                  <div className="flex flex-wrap gap-4">
+                    <a
+                      href={ed.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-sm font-medium text-[#00E5FF] hover:underline"
+                    >
+                      {t.pastEditions.visitSite} &rarr;
+                    </a>
+                    {ed.reportUrl && (
+                      <a
+                        href={ed.reportUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-sm font-medium text-[#00E5FF] hover:underline"
+                      >
+                        {t.pastEditions.readReport} &rarr;
+                      </a>
+                    )}
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* Past-edition organizations Section */}
+      <section className="py-24 px-4 bg-[#0A0E1A]">
+        <div className="container mx-auto max-w-6xl">
+          <div className="mb-16 text-center">
+            <h2 className="mb-4 text-4xl font-bold md:text-5xl lg:text-6xl">
+              <span className="text-[#E1E8F0]">{t.pastOrgs.title}</span>
+            </h2>
+            <p className="mx-auto max-w-3xl text-lg text-[#94A3B8] md:text-xl">
+              {t.pastOrgs.subtitle}
+            </p>
+          </div>
+          <div className="grid grid-cols-3 gap-4 sm:grid-cols-4 md:grid-cols-5 lg:gap-6">
+            {PAST_EDITION_ORGS.map((org) => (
+              <a
+                key={org.name}
+                href={org.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex flex-col items-center gap-3 rounded-xl border border-[#1E293B] bg-[#0F172A]/60 p-4 transition-colors hover:border-[#00E5FF]/60"
+              >
+                <div className="flex h-14 w-full items-center justify-center rounded-lg bg-[#CBD5E1]/90 px-3 py-2 transition-colors group-hover:bg-white">
+                  <img src={org.logo} alt={org.name} className="h-10 max-w-[120px] object-contain mix-blend-multiply" />
                 </div>
                 <span className="text-center text-xs font-medium text-[#94A3B8] leading-tight">
                   {org.name}
