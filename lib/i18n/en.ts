@@ -128,7 +128,7 @@ export const en: Translations = {
 
   venue: {
     title: "Venue",
-    venueDescription: "Banyan Tree Zhuhai Phoenix Bay (tentative) \u2014 a single-hall resort setting with on-site accommodation for focused, residential-style working sessions.",
+    venueDescription: "A resort setting in Zhuhai (venue to be announced) \u2014 single hall with on-site accommodation for focused, residential-style working sessions.",
     colocatedDescription: "Co-located with GOSIM Shenzhen 2026 (October 16\u201317): the Forum closes with an evening cruise from Zhuhai Jiuzhou Port to Shenzhen Shekou, arriving for the GOSIM opening.",
     accessDescription: "Accessible from Zhuhai Jinwan Airport (ZUH), Hong Kong International Airport (HKG) via the HZM Bridge, and Shenzhen Bao'an International Airport (SZX).",
     viewOnMap: "View on Google Maps \u2192",

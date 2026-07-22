@@ -128,7 +128,7 @@ export const cn: Translations = {
 
   venue: {
     title: "会议地点",
-    venueDescription: "珠海凤凰岭悦榕庄（暂定）——单一会场加酒店住宿的度假式环境，适合专注的封闭工作研讨。",
+    venueDescription: "珠海度假式会议环境（具体场地待公布）——单一会场加酒店住宿，适合专注的封闭工作研讨。",
     colocatedDescription: "与 GOSIM 深圳 2026（10 月 16–17 日）联动举办：论坛以珠海九洲港至深圳蛇口的游船酒会闭幕，抵达后正逢 GOSIM 开幕。",
     accessDescription: "可从珠海金湾机场（ZUH）、经港珠澳大桥的香港国际机场（HKG）及深圳宝安国际机场（SZX）抵达。",
     viewOnMap: "在 Google 地图上查看 →",
