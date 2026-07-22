@@ -8,7 +8,7 @@ import { EVENT_CONFIG } from "@/lib/constants";
 
 interface Props {
   /** Track slug — matches PanelSummary.slug in /lib/data/paris2026-report */
-  slug: "vibe-coding" | "education" | "governance" | "public-good";
+  slug: string;
 }
 
 /**

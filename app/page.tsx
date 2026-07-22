@@ -19,9 +19,9 @@ const TRACK_ICONS: Record<string, React.ReactNode> = {
 // Panelist & partner roster — to be curated by the Shenzhen program committee.
 const PANELIST_ORGS: { name: string; logo: string; url: string }[] = [];
 
-const TRACK_ICON_KEYS = ["laptop", "graduation-cap", "scale", "globe"];
-const TRACK_SLUGS = ["vibe-coding", "education", "governance", "public-good"];
-const TRACK_HIGHLIGHTS = [true, false, false, false];
+const TRACK_ICON_KEYS = ["laptop", "scale", "globe"];
+const TRACK_SLUGS = ["agentic-engineering", "ai-native-org", "open-source"];
+const TRACK_HIGHLIGHTS = [true, false, false];
 
 export default function Home() {
   const { t } = useTranslation();

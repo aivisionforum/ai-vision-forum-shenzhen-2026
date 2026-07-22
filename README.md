@@ -1,11 +1,11 @@
 # AI Vision Forum Shenzhen 2026
 
-Official website for **AI Vision Forum Shenzhen 2026** — the second edition of the AI Vision Forum, focused on **Robotics & AI Hardware**.
+Official website for **AI Vision Forum Shenzhen 2026** — the second edition of the AI Vision Forum, focused on **Human Agency in the Agent Era** — agentic software engineering, the AI-native organization, and open source in the agent era.
 
-- **Date:** October 2026 (exact day TBC)
-- **Location:** Shenzhen, China
+- **Date:** October 1415, 2026 (tentative)
+- **Location:** Banyan Tree Zhuhai Phoenix Bay (tentative)  closing cruise to Shenzhen Shekou
 - **Co-located with:** GOSIM Shenzhen 2026
-- **Format:** Invitation-only · Chatham House Rule
+- **Format:** Invitation-only  Chatham House Rule
 - **Domain:** [shenzhen2026.visionforum.ai](https://shenzhen2026.visionforum.ai)
 
 This site is forked from the [Paris 2026 microsite](https://github.com/aivisionforum/ai-vision-forum-paris-2026) and themed for the Shenzhen edition. Program content (tracks, panelists, schedule) is populated as the program committee finalises it.

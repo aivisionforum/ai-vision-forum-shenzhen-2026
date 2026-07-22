@@ -5,15 +5,15 @@
 
 export const EVENT_CONFIG = {
   name: "AI Vision Forum Shenzhen 2026",
-  tagline: "Robotics & AI Hardware",
+  tagline: "Human Agency in the Agent Era",
   guidingQuestion:
-    "As physical AI moves from laboratory to factory floor, what governance, safety, and openness do we need at the hardware layer?",
-  date: "2026-10-15", // placeholder — exact day TBC
-  dateDisplay: "October 2026",
+    "When AI agents write most of the software, how do humans retain intent, decision-making, and accountability?",
+  date: "2026-10-14",
+  dateDisplay: "October 14–15, 2026",
   location: {
-    city: "Shenzhen",
+    city: "Zhuhai · Shenzhen",
     country: "China",
-    venue: "",
+    venue: "Banyan Tree Zhuhai Phoenix Bay (tentative)",
     colocated: "GOSIM Shenzhen 2026",
   },
   scale: "100–150 invited participants",
@@ -35,50 +35,38 @@ export const EVENT_CONFIG = {
 export const TRACKS = [
   {
     id: 1,
-    slug: "vibe-coding",
-    title: "Embodied Agents",
-    subtitle: "From simulation to safe deployment",
+    slug: "agentic-engineering",
+    title: "Agentic Software Engineering",
+    subtitle: "Theory and practice",
     icon: "laptop",
     description:
-      "Sim-to-real pipelines, world models, and on-device decision-making for robotic agents operating outside controlled environments.",
+      "Agent swarms, agentic coding, spec-driven development, and harness engineering — what engineering discipline looks like when agents write most of the code.",
     color: "secondary" as const,
-    keywords: ["Sim-to-Real", "World Models", "On-Device Inference", "Safety Cases"] as const,
+    keywords: ["Agent Swarms", "Spec-Driven Development", "Harness Engineering", "MCP / A2A"] as const,
     highlight: true,
   },
   {
     id: 2,
-    slug: "education",
-    title: "Open Hardware for AI",
-    subtitle: "Accelerators, edge silicon, and the open stack",
+    slug: "ai-native-org",
+    title: "The AI-Native Organization",
+    subtitle: "From dinosaur to octopus",
     icon: "graduation-cap",
     description:
-      "Open silicon initiatives, accelerator interoperability, and what it takes to make frontier AI run beyond the latest chip generation.",
+      "Judgment distribution, context flow, and organizational structures that sense and adapt — redefining enterprise management for the agent era.",
     color: "primary" as const,
-    keywords: ["Open Silicon", "Edge Inference", "Compilers & DSLs", "Heterogeneous Compute"] as const,
+    keywords: ["Octopus Organization", "Judgment Distribution", "Context Flow", "Agentic Economy"] as const,
     highlight: false,
   },
   {
     id: 3,
-    slug: "governance",
-    title: "Trusted Physical AI",
-    subtitle: "Verification, identity, and incident response",
-    icon: "scale",
-    description:
-      "Cryptographic verification, agent identity, and incident-response frameworks for AI systems that touch the physical world.",
-    color: "accent" as const,
-    keywords: ["Proof of Control", "Verifiable Identity", "Incident Response", "Safety Standards"] as const,
-    highlight: false,
-  },
-  {
-    id: 4,
-    slug: "public-good",
-    title: "Robotics as Public Infrastructure",
-    subtitle: "Manufacturing, logistics, and shared platforms",
+    slug: "open-source",
+    title: "Open Source in the Agent Era",
+    subtitle: "Survival and prosperity",
     icon: "globe",
     description:
-      "How robotic and hardware platforms can be sustained as shared infrastructure rather than captured by single vendors.",
-    color: "primary" as const,
-    keywords: ["Open Platforms", "Shared Compute", "Supply-Chain Openness", "Global South Access"] as const,
+      "How communities, forges, and foundations survive and thrive: AI-BOM and provenance, maintainer sustainability, and trust in AI-generated contributions.",
+    color: "accent" as const,
+    keywords: ["AI-BOM", "Provenance", "Maintainer Sustainability", "Trusted Contributions"] as const,
     highlight: false,
   },
 ] as const;
@@ -171,21 +159,22 @@ export const KEY_REFERENCES = [
 ] as const;
 
 // Countdown target — refined to a precise time once the venue is confirmed.
-export const COUNTDOWN_TARGET = new Date("2026-10-15T09:00:00+08:00");
+export const COUNTDOWN_TARGET = new Date("2026-10-14T12:00:00+08:00");
 
-// Outline subject to PC curation
 export const SCHEDULE_OUTLINE = [
-  { time: "08:30–09:00", title: "Registration & Coffee" },
-  { time: "09:00–09:15", title: "Opening Remarks" },
-  { time: "09:15–10:30", title: "Panel 1: Embodied Agents", subtitle: "From simulation to safe deployment", format: "Keynote + Panel" },
-  { time: "10:30–10:45", title: "Break" },
-  { time: "10:45–12:00", title: "Panel 2: Open Hardware for AI", subtitle: "Accelerators, edge silicon, and the open stack", format: "Keynote + Panel" },
-  { time: "12:00–13:30", title: "Lunch + Hardware Showcase", subtitle: "Live demos from the Shenzhen hardware community" },
-  { time: "13:30–14:45", title: "Panel 3: Trusted Physical AI", subtitle: "Verification, identity, and incident response", format: "Keynote + Panel" },
-  { time: "14:45–15:00", title: "Break" },
-  { time: "15:00–16:15", title: "Panel 4: Robotics as Public Infrastructure", subtitle: "Manufacturing, logistics, and shared platforms", format: "Keynote + Panel" },
-  { time: "16:15–16:45", title: "Synthesis & Closing" },
-  { time: "17:00–19:30", title: "Networking Dinner", subtitle: "Themed tables" },
+  { time: "Oct 14 · 12:00–13:30", title: "Registration & Welcome Lunch" },
+  { time: "Oct 14 · 13:30–14:00", title: "Opening Keynote: Human Agency in the Agent Era" },
+  { time: "Oct 14 · 14:00–15:15", title: "Panel: Open Source in the Agent Era", subtitle: "Forges, foundations, communities", format: "Panel" },
+  { time: "Oct 14 · 15:45–17:00", title: "Working Session: Trustworthy Open Source When Agents Write the Code", format: "Facilitated working session" },
+  { time: "Oct 14 · 17:00–17:30", title: "Report-back & Day 2 Preview" },
+  { time: "Oct 14 · 18:30", title: "Welcome Dinner" },
+  { time: "Oct 15 · 09:00–09:20", title: "Keynote: The Agentic Economy" },
+  { time: "Oct 15 · 09:20–10:40", title: "Agentic Software Engineering", subtitle: "Swarms, specs, and harnesses", format: "Keynote + Panel" },
+  { time: "Oct 15 · 11:10–12:30", title: "Become an Octopus Organization", subtitle: "Designing the AI-native enterprise", format: "Keynote + Panel" },
+  { time: "Oct 15 · 12:30–14:00", title: "Lunch & Live Demos" },
+  { time: "Oct 15 · 14:00–15:30", title: "Split Working Tracks", subtitle: "Agentic engineering pipeline · AI-native reorganization", format: "Facilitated working sessions" },
+  { time: "Oct 15 · 16:00–16:40", title: "Report-backs · Closing Synthesis · OAIC Introduction" },
+  { time: "Oct 15 · 17:30–20:30", title: "Closing Cruise: Zhuhai → Shenzhen Shekou", subtitle: "Reception & buffet — arriving for GOSIM Shenzhen" },
 ] as const;
 
 export const CORE_TOPICS = [
