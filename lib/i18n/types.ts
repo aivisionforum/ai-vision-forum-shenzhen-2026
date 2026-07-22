@@ -1,5 +1,15 @@
 export type Locale = "en" | "cn";
 
+export interface TrackDetailContent {
+  title: string;
+  overview: string;
+  keyTopics: string[];
+  spotlightTitle: string;
+  spotlightText: string;
+  outcomesTitle: string;
+  outcomes: string[];
+}
+
 export interface Translations {
   // Navigation
   nav: {
@@ -201,55 +211,10 @@ export interface Translations {
     requestInvitation: string;
   };
 
-  // Track: Education
-  trackEducation: {
-    title: string;
-    overview: string;
-    keyTopics: string[];
-    whyMattersTitle: string;
-    whyMattersText: string;
-    focusAreasTitle: string;
-    focusAreas: string[];
-  };
-
-  // Track: Vibe Coding
-  trackVibeCoding: {
-    title: string;
-    overview: string;
-    keyTopics: string[];
-    spotlightTitle: string;
-    spotlightText: string;
-    featuredSessionTitle: string;
-    featuredSessionText: string;
-    whatYouLearnTitle: string;
-    whatYouLearn: string[];
-  };
-
-  // Track: Governance
-  trackGovernance: {
-    title: string;
-    overview: string;
-    keyTopics: string[];
-    approachTitle: string;
-    approachText: string;
-    keyDiscussionTitle: string;
-    keyDiscussionText: string;
-    outcomesTitle: string;
-    outcomes: string[];
-  };
-
-  // Track: Public Good
-  trackPublicGood: {
-    title: string;
-    overview: string;
-    keyTopics: string[];
-    humanityTitle: string;
-    humanityText: string;
-    spotlightTitle: string;
-    spotlightText: string;
-    projectsTitle: string;
-    projects: string[];
-  };
+  // Track detail pages (uniform shape)
+  trackAgenticSE: TrackDetailContent;
+  trackAiNativeOrg: TrackDetailContent;
+  trackOpenSource: TrackDetailContent;
 
   // Logo
   logo: {
