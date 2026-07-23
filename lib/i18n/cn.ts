@@ -30,32 +30,32 @@ export const cn: Translations = {
 
   about: {
     title: "关于 AI Vision Forum",
-    subtitle: "汇聚远见者，共同塑造智能体软件工程、AI 原生组织与智能体时代的开源",
+    subtitle: "智能体建造软件的时代，人的主体性",
     guidingQuestionLabel: "核心问题",
     guidingQuestion: "当 AI 智能体编写大部分软件时，人如何保有意图、决策与问责？",
-    guidingQuestionNote: "在深圳 2026，人的主体性从原则走向实践：工程流水线、组织结构与开源社区都需要给出答案。",
+    guidingQuestionNote: "深圳 2026：从原则走向实践。",
     whyNowTitle: "为什么是现在：从写代码到指挥智能体",
-    whyNowIntro: "软件生产正跨越第三个门槛。每个时代都改变了由谁——或由什么——来生产软件，也随之重新定义了工程、组织与开源。智能体时代迫使我们直面本论坛存在的意义：在一个能自我构建的系统里，人的主体性安放在哪里？",
+    whyNowIntro: "软件生产正跨越第三个门槛——每一次都重新定义了工程、组织与开源。",
     whyNowShifts: [
       {
         title: "时代一：人写代码",
-        description: "我们熟悉的开源——维护者、代码评审，以及建立在“知道谁写了什么”之上的信任。组织靠增加工程师来扩张。",
+        description: "信任建立在“知道谁写了什么”之上。",
       },
       {
         title: "时代二：AI 辅助编程",
-        description: "补全与副驾驶工具让每个开发者更快，但仍由人来编写、评审并对每次变更负责。组织架构基本未变。",
+        description: "开发者更快了——但每次变更仍由人负责。",
       },
       {
         title: "时代三：智能体生产软件",
-        description: "智能体集群依据规范进行规划、编写、测试与交付。工程变成驾驭工程与规范纪律；组织围绕判断力与上下文重构；开源必须在溯源而非作者身份之上重建信任。",
+        description: "智能体依规范交付。信任必须从作者身份转向溯源。",
       },
     ],
-    valuePropositionTitle: "我们的独特价值",
+    valuePropositionTitle: "论坛的独特之处",
     valueProposition: [
       { title: "从工程到组织", description: "同一现场贯通智能体工程流水线与它所迫使的组织重构——实践者与理论者同堂对话。" },
-      { title: "时机优势", description: "紧邻 GOSIM 深圳（10 月 16–17 日）之前，欧盟 AI 法案执法满一年，新的智能体 AI 联盟正在形成。我们可以定义议程。" },
-      { title: "跨文化桥梁", description: "携手 GOSIM、开源社（KAIYUANSHE）与欧洲伙伴，我们是唯一同时探讨美/欧/中开源动态的论坛。" },
-      { title: "持久框架而非炒作", description: "我们不追逐当下热点，而是提出持久的结构性问题，用当前证据作为例证。" },
+      { title: "时机优势", description: "紧邻 GOSIM 深圳（10 月 16–17 日）之前，欧盟 AI 法案执法满一年，新的智能体 AI 联盟正在形成。正是定义议程的时机。" },
+      { title: "跨文化桥梁", description: "携手 GOSIM、开源社（KAIYUANSHE）与欧洲伙伴，是唯一同时探讨美/欧/中开源动态的论坛。" },
+      { title: "持久框架而非炒作", description: "不追逐当下热点，而是提出持久的结构性问题，以当前证据为例证。" },
     ],
     invitedParticipants: "受邀参与者",
     exclusiveAccess: "专属参与",
@@ -74,19 +74,19 @@ export const cn: Translations = {
       {
         title: "智能体软件工程",
         subtitle: "理论与实践",
-        description: "Agent swarm（智能体集群）、agentic coding（智能体编程）、spec-driven development（规范驱动开发）与 harness engineering（驾驭工程）——当智能体承担大部分编码时，工程学科将是什么样。",
+        description: "当智能体承担大部分编码，工程将是什么样。",
         keywords: ["智能体集群", "规范驱动开发", "驾驭工程", "MCP / A2A"],
       },
       {
         title: "AI 原生组织",
         subtitle: "从恐龙到章鱼",
-        description: "判断力分布、上下文流动，以及能够感知与自适应的组织结构——与重新定义智能体时代企业管理的思想者同场对话。",
+        description: "从恐龙到章鱼：能感知、自适应的组织。",
         keywords: ["章鱼型组织", "判断力分布", "上下文流动", "智能体经济"],
       },
       {
         title: "智能体时代的开源",
         subtitle: "生存与繁荣",
-        description: "社区、代码托管平台与基金会如何生存与繁荣：AI-BOM 与溯源、维护者可持续性，以及 AI 生成贡献的信任机制。",
+        description: "智能体参与贡献时的溯源、可持续与信任。",
         keywords: ["AI-BOM", "溯源", "维护者可持续性", "可信贡献"],
       },
     ],
@@ -94,7 +94,7 @@ export const cn: Translations = {
 
   scheduleSection: {
     title: "日程安排",
-    subtitle: "两个工作日——2026 年 10 月 14–15 日（日程以最终确认为准）",
+    subtitle: "2026 年 10 月 14–15 日 · 日程以最终确认为准",
     note: "所有环节遵循查塔姆宫规则，提供中英同传。",
     items: [
       { time: "10月14日 · 12:00–13:30", title: "签到与欢迎午餐" },
@@ -117,27 +117,27 @@ export const cn: Translations = {
     title: "嘉宾",
     subtitle: "世界级专家、研究者和实践者",
     comingSoon: "嘉宾即将公布",
-    comingSoonDescription: "我们正在策划一支杰出的阵容，包括思想领袖、学者和行业先驱，共同探讨塑造智能代理 AI 的结构性变革。",
+    comingSoonDescription: "一支由思想领袖、学者和行业先驱组成的杰出阵容正在筹备中，共同探讨塑造智能体 AI 的结构性变革。",
     comingSoonNote: "请持续关注或申请邀请以在嘉宾公布时获得通知。",
   },
 
   panelistsSection: {
     title: "嘉宾所代表的机构",
-    subtitle: "我们的小组成员来自顶尖大学、研究机构、开源基金会和引领智能代理 AI 发展的人工智能企业。",
+    subtitle: "小组成员来自顶尖大学、研究机构、开源基金会和引领智能体 AI 发展的人工智能企业。",
   },
 
   venue: {
     title: "会议地点",
-    venueDescription: "珠海度假式会议环境（具体场地待公布）——单一会场加酒店住宿，适合专注的封闭工作研讨。",
-    colocatedDescription: "与 GOSIM 深圳 2026（10 月 16–17 日）联动举办：论坛以珠海九洲港至深圳蛇口的游船酒会闭幕，抵达后正逢 GOSIM 开幕。",
-    accessDescription: "可从珠海金湾机场（ZUH）、经港珠澳大桥的香港国际机场（HKG）及深圳宝安国际机场（SZX）抵达。",
+    venueDescription: "珠海度假式会议环境——具体场地待公布。",
+    colocatedDescription: "闭幕游船珠海 → 蛇口，衔接 GOSIM 深圳（10 月 16–17 日）。",
+    accessDescription: "可经珠海（ZUH）、香港（HKG）、深圳（SZX）机场抵达。",
     viewOnMap: "在 Google 地图上查看 →",
     photosComingSoon: "场地照片即将发布",
   },
 
   cta: {
     title: "加入对话",
-    description: "AI Vision Forum Paris 2026 仅限受邀者参加。提交您的邀请申请，共同塑造智能代理 AI 的未来。",
+    description: "AI Vision Forum 深圳 2026 仅限受邀者参加。提交您的邀请申请，共同塑造智能体 AI 的未来。",
     button: "申请邀请",
     note: "申请持续滚动审核中",
   },
@@ -163,7 +163,7 @@ export const cn: Translations = {
   registerPage: {
     backToHome: "返回首页",
     title: "申请邀请",
-    description: "AI Vision Forum Paris 2026 为仅限邀请活动。请填写以下表格申请您的邀请。",
+    description: "AI Vision Forum 深圳 2026 为仅限邀请活动。请填写以下表格申请您的邀请。",
     fullName: "姓名 *",
     emailAddress: "电子邮箱 *",
     affiliation: "所属机构 / 组织",
@@ -178,9 +178,9 @@ export const cn: Translations = {
     motivationPlaceholder: "请介绍您对论坛的兴趣...",
     chathamAgree: "我同意在查塔姆宫规则下参与",
     submitButton: "提交申请",
-    reviewNote: "申请持续滚动审核中。我们将在2周内回复。",
+    reviewNote: "申请持续滚动审核中，2 周内回复。",
     placeholderNote: "说明",
-    placeholderDescription: "这是一个占位表单。完整注册将于2026年第二季度开放，届时将集成我们的邀请管理系统。",
+    placeholderDescription: "这是一个占位表单。完整注册将于2026年第二季度开放，届时将集成邀请管理系统。",
     namePlaceholder: "您的姓名",
     emailPlaceholder: "you@example.com",
     orgPlaceholder: "您的组织",
@@ -189,7 +189,7 @@ export const cn: Translations = {
   contactPage: {
     backToHome: "返回首页",
     title: "联系我们",
-    description: "对 AI Vision Forum Paris 2026 有疑问？我们很乐意为您解答。",
+    description: "对 AI Vision Forum 深圳 2026 有疑问？组委会很乐意为您解答。",
     generalInquiries: "一般咨询",
     partnership: "合作与赞助",
     pressMedia: "新闻与媒体",
@@ -207,7 +207,7 @@ export const cn: Translations = {
     title: "隐私政策",
     lastUpdated: "最后更新：2026年2月10日",
     overview: "概述",
-    overviewText: "AI Vision Forum Paris 2026 致力于保护活动参与者、嘉宾和网站访问者的隐私。本政策概述了我们如何收集、使用和保护您的信息。",
+    overviewText: "AI Vision Forum 深圳 2026 致力于保护活动参与者、嘉宾和网站访问者的隐私。本政策概述了我们如何收集、使用和保护您的信息。",
     infoCollect: "我们收集的信息",
     infoRegistration: "注册数据：姓名、电子邮箱、所属机构、专业背景",
     infoParticipation: "活动参与：会议出席、提问（受查塔姆宫规则保护）",
@@ -314,31 +314,31 @@ export const cn: Translations = {
 
   pastEditions: {
     title: "往届活动",
-    subtitle: "AI Vision Forum 源于 2024 年以来与 GOSIM 大会同期举办的一系列闭门论坛",
+    subtitle: "2024 年起与 GOSIM 同期举办的闭门论坛系列",
     visitSite: "访问网站",
     readReport: "阅读论坛报告",
     editions: [
       {
         name: "AI Vision Forum 巴黎 2026",
         date: "2026 年 5 月 4 日 · 法国巴黎",
-        description: "聚焦智能体转型的软件层——人机协同、治理与开源——并依据查塔姆宫规则发布了完整论坛报告。",
+        description: "人机协同、治理与开源——已发布完整论坛报告。",
       },
       {
         name: "GOSIM AI Vision Forum 杭州 2025",
         date: "2025 年 9 月 12 日 · 中国杭州",
-        description: "首次以 AI Vision Forum 命名——70–100 位受邀者围绕 AI 时代的人类核心价值展开对话，与 GOSIM 杭州大会同期举办。",
+        description: "首次以 AI Vision Forum 命名——聚焦 AI 时代的人类核心价值。",
       },
       {
         name: "GOSIM 开源 AI 战略论坛",
         date: "2025 年 5 月 5 日 · 法国巴黎",
-        description: "前身论坛，于 Station F 举行——依据查塔姆宫规则的闭门开源 AI 战略对话，与 GOSIM AI 巴黎大会同期举办。",
+        description: "前身论坛——Station F 闭门开源 AI 战略对话。",
       },
     ],
   },
 
   pastOrgs: {
     title: "往届活动参与机构",
-    subtitle: "往届活动的参与者来自以下大学、研究机构、基金会与 AI 企业",
+    subtitle: "往届参与者来自以下大学、研究机构、基金会与 AI 企业",
   },
 
   logo: {
