@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { GraduationCap, Laptop, Scale, Globe, Landmark, Handshake, Plane, TowerControl } from "lucide-react";
+import { GraduationCap, Laptop, Scale, Globe, Landmark, Handshake, Plane } from "lucide-react";
 import { HeroSection } from "@/components/hero/HeroSection";
 import { AboutSection } from "@/components/sections/AboutSection";
 import { PcbTraceBackground } from "@/components/branding/PcbTraceBackground";
@@ -77,6 +77,23 @@ export default function Home() {
     <main className="min-h-screen bg-[#0A0E1A]">
       <HeroSection />
       <AboutSection />
+
+      {/* Theme artwork — the octopus organization / human-AI synergy */}
+      <section className="relative overflow-hidden bg-[#0A0E1A] px-4 pb-4 pt-8">
+        <div className="container mx-auto max-w-6xl">
+          <div className="relative overflow-hidden rounded-2xl border border-[#1E293B]">
+            <img
+              src="/images/art/hero-octopus.png"
+              alt="Octopus of light-lines interweaving with human figures — human-AI synergy artwork"
+              className="w-full object-cover"
+            />
+            <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#0A0E1A]/70 via-transparent to-transparent" />
+            <p className="absolute bottom-4 left-6 right-6 text-sm font-medium tracking-wide text-[#E1E8F0]/90 md:text-base">
+              {t.about.guidingQuestion}
+            </p>
+          </div>
+        </div>
+      </section>
 
       {/* Tracks Section */}
       <section
@@ -362,13 +379,17 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="rounded-2xl border border-[#1E293B] bg-[#0F172A]/60 p-8">
-              <div className="aspect-video rounded-lg bg-[#0A0E1A] border border-[#1E293B] flex items-center justify-center">
-                <TowerControl className="h-16 w-16 text-[#94A3B8]" />
-              </div>
-              <p className="mt-4 text-center text-sm text-[#94A3B8]">
-                {t.venue.photosComingSoon}
-              </p>
+            <div className="space-y-4">
+              <img
+                src="/images/art/city-zhuhai.png"
+                alt="Hong Kong–Zhuhai–Macau bridge and cruise at dusk — artwork"
+                className="w-full rounded-2xl border border-[#1E293B] object-cover shadow-[0_0_32px_rgba(0,229,255,0.08)]"
+              />
+              <img
+                src="/images/art/city-shenzhen.png"
+                alt="Shenzhen skyline at night — artwork"
+                className="w-full rounded-2xl border border-[#1E293B] object-cover shadow-[0_0_32px_rgba(0,229,255,0.08)]"
+              />
             </div>
           </div>
         </div>

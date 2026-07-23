@@ -30,32 +30,32 @@ export const en: Translations = {
 
   about: {
     title: "About AI Vision Forum",
-    subtitle: "A gathering of visionaries shaping agentic software engineering, the AI-native organization, and open source in the agent era",
+    subtitle: "Human agency in the age of agent-built software",
     guidingQuestionLabel: "Guiding Question",
     guidingQuestion: "When AI agents write most of the software, how do humans retain intent, decision-making, and accountability?",
-    guidingQuestionNote: "For Shenzhen 2026, the question of human agency moves from principle to practice: engineering pipelines, organizational structures, and open source communities all need an answer.",
+    guidingQuestionNote: "Shenzhen 2026: from principle to practice.",
     whyNowTitle: "Why Now: From Writing Code to Directing Agents",
-    whyNowIntro: "Software production is crossing its third threshold. Each era changed who \u2014 or what \u2014 does the producing, and each redefined engineering, organizations, and open source. The agent era forces the question the Forum exists to answer: where does human agency live in a system that builds itself?",
+    whyNowIntro: "Software production is crossing its third threshold \u2014 and each threshold redefined engineering, organizations, and open source.",
     whyNowShifts: [
       {
         title: "Era 1: Humans Write Code",
-        description: "Open source as we know it \u2014 maintainers, code review, and trust built on knowing who wrote what. Organizations scaled by adding engineers.",
+        description: "Trust built on knowing who wrote what.",
       },
       {
         title: "Era 2: AI-Assisted Coding",
-        description: "Completion and copilot tools made every developer faster, but humans still authored, reviewed, and owned every change. The org chart survived intact.",
+        description: "Faster developers \u2014 but humans still own every change.",
       },
       {
         title: "Era 3: Agents Produce Software",
-        description: "Agent swarms plan, write, test, and ship against specifications. Engineering becomes harness and spec discipline; organizations restructure around judgment and context; open source must rebuild trust on provenance rather than authorship.",
+        description: "Agents ship against specs. Trust must move from authorship to provenance.",
       },
     ],
-    valuePropositionTitle: "Our Unique Value Proposition",
+    valuePropositionTitle: "What Sets the Forum Apart",
     valueProposition: [
       { title: "Engineering to organization", description: "One room connects the agentic engineering pipeline with the organizational redesign it forces \u2014 practitioners and theorists together." },
-      { title: "Timing sweet spot", description: "Directly before GOSIM Shenzhen (Oct 16\u201317), one year into EU AI Act enforcement, and at the formation of new agentic-AI consortia. We can set the agenda." },
-      { title: "Cross-cultural bridge", description: "With GOSIM, KAIYUANSHE, and European partners, we are the only forum addressing US/EU/China open-source dynamics together." },
-      { title: "Durable framing over hype", description: "We don't chase what's hot today. We frame enduring structural questions and use current evidence as illustrations." },
+      { title: "Timing sweet spot", description: "Directly before GOSIM Shenzhen (Oct 16\u201317), one year into EU AI Act enforcement, and at the formation of new agentic-AI consortia. A moment to set the agenda." },
+      { title: "Cross-cultural bridge", description: "With GOSIM, KAIYUANSHE, and European partners, the only forum addressing US/EU/China open-source dynamics together." },
+      { title: "Durable framing over hype", description: "Not what's hot today — enduring structural questions, with current evidence as illustration." },
     ],
     invitedParticipants: "Invited Participants",
     exclusiveAccess: "Exclusive Access",
@@ -74,19 +74,19 @@ export const en: Translations = {
       {
         title: "Agentic Software Engineering",
         subtitle: "Theory and practice",
-        description: "Agent swarms, agentic coding, spec-driven development, and harness engineering \u2014 what engineering discipline looks like when agents write most of the code.",
+        description: "What engineering becomes when agents write most of the code.",
         keywords: ["Agent Swarms", "Spec-Driven Development", "Harness Engineering", "MCP / A2A"],
       },
       {
         title: "The AI-Native Organization",
         subtitle: "From dinosaur to octopus",
-        description: "Judgment distribution, context flow, and organizational structures that sense and adapt \u2014 with the people redefining enterprise management for the agent era.",
+        description: "From dinosaur to octopus: structures that sense and adapt.",
         keywords: ["Octopus Organization", "Judgment Distribution", "Context Flow", "Agentic Economy"],
       },
       {
         title: "Open Source in the Agent Era",
         subtitle: "Survival and prosperity",
-        description: "How communities, forges, and foundations survive and thrive: AI-BOM and provenance, maintainer sustainability, and trust in AI-generated contributions.",
+        description: "Provenance, sustainability, and trust when agents contribute.",
         keywords: ["AI-BOM", "Provenance", "Maintainer Sustainability", "Trusted Contributions"],
       },
     ],
@@ -94,7 +94,7 @@ export const en: Translations = {
 
   scheduleSection: {
     title: "Schedule",
-    subtitle: "Two working days \u2014 October 14\u201315, 2026 (program subject to final confirmation)",
+    subtitle: "October 14\u201315, 2026 \u00b7 program subject to confirmation",
     note: "All sessions are held under the Chatham House Rule. Simultaneous interpretation (EN/\u4e2d\u6587) provided.",
     items: [
       { time: "Oct 14 \u00b7 12:00\u201313:30", title: "Registration & welcome lunch" },
@@ -117,20 +117,20 @@ export const en: Translations = {
     title: "Speakers",
     subtitle: "World-class experts, researchers, and practitioners",
     comingSoon: "Speakers Coming Soon",
-    comingSoonDescription: "We're curating an exceptional lineup of thought leaders, academics, and industry pioneers to address the structural shifts shaping agentic AI.",
+    comingSoonDescription: "An exceptional lineup of thought leaders, academics, and industry pioneers is being curated to address the structural shifts shaping agentic AI.",
     comingSoonNote: "Speaker lineup will be announced soon.",
   },
 
   panelistsSection: {
     title: "Panelists Representing",
-    subtitle: "Our panelists come from leading universities, research labs, open-source foundations, and AI companies shaping the agentic AI landscape.",
+    subtitle: "Panelists come from leading universities, research labs, open-source foundations, and AI companies shaping the agentic AI landscape.",
   },
 
   venue: {
     title: "Venue",
-    venueDescription: "A resort setting in Zhuhai (venue to be announced) \u2014 single hall with on-site accommodation for focused, residential-style working sessions.",
-    colocatedDescription: "Co-located with GOSIM Shenzhen 2026 (October 16\u201317): the Forum closes with an evening cruise from Zhuhai Jiuzhou Port to Shenzhen Shekou, arriving for the GOSIM opening.",
-    accessDescription: "Accessible from Zhuhai Jinwan Airport (ZUH), Hong Kong International Airport (HKG) via the HZM Bridge, and Shenzhen Bao'an International Airport (SZX).",
+    venueDescription: "A residential resort setting in Zhuhai \u2014 venue to be announced.",
+    colocatedDescription: "Closing cruise Zhuhai \u2192 Shenzhen Shekou \u2014 arriving for GOSIM Shenzhen (Oct 16\u201317).",
+    accessDescription: "Reachable via Zhuhai (ZUH), Hong Kong (HKG), and Shenzhen (SZX) airports.",
     viewOnMap: "View on Google Maps \u2192",
     photosComingSoon: "Venue photos coming soon",
   },
@@ -175,12 +175,12 @@ export const en: Translations = {
       "Open Source in the Agent Era",
     ],
     motivation: "Why do you want to attend? *",
-    motivationPlaceholder: "Tell us about your interest in the forum...",
+    motivationPlaceholder: "Describe your interest in the forum...",
     chathamAgree: "I agree to participate under the Chatham House Rule",
     submitButton: "Submit Application",
     reviewNote: "Applications are reviewed on a rolling basis. You'll hear from us within 2 weeks.",
     placeholderNote: "Note",
-    placeholderDescription: "This is a placeholder form. Full registration will open in Q2 2026 with integration to our invitation management system.",
+    placeholderDescription: "This is a placeholder form. Full registration will open in Q2 2026 via the invitation management system.",
     namePlaceholder: "Your name",
     emailPlaceholder: "you@example.com",
     orgPlaceholder: "Your organization",
@@ -189,7 +189,7 @@ export const en: Translations = {
   contactPage: {
     backToHome: "Back to Home",
     title: "Get in Touch",
-    description: "Have questions about AI Vision Forum Shenzhen 2026? We're here to help.",
+    description: "Questions about AI Vision Forum Shenzhen 2026? The organizing team is happy to help.",
     generalInquiries: "General Inquiries",
     partnership: "Partnership & Sponsorship",
     pressMedia: "Press & Media",
@@ -240,7 +240,7 @@ export const en: Translations = {
     keyTopics: "Key Topics",
     featuredSpeakers: "Featured Speakers",
     speakersComingSoon: "Speakers to be announced soon",
-    speakersCurating: "We're curating an exceptional lineup of experts for this track",
+    speakersCurating: "An exceptional lineup of experts is being curated for this track",
     relatedResources: "Related Resources",
     interestedInTrack: "Interested in this track?",
     requestInvitationToJoin: "Request an invitation to join the conversation",
@@ -312,31 +312,31 @@ export const en: Translations = {
 
   pastEditions: {
     title: "Past Events",
-    subtitle: "The AI Vision Forum builds on a series of invitation-only gatherings since 2024, held alongside GOSIM conferences",
+    subtitle: "Invitation-only gatherings since 2024, alongside GOSIM",
     visitSite: "Visit site",
     readReport: "Read the forum report",
     editions: [
       {
         name: "AI Vision Forum Paris 2026",
         date: "May 4, 2026 \u00b7 Paris, France",
-        description: "Convened at the agentic transition's software layer \u2014 human-AI synergy, governance, and open source \u2014 and published a full forum report under the Chatham House Rule.",
+        description: "Human-AI synergy, governance, open source \u2014 with a published forum report.",
       },
       {
         name: "GOSIM AI Vision Forum Hangzhou 2025",
         date: "September 12, 2025 \u00b7 Hangzhou, China",
-        description: "First edition under the AI Vision Forum name \u2014 70\u2013100 invited participants on human core values in the AI era, held alongside GOSIM Hangzhou.",
+        description: "First forum under the AI Vision Forum name \u2014 human core values in the AI era.",
       },
       {
         name: "GOSIM Open-Source AI Strategy Forum",
         date: "May 5, 2025 \u00b7 Paris, France",
-        description: "The precursor gathering at Station F \u2014 an invitation-only strategy dialogue on open-source AI under the Chatham House Rule, alongside GOSIM AI Paris.",
+        description: "The precursor \u2014 closed-door open-source AI strategy dialogue at Station F.",
       },
     ],
   },
 
   pastOrgs: {
     title: "Organizations at Past Events",
-    subtitle: "Participants of previous events came from these universities, research labs, foundations, and AI companies",
+    subtitle: "Universities, labs, foundations, and AI companies at previous events",
   },
 
   logo: {
