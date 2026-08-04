@@ -162,19 +162,10 @@ export const KEY_REFERENCES = [
 export const COUNTDOWN_TARGET = new Date("2026-10-14T12:00:00+08:00");
 
 export const SCHEDULE_OUTLINE = [
-  { time: "Oct 14 · 12:00–13:30", title: "Registration & Welcome Lunch" },
-  { time: "Oct 14 · 13:30–14:00", title: "Opening Keynote: Human Agency in the Agent Era" },
-  { time: "Oct 14 · 14:00–15:15", title: "Panel: Open Source in the Agent Era", subtitle: "Forges, foundations, communities", format: "Panel" },
-  { time: "Oct 14 · 15:45–17:00", title: "Working Session: Trustworthy Open Source When Agents Write the Code", format: "Facilitated working session" },
-  { time: "Oct 14 · 17:00–17:30", title: "Report-back & Day 2 Preview" },
-  { time: "Oct 14 · 18:30", title: "Welcome Dinner" },
-  { time: "Oct 15 · 09:00–09:20", title: "Keynote: The Agentic Economy" },
-  { time: "Oct 15 · 09:20–10:40", title: "Agentic Software Engineering", subtitle: "Swarms, specs, and harnesses", format: "Keynote + Panel" },
-  { time: "Oct 15 · 11:10–12:30", title: "Become an Octopus Organization", subtitle: "Designing the AI-native enterprise", format: "Keynote + Panel" },
-  { time: "Oct 15 · 12:30–14:00", title: "Lunch & Live Demos" },
-  { time: "Oct 15 · 14:00–15:30", title: "Split Working Tracks", subtitle: "Agentic engineering pipeline · AI-native reorganization", format: "Facilitated working sessions" },
-  { time: "Oct 15 · 16:00–16:40", title: "Report-backs · Closing Synthesis · OAIC Introduction" },
-  { time: "Oct 15 · 17:30–20:30", title: "Closing Cruise: Zhuhai → Shenzhen Shekou", subtitle: "Reception & buffet — arriving for GOSIM Shenzhen" },
+  { time: "Oct 14 \u00b7 AM", title: "Open Source in the Agent Era \u2014 panel + working session" },
+  { time: "Oct 14 \u00b7 PM", title: "Mobile Agentic Linux \u2014 keynote, panel + roundtable" },
+  { time: "Oct 15 \u00b7 AM", title: "Agentic Software Engineering \u00b7 The AI-Native Organization" },
+  { time: "Oct 15 \u00b7 PM", title: "Split working tracks \u00b7 closing synthesis \u00b7 cruise to GOSIM" },
 ] as const;
 
 export const CORE_TOPICS = [
