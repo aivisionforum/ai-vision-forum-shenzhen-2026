@@ -66,8 +66,8 @@ export const cn: Translations = {
   },
 
   tracksSection: {
-    title: "三大议题",
-    subtitle: "智能体软件工程、AI 原生组织，以及智能体时代的开源",
+    title: "四大议题",
+    subtitle: "智能体软件工程、AI 原生组织、智能体时代的开源，以及 Mobile Agentic Linux",
     featured: "重点",
     narrativeArc: "构建 → 重组 → 可持续",
     tracks: [
@@ -88,6 +88,12 @@ export const cn: Translations = {
         subtitle: "生存与繁荣",
         description: "智能体参与贡献时的溯源、可持续与信任。",
         keywords: ["AI-BOM", "溯源", "维护者可持续性", "可信贡献"],
+      },
+      {
+        title: "Mobile Agentic Linux（移动智能体 Linux）",
+        subtitle: "智能体移动时代的中立底座",
+        description: "厂商中立、不含 Android 的移动 Linux 底座——让发行版与社区在共享基础设施上对齐。",
+        keywords: ["中立 OS 底座", "发行版对齐", "端侧智能体", "移动 Linux"],
       },
     ],
   },
@@ -175,6 +181,7 @@ export const cn: Translations = {
       "智能体软件工程",
       "AI 原生组织",
       "智能体时代的开源",
+      "Mobile Agentic Linux",
     ],
     motivation: "您为什么想参加？ *",
     motivationPlaceholder: "请介绍您对论坛的兴趣...",
@@ -296,7 +303,7 @@ export const cn: Translations = {
     title: "智能体时代的开源",
     overview: "当 AI 智能体产出大部分贡献时，开源社区、代码托管平台与基金会如何生存与繁荣——以及信任如何围绕溯源重建。",
     keyTopics: [
-      "AI-BOM：可签名验证的代码作者记录（人还是 AI）",
+      "AI-BOM：可签名验证的代码作者记录（人还是 AI）——开放参考实现：OpenFab（open-fab.ai）",
       "溯源与供应链信任（SPDX、SLSA、in-toto）",
       "AI 生成贡献洪流下的维护者可持续性",
       "不绑定平台的信任：GitHub、Gitea、Forgejo 等",
@@ -341,6 +348,27 @@ export const cn: Translations = {
   pastOrgs: {
     title: "往届活动参与机构",
     subtitle: "往届参与者来自以下大学、研究机构、基金会与 AI 企业",
+  },
+
+  trackMobileLinux: {
+    title: "Mobile Agentic Linux（移动智能体 Linux）",
+    overview: "面向智能体移动时代、厂商中立且不含 Android 的 Linux 底座——一个不属于任何一家、人人可用的操作系统基础，能运行现有应用并连接任意模型。",
+    keyTopics: [
+      "移动操作系统为何需要中立底座——超越当前双寡头格局",
+      "第三操作系统的历史经验：Firefox OS、Ubuntu Touch、Sailfish",
+      "纯 Linux 底座上的 Android 应用兼容",
+      "端侧智能体：本地模型、隐私与智能体手机",
+      "发行版、移动 Linux 项目与 UI 栈在共享基础设施上的对齐",
+      "共享移动底座的社区治理",
+    ],
+    spotlightTitle: "核心问题",
+    spotlightText: "发行版、移动 Linux 项目与硬件厂商能否在一个中立开放的智能体移动底座上达成一致？本圆桌汇聚发行版负责人、移动 Linux 创始人与社区基金会。",
+    outcomesTitle: "工作成果",
+    outcomes: [
+      "对中立移动底座的共同意向声明",
+      "现有项目可复用构件的图谱",
+      "后续工作组与协作路线",
+    ],
   },
 
   logo: {
