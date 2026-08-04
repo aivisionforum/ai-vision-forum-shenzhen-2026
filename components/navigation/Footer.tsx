@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { Github, Twitter, Linkedin } from "lucide-react";
+import { Github } from "lucide-react";
 import { Logo } from "@/components/branding/Logo";
 import { EVENT_CONFIG, REFERENCE_SITES, SOCIAL_LINKS } from "@/lib/constants";
 import { useTranslation } from "@/lib/i18n";
@@ -125,24 +125,6 @@ export function Footer() {
                 aria-label="GitHub"
               >
                 <Github className="h-5 w-5" />
-              </a>
-              <a
-                href={SOCIAL_LINKS.twitter}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="rounded-full border border-[#1E293B] bg-[#0F172A] p-2 text-[#94A3B8] transition-all hover:border-[#00E5FF] hover:text-[#00E5FF] hover:shadow-[0_0_12px_rgba(0,229,255,0.4)]"
-                aria-label="Twitter"
-              >
-                <Twitter className="h-5 w-5" />
-              </a>
-              <a
-                href={SOCIAL_LINKS.linkedin}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="rounded-full border border-[#1E293B] bg-[#0F172A] p-2 text-[#94A3B8] transition-all hover:border-[#00E5FF] hover:text-[#00E5FF] hover:shadow-[0_0_12px_rgba(0,229,255,0.4)]"
-                aria-label="LinkedIn"
-              >
-                <Linkedin className="h-5 w-5" />
               </a>
             </div>
             <p className="text-xs text-[#94A3B8]">

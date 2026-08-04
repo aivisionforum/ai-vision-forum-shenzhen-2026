@@ -152,8 +152,6 @@ export const REFERENCE_SITES = {
 
 export const SOCIAL_LINKS = {
   github: "https://github.com/aivisionforum",
-  twitter: "https://twitter.com/aivisionforum",
-  linkedin: "https://www.linkedin.com/company/ai-vision-forum",
 } as const;
 
 export const EXPECTED_OUTCOMES = [
