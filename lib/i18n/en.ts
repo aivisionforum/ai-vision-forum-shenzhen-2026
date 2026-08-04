@@ -66,8 +66,8 @@ export const en: Translations = {
   },
 
   tracksSection: {
-    title: "Three Tracks",
-    subtitle: "Agentic software engineering, the AI-native organization, and open source in the agent era",
+    title: "Four Tracks",
+    subtitle: "Agentic software engineering, the AI-native organization, open source in the agent era, and Mobile Agentic Linux",
     featured: "Featured",
     narrativeArc: "Build it \u2192 Reorganize around it \u2192 Sustain it",
     tracks: [
@@ -88,6 +88,12 @@ export const en: Translations = {
         subtitle: "Survival and prosperity",
         description: "Provenance, sustainability, and trust when agents contribute.",
         keywords: ["AI-BOM", "Provenance", "Maintainer Sustainability", "Trusted Contributions"],
+      },
+      {
+        title: "Mobile Agentic Linux",
+        subtitle: "A neutral base for the agentic mobile era",
+        description: "A vendor-neutral, Android-free Linux base for mobile agentic computing \u2014 aligning distros and communities on shared infrastructure.",
+        keywords: ["Neutral OS Base", "Distro Alignment", "On-Device Agents", "Mobile Linux"],
       },
     ],
   },
@@ -175,6 +181,7 @@ export const en: Translations = {
       "Agentic Software Engineering",
       "The AI-Native Organization",
       "Open Source in the Agent Era",
+      "Mobile Agentic Linux",
     ],
     motivation: "Why do you want to attend? *",
     motivationPlaceholder: "Describe your interest in the forum...",
@@ -295,7 +302,7 @@ export const en: Translations = {
     title: "Open Source in the Agent Era",
     overview: "How open source communities, forges, and foundations survive and thrive when AI agents produce most contributions \u2014 and how trust is rebuilt around provenance.",
     keyTopics: [
-      "AI-BOM: signed, verifiable records of who \u2014 human or AI \u2014 wrote the code",
+      "AI-BOM: signed, verifiable records of who \u2014 human or AI \u2014 wrote the code (open reference: OpenFab, open-fab.ai)",
       "Provenance and supply-chain trust (SPDX, SLSA, in-toto)",
       "Maintainer sustainability under AI-generated contribution floods",
       "Forge-independent trust: GitHub, Gitea, Forgejo and beyond",
@@ -339,6 +346,27 @@ export const en: Translations = {
   pastOrgs: {
     title: "Organizations at Past Events",
     subtitle: "Universities, labs, foundations, and AI companies at previous events",
+  },
+
+  trackMobileLinux: {
+    title: "Mobile Agentic Linux",
+    overview: "A vendor-neutral, Android-free Linux base for the agentic mobile era \u2014 an OS foundation that belongs to no one and can be used by everyone, running today's apps and connecting to any model.",
+    keyTopics: [
+      "Why the mobile-OS landscape needs a neutral base \u2014 beyond the current duopoly",
+      "Lessons from prior third-OS attempts: Firefox OS, Ubuntu Touch, Sailfish",
+      "Android-app compatibility on a pure Linux base",
+      "On-device agents: local models, privacy, and the agentic phone",
+      "Aligning distros, mobile Linux projects, and UI stacks on shared infrastructure",
+      "Community governance for a shared mobile base",
+    ],
+    spotlightTitle: "Key Question",
+    spotlightText: "Can distros, mobile Linux projects, and hardware makers align on one neutral, open base for agentic mobile computing? This roundtable convenes distribution leaders, mobile Linux founders, and community foundations.",
+    outcomesTitle: "Working Output",
+    outcomes: [
+      "A shared statement of interest in a neutral mobile base",
+      "A map of reusable building blocks across existing projects",
+      "Next-step working group and collaboration outline",
+    ],
   },
 
   logo: {

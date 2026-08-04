@@ -217,6 +217,7 @@ export interface Translations {
   trackAgenticSE: TrackDetailContent;
   trackAiNativeOrg: TrackDetailContent;
   trackOpenSource: TrackDetailContent;
+  trackMobileLinux: TrackDetailContent;
 
   pastEditions: {
     title: string;

@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { GraduationCap, Laptop, Scale, Globe, Landmark, Handshake, Plane } from "lucide-react";
+import { GraduationCap, Laptop, Scale, Globe, Landmark, Handshake, Plane, Smartphone } from "lucide-react";
 import { HeroSection } from "@/components/hero/HeroSection";
 import { AboutSection } from "@/components/sections/AboutSection";
 import { PcbTraceBackground } from "@/components/branding/PcbTraceBackground";
@@ -14,6 +14,7 @@ const TRACK_ICONS: Record<string, React.ReactNode> = {
   "laptop": <Laptop className="h-12 w-12 text-[#00E5FF]" />,
   "scale": <Scale className="h-12 w-12 text-[#00E5FF]" />,
   "globe": <Globe className="h-12 w-12 text-[#00E5FF]" />,
+  "smartphone": <Smartphone className="h-12 w-12 text-[#00E5FF]" />,
 };
 
 // Panelist & partner roster — to be curated by the Shenzhen program committee.
@@ -66,9 +67,9 @@ const PAST_EDITIONS = [
   },
 ];
 
-const TRACK_ICON_KEYS = ["laptop", "scale", "globe"];
-const TRACK_SLUGS = ["agentic-engineering", "ai-native-org", "open-source"];
-const TRACK_HIGHLIGHTS = [true, false, false];
+const TRACK_ICON_KEYS = ["laptop", "scale", "globe", "smartphone"];
+const TRACK_SLUGS = ["agentic-engineering", "ai-native-org", "open-source", "mobile-agentic-linux"];
+const TRACK_HIGHLIGHTS = [true, false, false, false];
 
 export default function Home() {
   const { t } = useTranslation();

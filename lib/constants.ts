@@ -69,6 +69,18 @@ export const TRACKS = [
     keywords: ["AI-BOM", "Provenance", "Maintainer Sustainability", "Trusted Contributions"] as const,
     highlight: false,
   },
+  {
+    id: 4,
+    slug: "mobile-agentic-linux",
+    title: "Mobile Agentic Linux",
+    subtitle: "A neutral base for the agentic mobile era",
+    icon: "smartphone",
+    description:
+      "A vendor-neutral, Android-free Linux base for mobile agentic computing \u2014 aligning distros, mobile Linux projects, and communities on shared infrastructure.",
+    color: "primary" as const,
+    keywords: ["Neutral OS Base", "Distro Alignment", "On-Device Agents", "Mobile Linux"] as const,
+    highlight: false,
+  },
 ] as const;
 
 // Why Now: From digital agents to physical ones
