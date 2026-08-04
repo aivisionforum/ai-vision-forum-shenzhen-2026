@@ -5,6 +5,24 @@ import { ArrowLeft, BookOpen, FileText } from "lucide-react";
 import { useTranslation } from "@/lib/i18n";
 import { EVENT_CONFIG } from "@/lib/constants";
 
+
+// Renders bare domains/URLs inside topic strings as external links.
+const URL_RE = /((?:https?:\/\/)?[a-z0-9-]+(?:\.[a-z0-9-]+)+(?:\.[a-z]{2,})?(?:\/[\w\-./?%&=]*)?)/gi;
+const KNOWN_LINK_DOMAINS = ["open-fab.ai"];
+function linkify(text: string): React.ReactNode {
+  const parts = text.split(URL_RE);
+  return parts.map((part, i) => {
+    const isKnown = KNOWN_LINK_DOMAINS.some((d) => part.toLowerCase().startsWith(d) || part.toLowerCase().startsWith("https://" + d) || part.toLowerCase().startsWith("http://" + d));
+    if (!isKnown) return part;
+    const href = part.startsWith("http") ? part : `https://${part}`;
+    return (
+      <a key={i} href={href} target="_blank" rel="noopener noreferrer" className="text-primary underline underline-offset-2 hover:opacity-80">
+        {part}
+      </a>
+    );
+  });
+}
+
 interface TrackLayoutProps {
   title: string;
   icon: React.ReactNode;
@@ -69,7 +87,7 @@ export function TrackLayout({
                 <div className="flex-shrink-0 mt-1">
                   <div className="h-2 w-2 rounded-full bg-primary" />
                 </div>
-                <p className="text-sm md:text-base">{topic}</p>
+                <p className="text-sm md:text-base">{linkify(topic)}</p>
               </div>
             ))}
           </div>
