@@ -86,22 +86,6 @@ export default function ContactPage() {
                 >
                   <Github className="h-6 w-6" />
                 </a>
-                <a
-                  href={SOCIAL_LINKS.twitter}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="rounded-lg bg-card p-3 transition-all hover:bg-primary hover:text-primary-foreground"
-                >
-                  <Twitter className="h-6 w-6" />
-                </a>
-                <a
-                  href={SOCIAL_LINKS.linkedin}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="rounded-lg bg-card p-3 transition-all hover:bg-primary hover:text-primary-foreground"
-                >
-                  <Linkedin className="h-6 w-6" />
-                </a>
               </div>
             </div>
           </div>
