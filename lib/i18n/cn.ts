@@ -136,7 +136,7 @@ export const cn: Translations = {
 
   venue: {
     title: "会议地点",
-    venueDescription: "珠海度假式会议环境——具体场地待公布。",
+    venueDescription: "珠海凤凰湾悦榕庄——香洲区山间温泉度假酒店，会议与住宿同址。",
     colocatedDescription: "闭幕游船珠海 → 蛇口，衔接 GOSIM 深圳（10 月 16–17 日）。",
     accessDescription: "可经珠海（ZUH）、香港（HKG）、深圳（SZX）机场抵达。",
     viewOnMap: "在 Google 地图上查看 →",
