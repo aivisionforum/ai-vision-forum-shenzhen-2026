@@ -369,7 +369,7 @@ export default function Home() {
 
                 <div className="pt-6">
                   <a
-                    href="https://maps.google.com"
+                    href="https://maps.app.goo.gl/p2X11JMNBymwSx4J9"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 font-medium text-[#00E5FF] hover:underline"
