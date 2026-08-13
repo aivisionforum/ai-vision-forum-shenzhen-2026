@@ -71,8 +71,8 @@ export const TRACKS = [
   },
   {
     id: 4,
-    slug: "mobile-agentic-linux",
-    title: "Mobile Agentic Linux",
+    slug: "mobile-agentic-os",
+    title: "Mobile Agentic OS",
     subtitle: "A neutral base for the agentic mobile era",
     icon: "smartphone",
     description:
