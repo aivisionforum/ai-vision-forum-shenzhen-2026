@@ -173,7 +173,7 @@ export const COUNTDOWN_TARGET = new Date("2026-10-14T12:00:00+08:00");
 
 export const SCHEDULE_OUTLINE = [
   { time: "Oct 14 \u00b7 AM", title: "Open Source in the Agent Era \u2014 panel + working session" },
-  { time: "Oct 14 \u00b7 PM", title: "Mobile Agentic Linux \u2014 keynote, panel + roundtable" },
+  { time: "Oct 14 \u00b7 PM", title: "Mobile Agentic OS \u2014 keynote, panel + roundtable" },
   { time: "Oct 15 \u00b7 AM", title: "Agentic Software Engineering \u00b7 The AI-Native Organization" },
   { time: "Oct 15 \u00b7 PM", title: "Split working tracks \u00b7 closing synthesis \u00b7 cruise to GOSIM" },
 ] as const;
