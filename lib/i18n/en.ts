@@ -67,7 +67,7 @@ export const en: Translations = {
 
   tracksSection: {
     title: "Four Tracks",
-    subtitle: "Agentic software engineering, the AI-native organization, open source in the agent era, and Mobile Agentic Linux",
+    subtitle: "Agentic software engineering, the AI-native organization, open source in the agent era, and Mobile Agentic OS",
     featured: "Featured",
     narrativeArc: "Build it \u2192 Reorganize around it \u2192 Sustain it",
     tracks: [
@@ -90,7 +90,7 @@ export const en: Translations = {
         keywords: ["AI-BOM", "Provenance", "Maintainer Sustainability", "Trusted Contributions"],
       },
       {
-        title: "Mobile Agentic Linux",
+        title: "Mobile Agentic OS",
         subtitle: "A neutral base for the agentic mobile era",
         description: "A vendor-neutral, Android-free Linux base for mobile agentic computing \u2014 aligning distros and communities on shared infrastructure.",
         keywords: ["Neutral OS Base", "Distro Alignment", "On-Device Agents", "Mobile Linux"],
@@ -106,7 +106,7 @@ export const en: Translations = {
       { time: "Oct 14 \u00b7 09:00\u201309:30", title: "Registration & coffee" },
       { time: "Oct 14 \u00b7 09:30\u201310:00", title: "Opening keynote: Human Agency in the Agent Era" },
       { time: "Oct 14 \u00b7 10:00\u201311:10", title: "Open source in the agent era", subtitle: "Forges, foundations, communities", format: "Keynote + Panel" },
-      { time: "Oct 14 \u00b7 11:30\u201312:40", title: "Mobile Agentic Linux", subtitle: "A neutral Linux base for the agentic mobile era", format: "Keynote + Panel" },
+      { time: "Oct 14 \u00b7 11:30\u201312:40", title: "Mobile Agentic OS", subtitle: "A neutral Linux base for the agentic mobile era", format: "Keynote + Panel" },
       { time: "Oct 14 \u00b7 12:40\u201314:00", title: "Lunch" },
       { time: "Oct 14 \u00b7 14:00\u201315:30", title: "Split working sessions", subtitle: "Trustworthy open source when agents write the code \u00b7 Aligning distros on a shared mobile base", format: "Facilitated working sessions" },
       { time: "Oct 14 \u00b7 16:00\u201317:00", title: "Report-backs & Day 2 preview" },
@@ -181,7 +181,7 @@ export const en: Translations = {
       "Agentic Software Engineering",
       "The AI-Native Organization",
       "Open Source in the Agent Era",
-      "Mobile Agentic Linux",
+      "Mobile Agentic OS",
     ],
     motivation: "Why do you want to attend? *",
     motivationPlaceholder: "Describe your interest in the forum...",
@@ -349,7 +349,7 @@ export const en: Translations = {
   },
 
   trackMobileLinux: {
-    title: "Mobile Agentic Linux",
+    title: "Mobile Agentic OS",
     overview: "A vendor-neutral, Android-free Linux base for the agentic mobile era \u2014 an OS foundation that belongs to no one and can be used by everyone, running today's apps and connecting to any model.",
     keyTopics: [
       "Why the mobile-OS landscape needs a neutral base \u2014 beyond the current duopoly",

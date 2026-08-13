@@ -68,7 +68,7 @@ const PAST_EDITIONS = [
 ];
 
 const TRACK_ICON_KEYS = ["laptop", "scale", "globe", "smartphone"];
-const TRACK_SLUGS = ["agentic-engineering", "ai-native-org", "open-source", "mobile-agentic-linux"];
+const TRACK_SLUGS = ["agentic-engineering", "ai-native-org", "open-source", "mobile-agentic-os"];
 const TRACK_HIGHLIGHTS = [true, false, false, false];
 
 export default function Home() {

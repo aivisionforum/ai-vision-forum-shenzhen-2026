@@ -67,7 +67,7 @@ export const cn: Translations = {
 
   tracksSection: {
     title: "四大议题",
-    subtitle: "智能体软件工程、AI 原生组织、智能体时代的开源，以及 Mobile Agentic Linux",
+    subtitle: "智能体软件工程、AI 原生组织、智能体时代的开源，以及 Mobile Agentic OS",
     featured: "重点",
     narrativeArc: "构建 → 重组 → 可持续",
     tracks: [
@@ -90,7 +90,7 @@ export const cn: Translations = {
         keywords: ["AI-BOM", "溯源", "维护者可持续性", "可信贡献"],
       },
       {
-        title: "Mobile Agentic Linux（移动智能体 Linux）",
+        title: "Mobile Agentic OS（移动智能体操作系统）",
         subtitle: "智能体移动时代的中立底座",
         description: "厂商中立、不含 Android 的移动 Linux 底座——让发行版与社区在共享基础设施上对齐。",
         keywords: ["中立 OS 底座", "发行版对齐", "端侧智能体", "移动 Linux"],
@@ -106,7 +106,7 @@ export const cn: Translations = {
       { time: "10月14日 · 09:00–09:30", title: "签到与咖啡" },
       { time: "10月14日 · 09:30–10:00", title: "开幕主旨演讲：智能体时代的人的主体性" },
       { time: "10月14日 · 10:00–11:10", title: "智能体时代的开源", subtitle: "托管平台、基金会与社区", format: "主旨 + 圆桌" },
-      { time: "10月14日 · 11:30–12:40", title: "Mobile Agentic Linux（移动智能体 Linux）", subtitle: "面向智能体移动时代的中立 Linux 底座", format: "主旨 + 圆桌" },
+      { time: "10月14日 · 11:30–12:40", title: "Mobile Agentic OS（移动智能体操作系统）", subtitle: "面向智能体移动时代的中立 Linux 底座", format: "主旨 + 圆桌" },
       { time: "10月14日 · 12:40–14:00", title: "午餐" },
       { time: "10月14日 · 14:00–15:30", title: "分组工作会议", subtitle: "当智能体编写代码时开源如何保持可信 · 发行版如何对齐共享移动底座", format: "主持式工作会议" },
       { time: "10月14日 · 16:00–17:00", title: "成果汇报与次日预告" },
@@ -181,7 +181,7 @@ export const cn: Translations = {
       "智能体软件工程",
       "AI 原生组织",
       "智能体时代的开源",
-      "Mobile Agentic Linux",
+      "Mobile Agentic OS",
     ],
     motivation: "您为什么想参加？ *",
     motivationPlaceholder: "请介绍您对论坛的兴趣...",
@@ -351,7 +351,7 @@ export const cn: Translations = {
   },
 
   trackMobileLinux: {
-    title: "Mobile Agentic Linux（移动智能体 Linux）",
+    title: "Mobile Agentic OS（移动智能体操作系统）",
     overview: "面向智能体移动时代、厂商中立且不含 Android 的 Linux 底座——一个不属于任何一家、人人可用的操作系统基础，能运行现有应用并连接任意模型。",
     keyTopics: [
       "移动操作系统为何需要中立底座——超越当前双寡头格局",
