@@ -103,7 +103,7 @@ export default function ContactPage() {
                 {t.contactPage.requestInvitation}
               </a>
               <Link
-                href="/#tracks"
+                href="/#programs"
                 className="block rounded-lg border border-border bg-background p-4 font-medium transition-all hover:border-primary hover:bg-primary/5"
               >
                 {t.contactPage.exploreTracks}

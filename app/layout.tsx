@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Bodoni_Moda, Inter } from "next/font/google";
+import "leaflet/dist/leaflet.css";
 import "./globals.css";
 import { EVENT_CONFIG } from "@/lib/constants";
 import { Header } from "@/components/navigation/Header";
@@ -8,14 +9,20 @@ import { LanguageProvider } from "@/lib/i18n";
 
 const inter = Inter({
   subsets: ["latin"],
-  variable: "--font-sans",
+  variable: "--font-inter",
+});
+
+const bodoni = Bodoni_Moda({
+  subsets: ["latin"],
+  variable: "--font-bodoni",
+  display: "swap",
 });
 
 const isCompleted = EVENT_CONFIG.status === "completed";
 
 const description = isCompleted
   ? `Forum Report from ${EVENT_CONFIG.name} (${EVENT_CONFIG.dateDisplay}, ${EVENT_CONFIG.location.city}) — ${EVENT_CONFIG.tagline}. Executive summary, panel findings, and multimedia recap.`
-  : `Join us on ${EVENT_CONFIG.dateDisplay} in ${EVENT_CONFIG.location.city} for ${EVENT_CONFIG.name} — ${EVENT_CONFIG.tagline}. Invitation-only event co-located with ${EVENT_CONFIG.location.colocated}.`;
+  : `Two focused forums in ${EVENT_CONFIG.location.city}: Open Source Day on October 14 and Enterprise Day on October 15, covering Mobile Agentic OS, Agentic Software Engineering, and the AI-Native Organization.`;
 
 export const metadata: Metadata = {
   metadataBase: new URL(`https://${EVENT_CONFIG.domain}`),
@@ -24,14 +31,12 @@ export const metadata: Metadata = {
   keywords: [
     "AI Vision Forum",
     "Shenzhen 2026",
-    "Robotics",
-    "AI Hardware",
-    "Embodied AI",
-    "Open Silicon",
-    "Edge Inference",
-    "Trusted Physical AI",
-    "Open Compute",
-    "AI Supply Chain",
+    "Open Source",
+    "Mobile Agentic OS",
+    "Agentic Software Engineering",
+    "AI-Native Organization",
+    "Enterprise AI",
+    "Agentic AI",
   ],
   authors: [{ name: "AI Vision Forum Organizing Committee" }],
   openGraph: {
@@ -44,9 +49,9 @@ export const metadata: Metadata = {
     images: [
       {
         url: EVENT_CONFIG.ogImageUrl,
-        width: 900,
-        height: 1100,
-        alt: `${EVENT_CONFIG.name} — ${EVENT_CONFIG.tagline}`,
+        width: 1200,
+        height: 630,
+        alt: `${EVENT_CONFIG.name} — Open Source Day and Enterprise Day`,
       },
     ],
   },
@@ -63,16 +68,17 @@ const eventJsonLd = {
   "@context": "https://schema.org",
   "@type": "Event",
   name: EVENT_CONFIG.name,
-  description: `${EVENT_CONFIG.tagline} — ${EVENT_CONFIG.guidingQuestion}`,
-  startDate: EVENT_CONFIG.date,
+  description,
+  startDate: "2026-10-14T09:00:00+08:00",
+  endDate: "2026-10-15T20:30:00+08:00",
   eventStatus: isCompleted
     ? "https://schema.org/EventScheduled" // schema.org doesn't have a strict "Completed" state; use scheduled with isAccessibleForFree.
     : "https://schema.org/EventScheduled",
   eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
   location: {
     "@type": "Place",
-    name: "Paris, France",
-    address: { "@type": "PostalAddress", addressLocality: "Paris", addressCountry: "FR" },
+    name: EVENT_CONFIG.location.venue,
+    address: { "@type": "PostalAddress", addressLocality: "Zhuhai", addressRegion: "Guangdong", addressCountry: "CN" },
   },
   organizer: { "@type": "Organization", name: "AI Vision Forum" },
   url: `https://${EVENT_CONFIG.domain}`,
@@ -92,7 +98,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(eventJsonLd) }}
         />
       </head>
-      <body className={`${inter.variable} font-sans antialiased`}>
+      <body className={`${inter.variable} ${bodoni.variable} font-sans antialiased`}>
         <LanguageProvider>
           <Header />
           {children}

@@ -30,7 +30,7 @@ export function PostEventPanelContent({ slug }: Props) {
     <div className="space-y-12">
       {/* Panel infographic */}
       <div>
-        <p className="mb-3 text-xs font-bold uppercase tracking-[0.18em] text-primary">
+        <p className="mb-3 text-sm font-bold uppercase tracking-[0.14em] text-primary">
           Panel {panel.num} · At a glance
         </p>
         <div className="relative w-full overflow-hidden rounded-2xl border border-border bg-white">
@@ -66,7 +66,7 @@ export function PostEventPanelContent({ slug }: Props) {
 
       {/* Recommendations infographic */}
       <div>
-        <p className="mb-3 text-xs font-bold uppercase tracking-[0.18em] text-primary">
+        <p className="mb-3 text-sm font-bold uppercase tracking-[0.14em] text-primary">
           Recommendations
         </p>
         <div className="relative w-full overflow-hidden rounded-2xl border border-border bg-white">

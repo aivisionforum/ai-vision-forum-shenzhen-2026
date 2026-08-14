@@ -18,7 +18,7 @@ export default function PrivacyPage() {
           {t.privacyPage.backToHome}
         </Link>
 
-        <article className="prose prose-invert max-w-none">
+        <article className="prose max-w-none">
           <h1>{t.privacyPage.title}</h1>
           <p className="text-xl text-muted-foreground">
             {t.privacyPage.lastUpdated}

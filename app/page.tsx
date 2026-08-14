@@ -1,296 +1,576 @@
 "use client";
 
+import { useCallback, useLayoutEffect, useRef, useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
-import { motion } from "framer-motion";
-import { GraduationCap, Laptop, Scale, Globe, Landmark, Handshake, Plane, Smartphone } from "lucide-react";
-import { HeroSection } from "@/components/hero/HeroSection";
-import { AboutSection } from "@/components/sections/AboutSection";
-import { PcbTraceBackground } from "@/components/branding/PcbTraceBackground";
-import { EVENT_CONFIG } from "@/lib/constants";
+import {
+  ArrowRight,
+  ArrowUpRight,
+  CalendarDays,
+  Handshake,
+  Landmark,
+  Lock,
+  MapPin,
+  Plane,
+  Users,
+  X,
+} from "lucide-react";
+import { ForumJourneyMap } from "@/components/venue/ForumJourneyMap";
 import { useTranslation } from "@/lib/i18n";
+import type { Translations } from "@/lib/i18n";
+import { EVENT_CONFIG } from "@/lib/constants";
+import { PAST_ORGANIZATIONS } from "@/lib/past-organizations";
+import { PROGRAM_DAYS } from "@/lib/program";
 
-const TRACK_ICONS: Record<string, React.ReactNode> = {
-  "graduation-cap": <GraduationCap className="h-12 w-12 text-[#00E5FF]" />,
-  "laptop": <Laptop className="h-12 w-12 text-[#00E5FF]" />,
-  "scale": <Scale className="h-12 w-12 text-[#00E5FF]" />,
-  "globe": <Globe className="h-12 w-12 text-[#00E5FF]" />,
-  "smartphone": <Smartphone className="h-12 w-12 text-[#00E5FF]" />,
-};
+const copy = {
+  en: {
+    eyebrow: "14–15 OCTOBER 2026 · ZHUHAI, CHINA",
+    heroTitle: "Architecting Human-AI Synergy.",
+    intro: "Two days and four connected topics across open source, mobile, software engineering, and organizations.",
+    primaryCta: "Explore topics",
+    secondaryCta: "View schedule",
+    dateLabel: "Date",
+    placeLabel: "Place",
+    formatLabel: "Format",
+    dateValue: "14–15 October 2026",
+    placeValue: "Zhuhai, China",
+    formatValue: "Invitation-only · EN / 中文",
+    aboutKicker: "ABOUT THE FORUM",
+    guidingQuestion: "The central question",
+    whyNow: "Why this conversation, now",
+    forumModel: "The forum model",
+    facts: "Forum facts",
+    splitKicker: "TWO FOCUSED PROGRAMS",
+    splitTitle: "One forum. Four connected topics across two days.",
+    splitIntro:
+      "The four topics are arranged under two program lenses: open source on October 14 and enterprise on October 15.",
+    explore: "Explore this day",
+    workingThemes: "Working themes",
+    topicDetails: "Open brief",
+    closeDetails: "Close topic brief",
+    fullProgram: "Open the complete schedule",
+    scheduleKicker: "PROGRAM HIGHLIGHTS",
+    scheduleTitle: "The shape of two working days.",
+    scheduleIntro:
+      "Complete timings, formats, and working sessions for both days, shown together.",
+    viewDay: "Day details",
+    pastKicker: "FORUM LINEAGE",
+    pastTitle: "A continuing conversation since 2025.",
+    collaboratorsKicker: "PAST COLLABORATORS & PARTICIPATING ORGANIZATIONS",
+    collaboratorsTitle: "The institutions already in the room.",
+    collaboratorsIntro:
+      "Universities, research labs, open-source foundations, standards bodies, and AI companies represented across earlier editions.",
+    venueKicker: "VENUE & JOURNEY",
+    venueTitle: "The forum takes place in Zhuhai.",
+    venueLocation: "Zhuhai, China",
+    invitationKicker: "14–15 OCTOBER · ZHUHAI, CHINA",
+    invitationTitle: "Join a working room, not an audience.",
+    invitationBody:
+      "AI Vision Forum brings together 100–150 invited participants under the Chatham House Rule, with simultaneous interpretation in English and Chinese.",
+    invitationButton: "Request an invitation",
+    collaborationLabel: "IN CONJUNCTION WITH",
+    collaborationName: "GOSIM SHENZHEN 2026",
+  },
+  cn: {
+    eyebrow: "2026 年 10 月 14–15 日 · 中国珠海",
+    heroTitle: "构建人机协同新范式",
+    intro: "两天聚焦四个议题：开源、Mobile Agentic OS、智能体软件工程与 AI 原生组织。",
+    primaryCta: "查看议题",
+    secondaryCta: "查看日程",
+    dateLabel: "日期",
+    placeLabel: "地点",
+    formatLabel: "形式",
+    dateValue: "2026 年 10 月 14–15 日",
+    placeValue: "中国 · 珠海",
+    formatValue: "仅限受邀参加 · 中英同声传译",
+    aboutKicker: "关于论坛",
+    guidingQuestion: "核心问题",
+    whyNow: "为什么是现在",
+    forumModel: "讨论方式",
+    facts: "论坛信息",
+    splitKicker: "两日议题",
+    splitTitle: "一个论坛，四个议题，两天展开。",
+    splitIntro: "10 月 14 日聚焦开源与移动智能体操作系统；10 月 15 日讨论智能体软件工程与 AI 原生组织。",
+    explore: "进入当天议程",
+    workingThemes: "工作专题",
+    topicDetails: "查看详情",
+    closeDetails: "关闭专题详情",
+    fullProgram: "展开完整日程",
+    scheduleKicker: "议程重点",
+    scheduleTitle: "两日完整议程",
+    scheduleIntro: "两天的时间安排、讨论形式和工作会议一览。",
+    viewDay: "当天详情",
+    pastKicker: "论坛脉络",
+    pastTitle: "一场始于 2025 年、延续至今的对话。",
+    collaboratorsKicker: "往届参与机构",
+    collaboratorsTitle: "往届活动参与机构",
+    collaboratorsIntro: "往届参与者来自以下大学、研究机构、基金会与 AI 企业",
+    venueKicker: "场地与行程",
+    venueTitle: "两天论坛，均在珠海举行。",
+    venueLocation: "中国 · 珠海",
+    invitationKicker: "10 月 14–15 日 · 中国珠海",
+    invitationTitle: "欢迎加入讨论。",
+    invitationBody: "论坛邀请 100–150 位嘉宾参与，并采用查塔姆宫规则，现场提供中英同声传译。",
+    invitationButton: "申请邀请",
+    collaborationLabel: "联合举办",
+    collaborationName: "GOSIM SHENZHEN 2026",
+  },
+} as const;
 
-// Panelist & partner roster — to be curated by the Shenzhen program committee.
-const PANELIST_ORGS: { name: string; logo: string; url: string }[] = [];
-
-// Organizations represented at past editions (Paris 2026 roster)
-const PAST_EDITION_ORGS = [
-{ name: "Google DeepMind", logo: "/images/orgs/google-deepmind.png", url: "https://deepmind.google" },
-  { name: "Probabl", logo: "/images/orgs/probabl.png", url: "https://probabl.ai" },
-  { name: "ZhipuAI", logo: "/images/orgs/zhipuai.png", url: "https://zhipuai.cn" },
-  { name: "Moonshot AI", logo: "/images/orgs/moonshot-ai.png", url: "https://moonshot.cn" },
-  { name: "Minimax", logo: "/images/orgs/minimax.png", url: "https://minimaxi.com" },
-  { name: "BAAI", logo: "/images/orgs/baai.png", url: "https://baai.ac.cn" },
-  { name: "CSDN", logo: "/images/orgs/csdn.png", url: "https://csdn.net" },
-  { name: "LF AI & Data", logo: "/images/orgs/lf-ai-data.svg", url: "https://lfaidata.foundation" },
-  { name: "Rust Foundation", logo: "/images/orgs/rust-foundation.png", url: "https://rustfoundation.org" },
-  { name: "Kaiyuanshe", logo: "/images/orgs/kaiyuanshe.svg", url: "https://kaiyuanshe.cn" },
-  { name: "CNRS", logo: "/images/orgs/cnrs.png", url: "https://cnrs.fr" },
-  { name: "Fudan University", logo: "/images/orgs/fudan.svg", url: "https://fudan.edu.cn" },
-  { name: "Tulane University", logo: "/images/orgs/tulane.png", url: "https://tulane.edu" },
-  { name: "McGill University", logo: "/images/orgs/mcgill.png", url: "https://mcgill.ca" },
-  { name: "BNBU", logo: "/images/orgs/bnbu.png", url: "https://bnbu.edu.cn" },
-  { name: "SOLEIL Synchrotron", logo: "/images/orgs/soleil.png", url: "https://www.synchrotron-soleil.fr/en" },
-  { name: "United Nations University", logo: "/images/orgs/unu.png", url: "https://unu.edu" },
-  { name: "Chinese Academy of Social Sciences", logo: "/images/orgs/cass.png", url: "https://cssn.cn" },
-  { name: "China Electronics Standardization Institute", logo: "/images/orgs/cesi.png", url: "https://csa-iot.org/member/china-electronics-standardization-institute/" },
-  { name: "Egen AI", logo: "/images/orgs/egen.png", url: "https://egen.ai" },
-  { name: "Advanced AI Society", logo: "/images/orgs/advanced-ai-society.png", url: "https://advancedaisociety.org" },
-  { name: "Alma AI", logo: "/images/orgs/alma-ai.png", url: "https://centri.unibo.it/alma-ai" },
-  { name: "University of Bologna", logo: "/images/orgs/university-of-bologna.png", url: "https://www.unibo.it/en" },
-  { name: "Voice Interoperability", logo: "/images/orgs/voice-interoperability.svg", url: "https://voiceinteroperability.ai" },
-  { name: "Institute for Technoscience and Society", logo: "/images/orgs/technoscience-society.png", url: "https://www.yorku.ca/research/its/" },
+const pastEditions = [
+  { url: "https://paris2026.visionforum.ai/", reportUrl: "https://paris2026.visionforum.ai/report/" },
+  { url: "https://hangzhou2025.visionforum.ai/", reportUrl: "" },
+  { url: "https://paris2025.gosim.org/os-ai-strategy-forum/", reportUrl: "" },
 ];
 
-const PAST_EDITIONS = [
-  {
-    key: "paris2026",
-    url: "https://paris2026.visionforum.ai/",
-    reportUrl: "https://paris2026.visionforum.ai/report/",
-  },
-  {
-    key: "hangzhou2025",
-    url: "https://hangzhou2025.gosim.org/",
-    reportUrl: "",
-  },
-  {
-    key: "paris2025",
-    url: "https://paris2025.gosim.org/os-ai-strategy-forum/",
-    reportUrl: "",
-  },
-];
-
-const TRACK_ICON_KEYS = ["laptop", "scale", "globe", "smartphone"];
-const TRACK_SLUGS = ["agentic-engineering", "ai-native-org", "open-source", "mobile-agentic-os"];
-const TRACK_HIGHLIGHTS = [true, false, false, false];
+const TOPIC_MODAL_EXIT_MS = 420;
 
 export default function Home() {
-  const { t } = useTranslation();
+  const { locale, t } = useTranslation();
+  const c = copy[locale];
+  const gosimHref = locale === "cn"
+    ? "https://shenzhen2026.gosim.org/zh/"
+    : "https://shenzhen2026.gosim.org/?lang=en";
+  const [activeTopicSlug, setActiveTopicSlug] = useState<string | null>(null);
+  const [isTopicModalVisible, setIsTopicModalVisible] = useState(false);
+  const [openAboutPanels, setOpenAboutPanels] = useState({ why: false, model: false });
+  const topicModalClosingRef = useRef(false);
+  const topicModalTimerRef = useRef<number | null>(null);
+  const topicModalFrameRef = useRef<number | null>(null);
+  const activeTrack = activeTopicSlug
+    ? PROGRAM_DAYS.flatMap((day) => day.topics.map((topic) => ({ day, topic }))).find(
+        ({ topic }) => topic.slug === activeTopicSlug,
+      )
+    : undefined;
+  const activeDetail = activeTrack ? getTrackDetail(activeTrack.topic.slug, t) : undefined;
+
+  const toggleAboutPanel = (panel: "why" | "model") => {
+    setOpenAboutPanels((current) => ({ ...current, [panel]: !current[panel] }));
+  };
+
+  const openTopicModal = (slug: string) => {
+    if (topicModalTimerRef.current !== null) window.clearTimeout(topicModalTimerRef.current);
+    if (topicModalFrameRef.current !== null) window.cancelAnimationFrame(topicModalFrameRef.current);
+    topicModalClosingRef.current = false;
+    setIsTopicModalVisible(false);
+    setActiveTopicSlug(slug);
+    topicModalFrameRef.current = window.requestAnimationFrame(() => {
+      topicModalFrameRef.current = window.requestAnimationFrame(() => {
+        setIsTopicModalVisible(true);
+        topicModalFrameRef.current = null;
+      });
+    });
+  };
+
+  const closeTopicModal = useCallback(() => {
+    if (!activeTopicSlug || topicModalClosingRef.current) return;
+
+    topicModalClosingRef.current = true;
+    setIsTopicModalVisible(false);
+    const exitDelay = window.matchMedia("(prefers-reduced-motion: reduce)").matches ? 0 : TOPIC_MODAL_EXIT_MS;
+    topicModalTimerRef.current = window.setTimeout(() => {
+      setActiveTopicSlug(null);
+      topicModalClosingRef.current = false;
+      topicModalTimerRef.current = null;
+    }, exitDelay);
+  }, [activeTopicSlug]);
+
+  useLayoutEffect(() => {
+    if (!activeTopicSlug) return;
+
+    const root = document.documentElement;
+    const previousOverflow = document.body.style.overflow;
+    const previousPaddingRight = document.body.style.paddingRight;
+    const scrollbarWidth = Math.max(0, window.innerWidth - root.clientWidth);
+    const bodyPaddingRight = Number.parseFloat(window.getComputedStyle(document.body).paddingRight) || 0;
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key === "Escape") closeTopicModal();
+    };
+
+    if (scrollbarWidth > 0) document.body.style.paddingRight = `${bodyPaddingRight + scrollbarWidth}px`;
+    document.body.style.overflow = "hidden";
+    window.addEventListener("keydown", closeOnEscape);
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      document.body.style.paddingRight = previousPaddingRight;
+      window.removeEventListener("keydown", closeOnEscape);
+      if (topicModalTimerRef.current !== null) window.clearTimeout(topicModalTimerRef.current);
+      if (topicModalFrameRef.current !== null) window.cancelAnimationFrame(topicModalFrameRef.current);
+    };
+  }, [activeTopicSlug, closeTopicModal]);
 
   return (
-    <main className="min-h-screen bg-[#0A0E1A]">
-      <HeroSection />
-      <AboutSection />
+    <main className="bg-background text-foreground">
+      <section className="hero-film">
+        <video
+          className="hero-film-media"
+          autoPlay
+          muted
+          playsInline
+          preload="metadata"
+          poster="/images/hero-video-poster.jpg"
+          aria-hidden="true"
+        >
+          <source src="/videos/aivf-hero.mp4" type="video/mp4" />
+        </video>
+        <div className="hero-film-wash" aria-hidden="true" />
 
-      {/* Theme artwork — the octopus organization / human-AI synergy */}
-      <section className="relative overflow-hidden bg-[#0A0E1A] px-4 pb-4 pt-8">
-        <div className="container mx-auto max-w-6xl">
-          <div className="relative overflow-hidden rounded-2xl border border-[#1E293B]">
-            <img
-              src="/images/art/hero-octopus.png"
-              alt="Octopus of light-lines interweaving with human figures — human-AI synergy artwork"
-              className="w-full object-cover"
-            />
-            <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#0A0E1A]/70 via-transparent to-transparent" />
-            <p className="absolute bottom-4 left-6 right-6 text-sm font-medium tracking-wide text-[#E1E8F0]/90 md:text-base">
-              {t.about.guidingQuestion}
+        <div className="hero-film-content">
+          <div className="max-w-[700px] pt-2 md:pt-8">
+            <p className="section-kicker text-foreground/70">{c.eyebrow}</p>
+            <h1 className="hero-event-title mt-5">
+              <span className="hero-event-name">AI Vision Forum</span>
+              <span className="hero-event-location">Shenzhen 2026</span>
+            </h1>
+            <p className="mt-6 max-w-[560px] text-[clamp(1.3rem,2vw,1.7rem)] font-semibold leading-[1.25] tracking-[-0.02em]">
+              {c.heroTitle}
             </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Tracks Section */}
-      <section
-        id="tracks"
-        className="relative overflow-hidden py-24 px-4 bg-[#0A0E1A]"
-      >
-        <PcbTraceBackground intensity="subtle" />
-        <div className="relative z-10 container mx-auto max-w-6xl">
-          <div className="mb-16 text-center">
-            <h2 className="mb-4 text-4xl font-bold md:text-5xl lg:text-6xl">
-              <span className="text-[#E1E8F0]">{t.tracksSection.title}</span>
-            </h2>
-            <p className="mx-auto max-w-3xl text-lg text-[#94A3B8] md:text-xl">
-              {t.tracksSection.subtitle}
+            <p className="mt-3 max-w-[610px] text-base leading-relaxed text-foreground/72 md:text-lg">
+              {c.intro}
             </p>
+            <div className="hero-collaboration mt-7">
+              <span className="hero-collaboration-label">{c.collaborationLabel}</span>
+              <a href={gosimHref} target="_blank" rel="noopener noreferrer" className="group inline-flex items-center gap-2 font-black hover:underline">
+                {c.collaborationName}
+                <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+              </a>
+            </div>
+            <div className="mt-6 flex flex-wrap gap-3">
+              <a href="#programs" className="button-ink group">
+                {c.primaryCta}
+                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+              </a>
+              <a href="#schedule" className="button-outline bg-white/35 backdrop-blur-sm">{c.secondaryCta}</a>
+            </div>
           </div>
 
-          <div className="grid gap-6 md:grid-cols-2 lg:gap-8">
-            {t.tracksSection.tracks.map((track, index) => (
-              <Link
-                key={index}
-                href={`/tracks/${TRACK_SLUGS[index]}`}
-                className="group relative rounded-2xl border border-[#1E293B] bg-[#0F172A]/70 p-8 transition-all hover:border-[#00E5FF]/60 hover:shadow-[0_0_24px_rgba(0,229,255,0.15)] hover:-translate-y-1"
-                style={{ borderWidth: "1px" }}
-              >
-                {/* Top-right magenta "live" dot */}
-                <motion.span
-                  className="absolute right-4 top-4 inline-block h-1 w-1 rounded-full bg-[#FF006E]"
-                  animate={{ opacity: [0.4, 1, 0.4] }}
-                  transition={{
-                    duration: 2.4,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                    delay: index * 0.3,
-                  }}
-                  aria-hidden="true"
-                />
-
-                <div className="mb-6">{TRACK_ICONS[TRACK_ICON_KEYS[index]]}</div>
-                <h3 className="mb-2 text-2xl font-bold text-[#00E5FF]">
-                  {track.title}
-                </h3>
-                <p className="mb-4 text-sm font-medium text-[#FFC857]">{track.subtitle}</p>
-                <p className="mb-6 text-[#94A3B8]">{track.description}</p>
-
-                <div className="flex flex-wrap gap-2">
-                  {track.keywords.map((keyword, ki) => (
-                    <span
-                      key={ki}
-                      className="rounded-full border border-[#00E5FF]/20 bg-[#00E5FF]/10 px-3 py-1 text-xs font-medium text-[#00E5FF]"
-                    >
-                      {keyword}
-                    </span>
-                  ))}
-                </div>
-
-                {TRACK_HIGHLIGHTS[index] && (
-                  <div className="absolute -right-3 -top-3 rounded-full bg-[#FF006E] px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-white shadow-[0_0_18px_rgba(255,0,110,0.45)]">
-                    {t.tracksSection.featured}
-                  </div>
-                )}
-
-                <div className="absolute bottom-8 right-8 text-2xl text-[#00E5FF] opacity-0 transition-opacity group-hover:opacity-100">
-                  &rarr;
-                </div>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Schedule Section */}
-      <section id="schedule" className="relative overflow-hidden py-24 px-4 bg-[#0A0E1A]">
-        <div className="container mx-auto max-w-6xl">
-          <div className="mb-16 text-center">
-            <h2 className="mb-4 text-4xl font-bold md:text-5xl lg:text-6xl">
-              <span className="text-[#E1E8F0]">{t.scheduleSection.title}</span>
-            </h2>
-            <p className="mx-auto max-w-3xl text-lg text-[#94A3B8] md:text-xl">
-              {t.scheduleSection.subtitle}
-            </p>
-          </div>
-
-          <div className="space-y-4">
-            {t.scheduleSection.items.map((item, index) => (
-              <div
-                key={index}
-                className="flex items-start gap-6 rounded-xl border border-[#1E293B] bg-[#0F172A]/60 p-6 transition-all hover:border-[#00E5FF]/60 hover:shadow-[0_0_18px_rgba(0,229,255,0.12)]"
-              >
-                <div className="flex-shrink-0 rounded-lg border border-[#00E5FF]/20 bg-[#00E5FF]/10 px-4 py-2">
-                  <span className="font-mono tabular-nums text-sm font-bold text-[#00E5FF]">
-                    {item.time}
+          <div className="hero-program-panel">
+            <div className="hero-program-meta">
+              <span>{c.placeValue}</span>
+              <span>{c.formatValue}</span>
+            </div>
+            <div className="grid md:grid-cols-2">
+              {PROGRAM_DAYS.map((day, index) => (
+                <Link
+                  key={day.id}
+                  href={day.route}
+                  className={`group hero-program-day ${index > 0 ? "border-t border-foreground/15 md:border-l md:border-t-0" : ""}`}
+                >
+                  <span className={`editorial-type text-5xl leading-none ${day.id === "open" ? "text-open" : "text-enterprise"}`}>
+                    {day.dateNumber}
                   </span>
+                  <span className="min-w-0 flex-1">
+                    <strong className="block text-base font-black tracking-[-0.01em]">
+                      OCT · {day.shortName[locale]}
+                    </strong>
+                    <span className="mt-1 block text-sm leading-snug text-muted-foreground">
+                      {day.topics.map((topic) => topic.title[locale]).join(" · ")}
+                    </span>
+                  </span>
+                  <ArrowUpRight className="h-5 w-5 shrink-0 transition-transform group-hover:-translate-y-1 group-hover:translate-x-1" />
+                </Link>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="about" className="px-5 py-20 md:px-10 md:py-24 lg:px-16">
+        <div className="mx-auto max-w-[1320px]">
+          <div className="grid gap-10 lg:grid-cols-[0.72fr_1.28fr]">
+            <div>
+              <p className="section-kicker">{c.aboutKicker}</p>
+              <h2 className="section-title mt-5">{t.about.title}</h2>
+              <p className="mt-6 max-w-md text-xl font-medium leading-relaxed text-muted-foreground">{t.about.subtitle}</p>
+            </div>
+
+            <div className="border-t-2 border-foreground pt-6">
+              <p className="section-kicker text-open">{c.guidingQuestion}</p>
+              <blockquote className="editorial-type mt-5 text-[clamp(2rem,3.8vw,3.5rem)] leading-[1.08] tracking-[-0.025em]">
+                “{t.about.guidingQuestion}”
+              </blockquote>
+              <p className="mt-5 text-lg text-muted-foreground">{t.about.guidingQuestionNote}</p>
+            </div>
+          </div>
+
+          <div className="mt-16 border-y border-foreground">
+            <section className="border-b border-foreground/30">
+              <button
+                type="button"
+                aria-expanded={openAboutPanels.why}
+                aria-controls="about-why-content"
+                onClick={() => toggleAboutPanel("why")}
+                className="flex w-full items-center justify-between gap-6 py-6 text-left"
+              >
+                <div>
+                  <p className="section-kicker text-open">{c.whyNow}</p>
+                  <h3 className="editorial-type mt-2 text-3xl">{t.about.whyNowTitle}</h3>
                 </div>
-                <div className="flex-1">
-                  <h3 className="font-semibold text-lg text-[#E1E8F0]">{item.title}</h3>
-                  {item.subtitle && (
-                    <p className="mt-1 text-sm text-[#94A3B8]">{item.subtitle}</p>
-                  )}
-                  {item.format && (
-                    <p className="mt-2 text-xs font-medium uppercase tracking-wider text-[#FFC857]">
-                      {item.format}
-                    </p>
-                  )}
+                <span className={`text-3xl font-light transition-transform duration-300 ${openAboutPanels.why ? "rotate-45" : ""}`}>+</span>
+              </button>
+              <div
+                id="about-why-content"
+                className={`about-disclosure ${openAboutPanels.why ? "about-disclosure-open" : ""}`}
+                aria-hidden={!openAboutPanels.why}
+              >
+                <div className="about-disclosure-inner">
+                  <div className="pb-8">
+                    <p className="mb-6 max-w-3xl text-base leading-relaxed text-muted-foreground">{t.about.whyNowIntro}</p>
+                    <div className="grid border border-foreground/30 md:grid-cols-3">
+                      {t.about.whyNowShifts.map((shift, index) => (
+                        <article key={shift.title} className={`p-5 ${index > 0 ? "border-t border-foreground/30 md:border-l md:border-t-0" : ""}`}>
+                          <span className="font-mono text-sm font-bold text-open">0{index + 1}</span>
+                          <h4 className="mt-5 text-xl font-bold">{shift.title}</h4>
+                          <p className="mt-3 text-base leading-relaxed text-muted-foreground">{shift.description}</p>
+                        </article>
+                      ))}
+                    </div>
+                  </div>
                 </div>
               </div>
-            ))}
-          </div>
+            </section>
 
-          <div className="mt-12 text-center">
-            <p className="text-sm text-[#94A3B8]">{t.scheduleSection.note}</p>
-          </div>
-        </div>
-      </section>
-
-      {/* Panelists Representing Section — hidden until the roster has confirmed orgs */}
-      {PANELIST_ORGS.length > 0 && (
-      <section className="py-24 px-4 bg-[#0A0E1A]">
-        <div className="container mx-auto max-w-6xl">
-          <div className="mb-16 text-center">
-            <h2 className="mb-4 text-4xl font-bold md:text-5xl lg:text-6xl">
-              <span className="text-[#E1E8F0]">{t.panelistsSection.title}</span>
-              <span className="ml-3 align-middle text-lg font-normal text-[#94A3B8]">(Partial)</span>
-            </h2>
-            <p className="mx-auto max-w-3xl text-lg text-[#94A3B8] md:text-xl">
-              {t.panelistsSection.subtitle}
-            </p>
-          </div>
-
-          <div className="grid grid-cols-3 gap-4 sm:grid-cols-4 md:grid-cols-5 lg:gap-6">
-            {PANELIST_ORGS.map((org) => (
-              <a
-                key={org.name}
-                href={org.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex flex-col items-center gap-3 rounded-xl border border-[#1E293B] bg-[#0F172A]/60 p-4 transition-colors hover:border-[#00E5FF]/60"
+            <section>
+              <button
+                type="button"
+                aria-expanded={openAboutPanels.model}
+                aria-controls="about-model-content"
+                onClick={() => toggleAboutPanel("model")}
+                className="flex w-full items-center justify-between gap-6 py-6 text-left"
               >
-                <div className="flex h-12 w-full items-center justify-center">
-                  <img
-                    src={org.logo}
-                    alt={org.name}
-                    className="h-10 max-w-[120px] object-contain"
-                  />
+                <div>
+                  <p className="section-kicker text-enterprise">{c.forumModel}</p>
+                  <h3 className="editorial-type mt-2 text-3xl">{t.about.valuePropositionTitle}</h3>
                 </div>
-                <span className="text-center text-xs font-medium text-[#94A3B8] leading-tight">
-                  {org.name}
-                </span>
-              </a>
+                <span className={`text-3xl font-light transition-transform duration-300 ${openAboutPanels.model ? "rotate-45" : ""}`}>+</span>
+              </button>
+              <div
+                id="about-model-content"
+                className={`about-disclosure ${openAboutPanels.model ? "about-disclosure-open" : ""}`}
+                aria-hidden={!openAboutPanels.model}
+              >
+                <div className="about-disclosure-inner">
+                  <div className="grid gap-6 pb-8 md:grid-cols-2">
+                    {t.about.valueProposition.map((item, index) => (
+                      <article key={item.title} className="border-t border-foreground/30 pt-5">
+                        <span className="font-mono text-sm font-bold text-enterprise">0{index + 1}</span>
+                        <h4 className="mt-3 text-xl font-bold">{item.title}</h4>
+                        <p className="mt-3 text-base leading-relaxed text-muted-foreground">{item.description}</p>
+                      </article>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+
+          <div className="mt-16">
+            <p className="section-kicker mb-6">{c.facts}</p>
+            <div className="forum-facts grid border-y border-foreground md:grid-cols-4">
+              <Fact icon={<Users />} value="100–150" label={t.about.invitedParticipants} />
+              <Fact icon={<Lock />} value={t.about.inviteOnly} label={t.about.exclusiveAccess} />
+              <Fact icon={<CalendarDays />} value="14–15 OCT" label={c.placeValue} />
+              <Fact icon={<Handshake />} value="GOSIM" label={t.about.colocated} />
+            </div>
+          </div>
+
+          <div className="mt-14 grid gap-6 border border-foreground/30 bg-card p-6 md:grid-cols-[160px_1fr] md:p-8">
+            <div className="flex items-center gap-3 font-bold">
+              <Lock className="h-5 w-5 text-enterprise" />
+              {t.about.chathamHouseTitle}
+            </div>
+            <p className="text-base leading-relaxed text-muted-foreground">{t.about.chathamHouseDescription}</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="programs" className="border-y border-foreground/20 bg-surface px-5 py-16 md:px-10 md:py-20 lg:px-16">
+        <div className="mx-auto max-w-[1320px]">
+          <div>
+            <div>
+              <p className="section-kicker">{c.splitKicker}</p>
+              <h2 className="subsection-title mt-4 max-w-3xl">{c.splitTitle}</h2>
+            </div>
+          </div>
+
+          <div className="mt-10 space-y-5">
+            {PROGRAM_DAYS.map((day) => (
+              <section key={day.id} id={`${day.id === "open" ? "open-source" : "enterprise"}-day`} className="scroll-mt-24">
+                <header className={`mb-4 border-b pb-3 program-day-header-${day.id}`}>
+                  <div className="flex items-baseline gap-4">
+                    <span className={`editorial-type text-5xl leading-none ${day.id === "open" ? "text-open" : "text-enterprise"}`}>{day.dateNumber}</span>
+                    <h3 className="text-xl font-black">{day.shortName[locale]}</h3>
+                  </div>
+                </header>
+
+                <div className="grid gap-4 lg:grid-cols-2">
+                  {day.topics.map((topic) => (
+                    <button
+                      key={topic.slug}
+                      id={`topic-${topic.slug}`}
+                      type="button"
+                      aria-haspopup="dialog"
+                      aria-expanded={activeTopicSlug === topic.slug}
+                      onClick={() => openTopicModal(topic.slug)}
+                      className={`topic-card topic-card-${day.id} group flex min-h-[230px] flex-col border border-foreground/20 p-6 text-left focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-open md:p-7`}
+                    >
+                      <div className="flex items-start justify-between gap-5">
+                        <span className={`font-mono text-sm font-bold ${day.id === "open" ? "text-open" : "text-enterprise"}`}>{topic.number}</span>
+                        <ArrowUpRight className={`h-5 w-5 transition-transform group-hover:-translate-y-1 group-hover:translate-x-1 ${day.id === "open" ? "text-open" : "text-enterprise"}`} />
+                      </div>
+                      <h4 className="editorial-type mt-4 text-[clamp(1.9rem,2.7vw,2.4rem)] leading-[1.04]">{topic.title[locale]}</h4>
+                      <p className="mt-3 text-[15px] font-semibold leading-snug text-muted-foreground">{topic.subtitle[locale]}</p>
+                      <ul className="mt-5 flex flex-wrap gap-2">
+                        {topic.prompts[locale].slice(0, 2).map((prompt) => (
+                          <li key={prompt} className="border border-foreground/20 px-3 py-1.5 text-sm font-semibold">{prompt}</li>
+                        ))}
+                      </ul>
+                    </button>
+                  ))}
+                </div>
+              </section>
             ))}
           </div>
         </div>
       </section>
+
+      {activeTrack && activeDetail && (
+        <div
+          className="topic-modal-backdrop fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-8"
+          data-state={isTopicModalVisible ? "open" : "closed"}
+          onPointerDown={(event) => {
+            if (event.target === event.currentTarget) closeTopicModal();
+          }}
+        >
+          <section
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="topic-dialog-title"
+            className={`topic-modal-panel topic-modal-panel-${activeTrack.day.id} max-h-[88vh] w-full max-w-[1040px] overflow-y-auto overscroll-contain border border-foreground/25 bg-background shadow-[0_28px_90px_rgba(20,42,56,0.28)]`}
+            data-state={isTopicModalVisible ? "open" : "closed"}
+          >
+            <header className="sticky top-0 z-10 flex items-start justify-between gap-6 border-b border-foreground/20 bg-background/95 p-5 backdrop-blur-md md:p-7">
+              <div>
+                <p className={`text-sm font-black uppercase tracking-[0.1em] ${activeTrack.day.id === "open" ? "text-open" : "text-enterprise"}`}>
+                  {activeTrack.day.dateNumber} OCT · {activeTrack.day.shortName[locale]}
+                </p>
+                <h2 id="topic-dialog-title" className="editorial-type mt-3 text-[clamp(2.25rem,5vw,4rem)] leading-[1.02]">
+                  {activeTrack.topic.title[locale]}
+                </h2>
+              </div>
+              <button
+                type="button"
+                autoFocus
+                onClick={closeTopicModal}
+                className="shrink-0 border border-foreground/25 p-2 transition-colors hover:bg-surface"
+                aria-label={c.closeDetails}
+              >
+                <X className="h-5 w-5" />
+              </button>
+            </header>
+
+            <div className="p-5 md:p-7">
+              <p className="max-w-4xl text-lg leading-relaxed text-muted-foreground">{activeDetail.overview}</p>
+              <div className="mt-7 grid gap-8 border-t border-foreground/20 pt-7 md:grid-cols-[1.08fr_0.92fr]">
+                <div>
+                  <h3 className="text-sm font-black uppercase tracking-[0.1em]">{t.trackDetail.keyTopics}</h3>
+                  <ul className="mt-4 space-y-3 text-base leading-relaxed text-muted-foreground">
+                    {activeDetail.keyTopics.map((item) => <li key={item}>— {item}</li>)}
+                  </ul>
+                </div>
+                <div className="space-y-8">
+                  <div>
+                    <h3 className="text-sm font-black uppercase tracking-[0.1em]">{activeDetail.spotlightTitle}</h3>
+                    <p className="mt-4 text-base leading-relaxed text-muted-foreground">{activeDetail.spotlightText}</p>
+                  </div>
+                  <div>
+                    <h3 className="text-sm font-black uppercase tracking-[0.1em]">{activeDetail.outcomesTitle}</h3>
+                    <ul className="mt-4 space-y-3 text-base leading-relaxed text-muted-foreground">
+                      {activeDetail.outcomes.map((item) => <li key={item}>— {item}</li>)}
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div className={`mt-8 flex flex-col gap-5 border-t pt-6 sm:flex-row sm:items-end sm:justify-between ${activeTrack.day.id === "open" ? "border-open/35" : "border-enterprise/35"}`}>
+                <div>
+                  <h3 className="text-xl font-bold">{t.trackDetail.interestedInTrack}</h3>
+                  <p className="mt-1 text-base text-muted-foreground">{t.trackDetail.requestInvitationToJoin}</p>
+                </div>
+                <a href="https://register.gosim.org/" target="_blank" rel="noopener noreferrer" className="button-ink group shrink-0">
+                  {t.trackDetail.requestInvitation}
+                  <ArrowUpRight className="h-5 w-5 transition-transform group-hover:-translate-y-1 group-hover:translate-x-1" />
+                </a>
+              </div>
+            </div>
+          </section>
+        </div>
       )}
 
-      {/* Past Editions Section */}
-      <section className="py-24 px-4 bg-[#0A0E1A]">
-        <div className="container mx-auto max-w-6xl">
-          <div className="mb-16 text-center">
-            <h2 className="mb-4 text-4xl font-bold md:text-5xl lg:text-6xl">
-              <span className="text-[#E1E8F0]">{t.pastEditions.title}</span>
-            </h2>
-            <p className="mx-auto max-w-3xl text-lg text-[#94A3B8] md:text-xl">
-              {t.pastEditions.subtitle}
-            </p>
+      <section id="schedule" className="px-5 py-16 md:px-10 md:py-20 lg:px-16">
+        <div className="mx-auto max-w-[1320px]">
+          <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
+            <div>
+              <p className="section-kicker">{c.scheduleKicker}</p>
+              <h2 className="subsection-title mt-4">{c.scheduleTitle}</h2>
+            </div>
+            <div className="lg:justify-self-end">
+              <p className="max-w-xl text-base leading-relaxed text-muted-foreground">{c.scheduleIntro}</p>
+              <p className="mt-3 text-sm font-semibold">{t.scheduleSection.note}</p>
+            </div>
           </div>
-          <div className="grid gap-6 md:grid-cols-3 lg:gap-8">
-            {PAST_EDITIONS.map((ed, index) => {
-              const copy = t.pastEditions.editions[index];
+
+          <div className="mt-9 grid border-l border-t border-foreground/20 lg:grid-cols-2">
+              {PROGRAM_DAYS.map((day, dayIndex) => {
+                const allSessions = dayIndex === 0 ? t.scheduleSection.items.slice(0, 8) : t.scheduleSection.items.slice(8);
+                return (
+                  <section key={day.id} className={`schedule-day-${day.id} border-b border-r border-foreground/20 bg-card`}>
+                    <header className="flex min-h-24 items-center gap-4 border-b border-foreground/20 px-5 py-4">
+                      <span className={`editorial-type text-5xl leading-none ${day.id === "open" ? "text-open" : "text-enterprise"}`}>{day.dateNumber}</span>
+                      <div>
+                        <h3 className="text-lg font-black">{day.shortName[locale]}</h3>
+                        <p className="mt-1 text-sm font-semibold text-muted-foreground">{day.dateLabel[locale]}</p>
+                      </div>
+                    </header>
+                    <div>
+                      {allSessions.map((session) => (
+                        <div key={session.time} className="grid min-h-[66px] grid-cols-[72px_1fr] gap-3 border-b border-foreground/15 px-5 py-3 last:border-b-0">
+                          <time className="font-mono text-sm font-bold tabular-nums">{session.time.replace(/^.*?·\s*/, "")}</time>
+                          <div>
+                            <p className="text-sm font-bold leading-snug">{session.title}</p>
+                            {(session.subtitle || session.format) && (
+                              <p className="mt-1 text-sm leading-snug text-muted-foreground">
+                                {[session.subtitle, session.format].filter(Boolean).join(" · ")}
+                              </p>
+                            )}
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </section>
+                );
+              })}
+          </div>
+        </div>
+      </section>
+
+      <section className="border-y border-foreground/20 bg-card px-5 py-16 md:px-10 md:py-20 lg:px-16">
+        <div className="mx-auto max-w-[1320px]">
+          <p className="section-kicker">{c.pastKicker}</p>
+          <h2 className="subsection-title mt-4">{c.pastTitle}</h2>
+          <div className="mt-8 border-t border-foreground">
+            {pastEditions.map((edition, index) => {
+              const editionCopy = t.pastEditions.editions[index];
               return (
-                <div
-                  key={ed.key}
-                  className="rounded-2xl border border-[#1E293B] bg-[#0F172A]/70 p-8 transition-all hover:border-[#00E5FF]/60"
-                >
-                  <h3 className="mb-1 text-2xl font-bold text-[#00E5FF]">{copy.name}</h3>
-                  <p className="mb-4 text-sm font-medium text-[#FFC857]">{copy.date}</p>
-                  <p className="mb-6 text-[#94A3B8]">{copy.description}</p>
-                  <div className="flex flex-wrap gap-4">
-                    <a
-                      href={ed.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-sm font-medium text-[#00E5FF] hover:underline"
-                    >
-                      {t.pastEditions.visitSite} &rarr;
-                    </a>
-                    {ed.reportUrl && (
-                      <a
-                        href={ed.reportUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-sm font-medium text-[#00E5FF] hover:underline"
-                      >
-                        {t.pastEditions.readReport} &rarr;
-                      </a>
+                <div key={edition.url} className="grid gap-4 border-b border-foreground/55 py-5 xl:grid-cols-[280px_200px_minmax(0,1fr)_auto] xl:items-center">
+                  <h3 className="text-xl font-black leading-snug tracking-[-0.02em]">{editionCopy.name}</h3>
+                  <span className="text-sm font-semibold leading-snug text-muted-foreground">{editionCopy.date}</span>
+                  <p className="text-sm leading-relaxed text-muted-foreground">{editionCopy.description}</p>
+                  <div className="flex flex-wrap items-center gap-4 xl:justify-self-end">
+                    {edition.reportUrl && (
+                      <a href={edition.reportUrl} target="_blank" rel="noopener noreferrer" className="inline-flex whitespace-nowrap text-sm font-bold hover:underline">{t.pastEditions.readReport} ↗</a>
                     )}
+                    <a href={edition.url} target="_blank" rel="noopener noreferrer" className="inline-flex whitespace-nowrap text-sm font-bold hover:underline">{t.pastEditions.visitSite} ↗</a>
                   </div>
                 </div>
               );
@@ -299,118 +579,114 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Past-edition organizations Section */}
-      <section className="py-24 px-4 bg-[#0A0E1A]">
-        <div className="container mx-auto max-w-6xl">
-          <div className="mb-16 text-center">
-            <h2 className="mb-4 text-4xl font-bold md:text-5xl lg:text-6xl">
-              <span className="text-[#E1E8F0]">{t.pastOrgs.title}</span>
-            </h2>
-            <p className="mx-auto max-w-3xl text-lg text-[#94A3B8] md:text-xl">
-              {t.pastOrgs.subtitle}
-            </p>
+      <section className="px-5 py-16 md:px-10 md:py-20 lg:px-16">
+        <div className="mx-auto max-w-[1320px]">
+          <div className="grid gap-8 lg:grid-cols-[1fr_0.8fr] lg:items-end">
+            <div>
+              {locale === "en" && <p className="section-kicker">{c.collaboratorsKicker}</p>}
+              <h2 className={`editorial-type max-w-3xl text-[clamp(2.65rem,4vw,3.65rem)] leading-[1.02] tracking-[-0.03em] ${locale === "en" ? "mt-4" : ""}`}>{c.collaboratorsTitle}</h2>
+            </div>
+            <p className="max-w-xl text-base leading-relaxed text-muted-foreground lg:justify-self-end">{c.collaboratorsIntro}</p>
           </div>
-          <div className="grid grid-cols-3 gap-4 sm:grid-cols-4 md:grid-cols-5 lg:gap-6">
-            {PAST_EDITION_ORGS.map((org) => (
-              <a
-                key={org.name}
-                href={org.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group flex flex-col items-center gap-3 rounded-xl border border-[#1E293B] bg-[#0F172A]/60 p-4 transition-colors hover:border-[#00E5FF]/60"
-              >
-                <div className="flex h-14 w-full items-center justify-center rounded-lg bg-[#CBD5E1]/90 px-3 py-2 transition-colors group-hover:bg-white">
-                  <img src={org.logo} alt={org.name} className="h-10 max-w-[120px] object-contain mix-blend-multiply" />
+
+          <div className="mt-10 grid grid-cols-2 gap-x-5 gap-y-6 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
+            {PAST_ORGANIZATIONS.map((organization) => (
+              <a key={organization.name} href={organization.url} target="_blank" rel="noopener noreferrer" className="group flex min-h-28 flex-col justify-between p-3 transition-colors hover:bg-card/70">
+                <div className="flex h-14 items-center justify-center px-2">
+                  <img src={organization.logo} alt={organization.name} className="max-h-10 max-w-full object-contain mix-blend-multiply grayscale transition-all group-hover:grayscale-0" />
                 </div>
-                <span className="text-center text-xs font-medium text-[#94A3B8] leading-tight">
-                  {org.name}
-                </span>
+                <span className="mt-2 text-center text-sm font-semibold leading-snug text-muted-foreground">{organization.name}</span>
               </a>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Venue Section */}
-      <section id="venue" className="relative overflow-hidden py-24 px-4 bg-[#0A0E1A]">
-        <PcbTraceBackground intensity="subtle" />
-        <div className="relative z-10 container mx-auto max-w-6xl">
-          <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
+      <section id="venue" className="border-y border-foreground/30 bg-surface px-5 py-20 md:px-10 md:py-24 lg:px-16">
+        <div className="mx-auto max-w-[1320px]">
+          <div className="grid gap-12 lg:grid-cols-[0.72fr_1.28fr] lg:items-center">
             <div>
-              <h2 className="mb-6 text-4xl font-bold md:text-5xl">
-                <span className="text-[#E1E8F0]">{t.venue.title}</span>
-              </h2>
-              <div className="space-y-6">
-                <div>
-                  {EVENT_CONFIG.location.venue && (
-                    <h3 className="mb-2 text-2xl font-semibold text-[#E1E8F0]">
-                      {EVENT_CONFIG.location.venue}
-                    </h3>
-                  )}
-                  <p className="text-lg text-[#94A3B8]">
-                    {EVENT_CONFIG.location.city}, {EVENT_CONFIG.location.country}
-                  </p>
-                </div>
-
-                <div className="space-y-3 text-[#94A3B8]">
-                  <p className="flex items-start gap-3">
-                    <Landmark className="h-5 w-5 flex-shrink-0 mt-0.5 text-[#00E5FF]" />
-                    <span>{t.venue.venueDescription}</span>
-                  </p>
-                  <p className="flex items-start gap-3">
-                    <Handshake className="h-5 w-5 flex-shrink-0 mt-0.5 text-[#00E5FF]" />
-                    <span>{t.venue.colocatedDescription}</span>
-                  </p>
-                  <p className="flex items-start gap-3">
-                    <Plane className="h-5 w-5 flex-shrink-0 mt-0.5 text-[#00E5FF]" />
-                    <span>{t.venue.accessDescription}</span>
-                  </p>
-                </div>
-
-                <div className="pt-6">
-                  <a
-                    href="https://maps.app.goo.gl/p2X11JMNBymwSx4J9"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 font-medium text-[#00E5FF] hover:underline"
-                  >
-                    {t.venue.viewOnMap}
-                  </a>
-                </div>
-              </div>
+              <p className="section-kicker">{c.venueKicker}</p>
+              <h2 className="section-title mt-5">{c.venueTitle}</h2>
+              <h3 className="mt-8 text-2xl font-bold">{EVENT_CONFIG.location.venue}</h3>
+              <p className="mt-2 text-lg text-muted-foreground">{c.venueLocation}</p>
+              <a href="https://maps.app.goo.gl/p2X11JMNBymwSx4J9" target="_blank" rel="noopener noreferrer" className="link-arrow mt-7">
+                <MapPin className="h-4 w-4" /> {t.venue.viewOnMap}
+              </a>
             </div>
 
-            <div className="space-y-4">
-              <img
-                src="/images/art/city-zhuhai.png"
-                alt="Hong Kong–Zhuhai–Macau bridge and cruise at dusk — artwork"
-                className="w-full rounded-2xl border border-[#1E293B] object-cover shadow-[0_0_32px_rgba(0,229,255,0.08)]"
-              />
-              <img
-                src="/images/art/city-shenzhen.png"
-                alt="Shenzhen skyline at night — artwork"
-                className="w-full rounded-2xl border border-[#1E293B] object-cover shadow-[0_0_32px_rgba(0,229,255,0.08)]"
+            <div className="relative min-h-[280px] overflow-hidden border border-foreground/25 md:min-h-[390px]">
+              <Image
+                src="/images/venue/phoenix-bay-aerial.jpg"
+                alt={locale === "cn" ? "珠海凤凰湾酒店航拍景观" : "Aerial view of Banyan Tree Zhuhai Phoenix Bay"}
+                fill
+                sizes="(min-width: 1024px) 60vw, 100vw"
+                className="object-cover"
               />
             </div>
+          </div>
+
+          <div className="mt-10 grid border-t-2 border-foreground lg:grid-cols-3">
+            <VenueDetail icon={<Landmark />} text={t.venue.venueDescription} />
+            <VenueDetail icon={<Handshake />} text={t.venue.colocatedDescription} />
+            <VenueDetail icon={<Plane />} text={t.venue.accessDescription} />
+          </div>
+
+          <div className="mt-10">
+            <ForumJourneyMap locale={locale} />
           </div>
         </div>
       </section>
 
-      {/* Final CTA */}
-      <section className="relative overflow-hidden py-24 px-4 bg-[#0A0E1A]">
-        <PcbTraceBackground intensity="subtle" />
-        <div className="relative z-10 container mx-auto max-w-4xl text-center">
-          <div className="rounded-3xl border border-[#00E5FF]/30 bg-gradient-to-br from-[#00E5FF]/5 via-[#0F172A]/40 to-[#FF006E]/5 p-12 md:p-16 shadow-[0_0_36px_rgba(0,229,255,0.1)]">
-            <h2 className="mb-6 text-3xl font-bold text-[#E1E8F0] md:text-4xl lg:text-5xl">
-              {t.cta.title}
-            </h2>
-            <p className="mx-auto mb-8 max-w-2xl text-lg text-[#94A3B8] md:text-xl">
-              {t.cta.description}
-            </p>
-            <p className="text-[#94A3B8]">{t.cta.note}</p>
+      <section className="px-5 py-20 md:px-10 md:py-24 lg:px-16">
+        <div className="invitation-panel mx-auto grid max-w-[1320px] gap-8 border-2 border-open p-7 md:p-10 lg:grid-cols-[1fr_auto] lg:items-end">
+          <div>
+            <p className="section-kicker text-open">{c.invitationKicker}</p>
+            <h2 className="editorial-type mt-5 max-w-4xl text-[clamp(2.75rem,5vw,4.5rem)] leading-[1.04] tracking-[-0.025em]">{c.invitationTitle}</h2>
+            <p className="mt-6 max-w-2xl text-lg leading-relaxed text-muted-foreground">{c.invitationBody}</p>
           </div>
+          <a href="https://register.gosim.org/" target="_blank" rel="noopener noreferrer" className="button-ink group">
+            {c.invitationButton}
+            <ArrowUpRight className="h-5 w-5 transition-transform group-hover:-translate-y-1 group-hover:translate-x-1" />
+          </a>
         </div>
       </section>
     </main>
   );
+}
+
+function Fact({ icon, value, label }: { icon: React.ReactNode; value: string; label: string }) {
+  return (
+    <div className="flex min-h-36 flex-col justify-between border-b border-foreground p-5 last:border-b-0 md:border-b-0 md:border-r md:last:border-r-0">
+      <span className="text-open [&>svg]:h-5 [&>svg]:w-5">{icon}</span>
+      <div className="mt-8">
+        <strong className="block text-xl font-bold">{value}</strong>
+        <span className="mt-1 block text-sm font-semibold text-muted-foreground">{label}</span>
+      </div>
+    </div>
+  );
+}
+
+function VenueDetail({ icon, text }: { icon: React.ReactNode; text: string }) {
+  return (
+    <div className="grid grid-cols-[32px_1fr] gap-4 border-b border-foreground/25 py-6 lg:border-b-0 lg:border-r lg:px-6 lg:first:pl-0 lg:last:border-r-0 lg:last:pr-0">
+      <span className="text-open [&>svg]:h-5 [&>svg]:w-5">{icon}</span>
+      <p className="text-base leading-relaxed text-muted-foreground">{text}</p>
+    </div>
+  );
+}
+
+function getTrackDetail(slug: string, t: Translations) {
+  switch (slug) {
+    case "agentic-engineering":
+      return t.trackAgenticSE;
+    case "ai-native-org":
+      return t.trackAiNativeOrg;
+    case "open-source":
+      return t.trackOpenSource;
+    case "mobile-agentic-os":
+      return t.trackMobileLinux;
+    default:
+      return t.trackOpenSource;
+  }
 }

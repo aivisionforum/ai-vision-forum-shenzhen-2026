@@ -1,219 +1,93 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
-import { Menu, X, Globe } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { Logo } from "@/components/branding/Logo";
-import { useTranslation, LOCALE_LABELS } from "@/lib/i18n";
-import { EVENT_CONFIG } from "@/lib/constants";
+import { useTranslation } from "@/lib/i18n";
 
-/**
- * Sticky header navigation with mobile hamburger menu
- * Features smooth scroll and language switcher (EN/CN/FR)
- */
+const labels = {
+  en: {
+    open: "14 · Open Source",
+    enterprise: "15 · Enterprise",
+    schedule: "Program",
+    venue: "Venue",
+    register: "Request invitation",
+    menu: "Open menu",
+  },
+  cn: {
+    open: "14 日 · 开源日",
+    enterprise: "15 日 · 企业日",
+    schedule: "议程",
+    venue: "场地",
+    register: "申请邀请",
+    menu: "打开导航菜单",
+  },
+} as const;
+
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const { locale, cycleLocale, t } = useTranslation();
-
-  const isCompleted = EVENT_CONFIG.status === "completed";
-
-  const navItems: { label: string; href: string; highlight: boolean; external?: boolean }[] = isCompleted
-    ? [
-        { label: t.nav.home, href: "/", highlight: false },
-        { label: t.nav.tracks, href: "/#tracks", highlight: false },
-        { label: "Report", href: "/report", highlight: true },
-      ]
-    : [
-        { label: t.nav.home, href: "/", highlight: false },
-        { label: t.nav.tracks, href: "/#tracks", highlight: false },
-        { label: t.nav.schedule, href: "/#schedule", highlight: false },
-        { label: t.nav.venue, href: "/#venue", highlight: false },
-        { label: t.nav.register, href: "https://register.gosim.org/", highlight: true, external: true },
-      ];
+  const [isOpen, setIsOpen] = useState(false);
+  const { locale, cycleLocale } = useTranslation();
+  const c = labels[locale];
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    const onScroll = () => setIsScrolled(window.scrollY > 12);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // When a page loads with a hash (e.g. arriving at /#tracks from another page),
-  // scroll to that section once the DOM is rendered. The browser's native
-  // hash-scroll runs before React hydration, so the target element doesn't
-  // exist yet — we poll briefly until it does, then scroll instantly.
-  // We temporarily override the global `scroll-behavior: smooth` so the
-  // initial position-on-arrival is immediate (smooth scrolling deep into the
-  // page from the top is disorienting and unreliable across browsers).
-  useEffect(() => {
-    if (typeof window === "undefined") return;
-    const hash = window.location.hash;
-    if (!hash || hash === "#") return;
-
-    let attempts = 0;
-    const maxAttempts = 30;
-    const poll = () => {
-      const el = document.querySelector(hash);
-      if (el) {
-        const html = document.documentElement;
-        const prev = html.style.scrollBehavior;
-        html.style.scrollBehavior = "auto";
-        const top = el.getBoundingClientRect().top + window.scrollY;
-        window.scrollTo(0, top);
-        html.style.scrollBehavior = prev;
-        return;
-      }
-      if (++attempts < maxAttempts) {
-        setTimeout(poll, 50);
-      }
-    };
-    poll();
-  }, []);
-
-  const handleNavClick = (href: string): boolean => {
-    setIsMobileMenuOpen(false);
-
-    if (href.startsWith("/#")) {
-      const element = document.querySelector(href.substring(1));
-      if (element) {
-        element.scrollIntoView({ behavior: "smooth" });
-        return true;
-      }
-      window.location.href = href;
-      return true;
-    }
-    return false;
-  };
+  const navItems = [
+    { label: c.open, href: "/#open-source-day" },
+    { label: c.enterprise, href: "/#enterprise-day" },
+    { label: c.schedule, href: "/#schedule" },
+    { label: c.venue, href: "/#venue" },
+  ];
 
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled
-          ? "bg-background/80 backdrop-blur-xl border-b border-border shadow-lg"
-          : "bg-transparent"
-      }`}
-    >
-      <nav className="container mx-auto px-4 py-4">
-        <div className="flex items-center justify-between">
-          <div className="flex-shrink-0">
-            <Logo variant="compact" />
-          </div>
+    <header className={`fixed inset-x-0 top-0 z-50 border-b transition-[background-color,border-color,box-shadow,backdrop-filter] duration-300 ${isScrolled || isOpen ? "border-foreground/15 bg-background/95 shadow-[0_8px_30px_rgba(39,72,89,0.08)] backdrop-blur-xl" : "border-transparent bg-transparent shadow-none backdrop-blur-none"}`}>
+      <nav className="mx-auto flex h-20 max-w-[1536px] items-center justify-between px-5 md:px-10 lg:px-16" aria-label="Primary navigation">
+        <Logo variant="compact" />
 
-          {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center gap-8">
-            {navItems.map((item) =>
-              item.external ? (
-                <a
-                  key={item.href}
-                  href={item.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={`text-sm font-medium transition-colors hover:text-primary ${
-                    item.highlight
-                      ? "rounded-full bg-accent px-4 py-2 text-accent-foreground hover:bg-accent/90"
-                      : "text-foreground/80"
-                  }`}
-                >
-                  {item.label}
-                </a>
-              ) : (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  onClick={(e) => {
-                    if (item.href.startsWith("/#")) {
-                      if (handleNavClick(item.href)) {
-                        e.preventDefault();
-                      }
-                    }
-                  }}
-                  className={`text-sm font-medium transition-colors hover:text-primary ${
-                    item.highlight
-                      ? "rounded-full bg-accent px-4 py-2 text-accent-foreground hover:bg-accent/90"
-                      : "text-foreground/80"
-                  }`}
-                >
-                  {item.label}
-                </Link>
-              )
-            )}
-
-            <button
-              onClick={cycleLocale}
-              className="flex items-center gap-1 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
-              title="Switch language"
-            >
-              <Globe className="h-4 w-4" />
-              <span>{LOCALE_LABELS[locale]}</span>
-            </button>
-          </div>
-
-          <button
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="lg:hidden p-2 text-foreground hover:text-primary transition-colors"
-            aria-label="Toggle menu"
-          >
-            {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+        <div className="hidden items-center gap-7 lg:flex">
+          {navItems.map((item) => (
+            <Link key={item.href} href={item.href} className="text-sm font-bold tracking-[0.04em] transition-opacity hover:opacity-55">
+              {item.label}
+            </Link>
+          ))}
+          <button onClick={cycleLocale} className="border-l border-foreground pl-7 text-sm font-black uppercase tracking-[0.08em]" aria-label="Switch language">
+            {locale === "en" ? "中文" : "EN"}
           </button>
+          <a href="https://register.gosim.org/" target="_blank" rel="noopener noreferrer" className="button-ink !px-5 !py-3 !text-sm">
+            {c.register}
+          </a>
         </div>
 
-        {isMobileMenuOpen && (
-          <div className="lg:hidden mt-4 py-4 border-t border-border">
-            <div className="flex flex-col gap-4">
-              {navItems.map((item) =>
-                item.external ? (
-                  <a
-                    key={item.href}
-                    href={item.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                    className={`text-base font-medium transition-colors ${
-                      item.highlight
-                        ? "rounded-full bg-accent px-4 py-2 text-center text-accent-foreground"
-                        : "text-foreground/80 hover:text-primary px-4 py-2"
-                    }`}
-                  >
-                    {item.label}
-                  </a>
-                ) : (
-                  <Link
-                    key={item.href}
-                    href={item.href}
-                    onClick={(e) => {
-                      if (item.href.startsWith("/#")) {
-                        if (handleNavClick(item.href)) {
-                          e.preventDefault();
-                        }
-                      } else {
-                        setIsMobileMenuOpen(false);
-                      }
-                    }}
-                    className={`text-base font-medium transition-colors ${
-                      item.highlight
-                        ? "rounded-full bg-accent px-4 py-2 text-center text-accent-foreground"
-                        : "text-foreground/80 hover:text-primary px-4 py-2"
-                    }`}
-                  >
-                    {item.label}
-                  </Link>
-                )
-              )}
-
-              <button
-                onClick={cycleLocale}
-                className="flex items-center justify-center gap-2 px-4 py-2 text-base font-medium text-muted-foreground"
-              >
-                <Globe className="h-5 w-5" />
-                <span>{t.nav.language}: {LOCALE_LABELS[locale]}</span>
-              </button>
-            </div>
-          </div>
-        )}
+        <button className="p-2 lg:hidden" onClick={() => setIsOpen((value) => !value)} aria-expanded={isOpen} aria-label={c.menu}>
+          {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+        </button>
       </nav>
+
+      {isOpen && (
+        <div className="border-t border-foreground bg-background px-5 pb-8 pt-4 lg:hidden">
+          <div className="flex flex-col">
+            {navItems.map((item) => (
+              <Link key={item.href} href={item.href} onClick={() => setIsOpen(false)} className="border-b border-foreground/25 py-4 text-2xl font-black tracking-[-0.03em]">
+                {item.label}
+              </Link>
+            ))}
+          </div>
+          <div className="mt-6 flex items-center justify-between gap-5">
+            <button onClick={cycleLocale} className="text-sm font-black uppercase tracking-[0.12em]">
+              {locale === "en" ? "切换至中文" : "Switch to English"}
+            </button>
+            <a href="https://register.gosim.org/" target="_blank" rel="noopener noreferrer" className="button-ink !px-4 !py-3 !text-sm">
+              {c.register}
+            </a>
+          </div>
+        </div>
+      )}
     </header>
   );
 }

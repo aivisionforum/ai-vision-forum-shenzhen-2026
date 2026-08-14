@@ -1,154 +1,123 @@
 "use client";
 
 import Link from "next/link";
-import { Github } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import { Logo } from "@/components/branding/Logo";
-import { EVENT_CONFIG, REFERENCE_SITES, SOCIAL_LINKS } from "@/lib/constants";
 import { useTranslation } from "@/lib/i18n";
 
-/**
- * Professional footer with branding, links, and social media
- */
+const copy = {
+  en: {
+    line: "Two days for the questions beneath the agent era.",
+    program: "Program",
+    open: "Open Source Day · Oct 14",
+    enterprise: "Enterprise Day · Oct 15",
+    schedule: "Full program",
+    forum: "Forum",
+    about: "AI Vision Forum main site",
+    paris: "Paris 2026 archive",
+    gosim: "GOSIM Shenzhen 2026",
+    legal: "Information",
+    privacy: "Privacy",
+    contact: "Contact",
+    rule: "Chatham House Rule",
+    note: "Zhuhai · 14–15 October · Invitation-only · EN / 中文 interpretation",
+  },
+  cn: {
+    line: "用两天，讨论智能体时代的根本问题。",
+    program: "议程",
+    open: "开源日 · 10 月 14 日",
+    enterprise: "企业日 · 10 月 15 日",
+    schedule: "完整议程",
+    forum: "论坛",
+    about: "AI Vision Forum 主站",
+    paris: "巴黎 2026 回顾",
+    gosim: "GOSIM 深圳 2026",
+    legal: "相关信息",
+    privacy: "隐私政策",
+    contact: "联系我们",
+    rule: "查塔姆宫规则",
+    note: "珠海 · 10 月 14–15 日 · 仅限受邀参加 · 中英同声传译",
+  },
+} as const;
+
 export function Footer() {
-  const currentYear = new Date().getFullYear();
-  const { t } = useTranslation();
+  const { locale } = useTranslation();
+  const c = copy[locale];
+  const gosimHref = locale === "cn"
+    ? "https://shenzhen2026.gosim.org/zh/"
+    : "https://shenzhen2026.gosim.org/?lang=en";
 
   return (
-    <footer className="relative border-t border-[#1E293B] bg-[#0A0E1A]">
-      <div className="container relative z-10 mx-auto px-4 py-12">
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
-          {/* Branding */}
-          <div className="space-y-4">
-            <Logo variant="full" />
-            <p className="text-sm text-[#94A3B8]">
-              {t.hero.tagline}
-            </p>
-            <p className="tabular-nums text-xs text-[#94A3B8]">
-              {EVENT_CONFIG.location.city}, {EVENT_CONFIG.location.country} • {t.hero.dateDisplay}
-            </p>
+    <footer className="border-t border-foreground/20 bg-paper px-5 py-12 md:px-10 lg:px-16">
+      <div className="mx-auto max-w-[1440px]">
+        <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1fr]">
+          <div>
+            <Logo />
+            <p className="mt-7 max-w-xs text-lg font-semibold leading-snug">{c.line}</p>
           </div>
 
-          {/* Quick Links */}
-          <div>
-            <h3 className="mb-4 text-sm font-semibold uppercase tracking-wider text-[#E1E8F0]">
-              {t.footer.quickLinks}
-            </h3>
-            <ul className="space-y-2 text-sm">
-              <li>
-                <Link
-                  href="/#about"
-                  className="text-[#94A3B8] transition-colors hover:text-[#00E5FF]"
-                >
-                  {t.footer.about}
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/#tracks"
-                  className="text-[#94A3B8] transition-colors hover:text-[#00E5FF]"
-                >
-                  {t.footer.tracks}
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/#schedule"
-                  className="text-[#94A3B8] transition-colors hover:text-[#00E5FF]"
-                >
-                  {t.footer.schedule}
-                </Link>
-              </li>
-              <li>
-                <a
-                  href={REFERENCE_SITES.mainSite}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-[#94A3B8] transition-colors hover:text-[#00E5FF]"
-                >
-                  {t.footer.mainSite}
-                </a>
-              </li>
-              <li>
-                <a
-                  href={REFERENCE_SITES.paris2026}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-[#94A3B8] transition-colors hover:text-[#00E5FF]"
-                >
-                  {t.footer.paris2026}
-                </a>
-              </li>
-            </ul>
-          </div>
+          <FooterColumn title={c.program} links={[
+            [c.open, "/#open-source-day"],
+            [c.enterprise, "/#enterprise-day"],
+            [c.schedule, "/#schedule"],
+          ]} />
 
-          {/* Legal */}
-          <div>
-            <h3 className="mb-4 text-sm font-semibold uppercase tracking-wider text-[#E1E8F0]">
-              {t.footer.legal}
-            </h3>
-            <ul className="space-y-2 text-sm">
-              <li>
-                <Link
-                  href="/privacy"
-                  className="text-[#94A3B8] transition-colors hover:text-[#00E5FF]"
-                >
-                  {t.footer.privacyPolicy}
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/contact"
-                  className="text-[#94A3B8] transition-colors hover:text-[#00E5FF]"
-                >
-                  {t.footer.contact}
-                </Link>
-              </li>
-              <li>
-                <span className="text-xs text-[#94A3B8]">
-                  {t.footer.underChathamHouseRule}
-                </span>
-              </li>
-            </ul>
-          </div>
+          <FooterColumn title={c.forum} external links={[
+            [c.about, "https://visionforum.ai/"],
+            [c.paris, "https://paris2026.visionforum.ai/"],
+            [c.gosim, gosimHref],
+          ]} />
 
-          {/* Social & Partnership */}
-          <div>
-            <h3 className="mb-4 text-sm font-semibold uppercase tracking-wider text-[#E1E8F0]">
-              {t.footer.connect}
-            </h3>
-            <div className="flex gap-3 mb-4">
-              <a
-                href={SOCIAL_LINKS.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="rounded-full border border-[#1E293B] bg-[#0F172A] p-2 text-[#94A3B8] transition-all hover:border-[#00E5FF] hover:text-[#00E5FF] hover:shadow-[0_0_12px_rgba(0,229,255,0.4)]"
-                aria-label="GitHub"
-              >
-                <Github className="h-5 w-5" />
-              </a>
-            </div>
-            <p className="text-xs text-[#94A3B8]">
-              {t.footer.colocatedWith}{" "}
-              <a
-                href="https://shenzhen2026.gosim.org"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="font-medium text-[#FFC857] hover:underline"
-              >
-                {EVENT_CONFIG.location.colocated}
-              </a>
-            </p>
-          </div>
+          <FooterColumn title={c.legal} links={[
+            [c.privacy, "/privacy"],
+            [c.contact, "/contact"],
+          ]} extra={c.rule} extraHref="https://www.chathamhouse.org/about-us/chatham-house-rule" />
         </div>
 
-        {/* Copyright */}
-        <div className="mt-8 border-t border-[#1E293B] pt-8 text-center text-xs text-[#94A3B8]">
-          <p className="tabular-nums">&copy; {currentYear} {t.footer.copyright}</p>
-          <p className="mt-1">
-            {t.footer.organizedBy}
-          </p>
+        <div className="mt-14 flex flex-col gap-3 border-t border-foreground pt-5 text-sm font-semibold tracking-[0.06em] text-muted-foreground sm:flex-row sm:justify-between">
+          <span>© 2026 AI Vision Forum</span>
+          <span>{c.note}</span>
         </div>
       </div>
     </footer>
+  );
+}
+
+function FooterColumn({
+  title,
+  links,
+  external = false,
+  extra,
+  extraHref,
+}: {
+  title: string;
+  links: [string, string][];
+  external?: boolean;
+  extra?: string;
+  extraHref?: string;
+}) {
+  return (
+    <div>
+      <h3 className="mb-4 text-sm font-black uppercase tracking-[0.12em] text-muted-foreground">{title}</h3>
+      <ul className="space-y-3 text-sm font-semibold">
+        {links.map(([label, href]) => (
+          <li key={href}>
+            {external ? (
+              <a href={href} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 hover:underline">
+                {label} <ArrowUpRight className="h-3.5 w-3.5" />
+              </a>
+            ) : (
+              <Link href={href} className="hover:underline">{label}</Link>
+            )}
+          </li>
+        ))}
+      </ul>
+      {extra && extraHref && (
+        <a href={extraHref} target="_blank" rel="noopener noreferrer" className="mt-5 inline-flex items-center gap-1 text-sm font-semibold text-foreground hover:underline">
+          {extra} <ArrowUpRight className="h-3.5 w-3.5" />
+        </a>
+      )}
+      {extra && !extraHref && <p className="mt-5 text-sm text-muted-foreground">{extra}</p>}
+    </div>
   );
 }

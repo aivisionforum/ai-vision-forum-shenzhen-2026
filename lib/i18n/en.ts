@@ -33,7 +33,7 @@ export const en: Translations = {
     subtitle: "Human agency in the age of agent-built software",
     guidingQuestionLabel: "Guiding Question",
     guidingQuestion: "When AI agents write most of the software, how do humans retain intent, decision-making, and accountability?",
-    guidingQuestionNote: "Shenzhen 2026: from principle to practice.",
+    guidingQuestionNote: "The 2026 forum: from principle to practice.",
     whyNowTitle: "Why Now: From Writing Code to Directing Agents",
     whyNowIntro: "Software production is crossing its third threshold \u2014 and each threshold redefined engineering, organizations, and open source.",
     whyNowShifts: [
@@ -50,10 +50,10 @@ export const en: Translations = {
         description: "Agents ship against specs. Trust must move from authorship to provenance.",
       },
     ],
-    valuePropositionTitle: "What Sets the Forum Apart",
+    valuePropositionTitle: "How the Forum Works",
     valueProposition: [
       { title: "Engineering to organization", description: "One room connects the agentic engineering pipeline with the organizational redesign it forces \u2014 practitioners and theorists together." },
-      { title: "Timing sweet spot", description: "Directly before GOSIM Shenzhen (Oct 16\u201317), one year into EU AI Act enforcement, and at the formation of new agentic-AI consortia. A moment to set the agenda." },
+      { title: "Timing sweet spot", description: "Held in Zhuhai immediately before GOSIM Shenzhen (Oct 16\u201317), one year into EU AI Act enforcement, and at the formation of new agentic-AI consortia. A moment to set the agenda." },
       { title: "Cross-cultural bridge", description: "With GOSIM, KAIYUANSHE, and European partners, the only forum addressing US/EU/China open-source dynamics together." },
       { title: "Durable framing over hype", description: "Not what's hot today — enduring structural questions, with current evidence as illustration." },
     ],
@@ -137,7 +137,7 @@ export const en: Translations = {
   venue: {
     title: "Venue",
     venueDescription: "Banyan Tree Zhuhai Phoenix Bay \u2014 a mountain onsen resort in Xiangzhou District, with sessions and accommodation on-site.",
-    colocatedDescription: "Closing cruise Zhuhai \u2192 Shenzhen Shekou \u2014 arriving for GOSIM Shenzhen (Oct 16\u201317).",
+    colocatedDescription: "After the forum closes on October 15, participants travel by boat from Zhuhai to Shenzhen Shekou for GOSIM Shenzhen (October 16\u201317).",
     accessDescription: "Reachable via Zhuhai (ZUH), Hong Kong (HKG), and Shenzhen (SZX) airports.",
     viewOnMap: "View on Google Maps \u2192",
     photosComingSoon: "Venue photos coming soon",
@@ -145,7 +145,7 @@ export const en: Translations = {
 
   cta: {
     title: "Invitation-Only Event",
-    description: "AI Vision Forum Shenzhen 2026 brings together strategic leaders to shape the future of agentic AI.",
+    description: "AI Vision Forum Shenzhen 2026 takes place in Zhuhai and brings together strategic leaders to shape the future of agentic AI.",
     button: "",
     note: "More details coming soon.",
   },
@@ -171,7 +171,7 @@ export const en: Translations = {
   registerPage: {
     backToHome: "Back to Home",
     title: "Request Invitation",
-    description: "AI Vision Forum Shenzhen 2026 is an invitation-only event. Complete the form below to request your invitation.",
+    description: "AI Vision Forum Shenzhen 2026 takes place in Zhuhai and is invitation-only. Complete the form below to request your invitation.",
     fullName: "Full Name *",
     emailAddress: "Email Address *",
     affiliation: "Affiliation / Organization",
@@ -331,7 +331,7 @@ export const en: Translations = {
         description: "Human-AI synergy, governance, open source \u2014 with a published forum report.",
       },
       {
-        name: "GOSIM AI Vision Forum Hangzhou 2025",
+        name: "AI Vision Forum Hangzhou 2025",
         date: "September 12, 2025 \u00b7 Hangzhou, China",
         description: "First forum under the AI Vision Forum name \u2014 human core values in the AI era.",
       },

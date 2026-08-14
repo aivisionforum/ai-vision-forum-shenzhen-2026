@@ -5,13 +5,13 @@
 
 export const EVENT_CONFIG = {
   name: "AI Vision Forum Shenzhen 2026",
-  tagline: "Human Agency in the Agent Era",
+  tagline: "Open Foundations. Agentic Enterprises.",
   guidingQuestion:
-    "When AI agents write most of the software, how do humans retain intent, decision-making, and accountability?",
+    "What must open communities and enterprises rebuild for the agent era?",
   date: "2026-10-14",
   dateDisplay: "October 14–15, 2026",
   location: {
-    city: "Zhuhai · Shenzhen",
+    city: "Zhuhai",
     country: "China",
     venue: "Banyan Tree Zhuhai Phoenix Bay",
     colocated: "GOSIM Shenzhen 2026",
@@ -147,7 +147,7 @@ export const VALUE_PROPOSITION = [
 export const REFERENCE_SITES = {
   mainSite: "https://visionforum.ai/",
   paris2026: "https://paris2026.visionforum.ai/",
-  hangzhou2025: "https://forum.gosim.org/en/",
+  hangzhou2025: "https://hangzhou2025.visionforum.ai/",
 } as const;
 
 export const SOCIAL_LINKS = {
