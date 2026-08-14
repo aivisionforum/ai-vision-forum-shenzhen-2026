@@ -608,7 +608,7 @@ export default function Home() {
             <div>
               <p className="section-kicker">{c.venueKicker}</p>
               <h2 className="section-title mt-5">{c.venueTitle}</h2>
-              <h3 className="mt-8 text-2xl font-bold">{EVENT_CONFIG.location.venue}</h3>
+              <h3 className="mt-8 text-2xl font-bold">{t.venue.name}</h3>
               <p className="mt-2 text-lg text-muted-foreground">{c.venueLocation}</p>
               <a href="https://maps.app.goo.gl/p2X11JMNBymwSx4J9" target="_blank" rel="noopener noreferrer" className="link-arrow mt-7">
                 <MapPin className="h-4 w-4" /> {t.venue.viewOnMap}
@@ -618,7 +618,7 @@ export default function Home() {
             <div className="relative min-h-[280px] overflow-hidden border border-foreground/25 md:min-h-[390px]">
               <Image
                 src="/images/venue/phoenix-bay-aerial.jpg"
-                alt={locale === "cn" ? "珠海凤凰湾酒店航拍景观" : "Aerial view of Banyan Tree Zhuhai Phoenix Bay"}
+                alt={locale === "cn" ? "珠海凤凰湾悦榕庄航拍景观" : "Aerial view of Banyan Tree Zhuhai Phoenix Bay"}
                 fill
                 sizes="(min-width: 1024px) 60vw, 100vw"
                 className="object-cover"

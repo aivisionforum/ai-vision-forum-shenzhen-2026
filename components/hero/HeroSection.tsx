@@ -97,7 +97,7 @@ export function HeroSection() {
           <p className="flex items-center gap-2">
             <MapPin className="h-5 w-5 text-[#FFC857]" />
             <span>
-              {[EVENT_CONFIG.location.venue, EVENT_CONFIG.location.city].filter(Boolean).join(", ")}
+              {[t.venue.name, EVENT_CONFIG.location.city].filter(Boolean).join(", ")}
             </span>
           </p>
           <p className="flex items-center gap-2">

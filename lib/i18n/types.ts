@@ -101,6 +101,7 @@ export interface Translations {
   // Venue Section
   venue: {
     title: string;
+    name: string;
     venueDescription: string;
     colocatedDescription: string;
     accessDescription: string;

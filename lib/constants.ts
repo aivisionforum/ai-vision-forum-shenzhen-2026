@@ -29,7 +29,7 @@ export const EVENT_CONFIG = {
   deepDiveAudioUrl: "/media/shenzhen-2026-deep-dive.mp3",
   recapVideoUrl: "/media/shenzhen-2026-overview.mp4",
   recapPosterUrl: "/images/og.png",
-  ogImageUrl: "/images/og.png",
+  ogImageUrl: "/images/og-hero.png",
 } as const;
 
 export const TRACKS = [
