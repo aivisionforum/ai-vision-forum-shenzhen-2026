@@ -1,4 +1,4 @@
-export type Locale = "en" | "cn";
+export type Locale = "en" | "zh-cn";
 
 export interface TrackDetailContent {
   title: string;

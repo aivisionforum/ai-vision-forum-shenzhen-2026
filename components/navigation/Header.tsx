@@ -15,7 +15,7 @@ const labels = {
     register: "Request invitation",
     menu: "Open menu",
   },
-  cn: {
+  "zh-cn": {
     open: "14 日 · 开源日",
     enterprise: "15 日 · 企业日",
     schedule: "议程",
@@ -39,10 +39,10 @@ export function Header() {
   }, []);
 
   const navItems = [
-    { label: c.open, href: "/#open-source-day" },
-    { label: c.enterprise, href: "/#enterprise-day" },
-    { label: c.schedule, href: "/#schedule" },
-    { label: c.venue, href: "/#venue" },
+    { label: c.open, href: `/${locale}/#open-source-day` },
+    { label: c.enterprise, href: `/${locale}/#enterprise-day` },
+    { label: c.schedule, href: `/${locale}/#schedule` },
+    { label: c.venue, href: `/${locale}/#venue` },
   ];
 
   return (

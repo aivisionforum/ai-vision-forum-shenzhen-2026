@@ -4,7 +4,7 @@ import { useEffect, useRef } from "react";
 import type { Map as LeafletMap } from "leaflet";
 
 type ForumJourneyMapProps = {
-  locale: "en" | "cn";
+  locale: "en" | "zh-cn";
 };
 
 const AI_VF_VENUE: [number, number] = [22.31496, 113.60371];
@@ -29,7 +29,7 @@ export function ForumJourneyMap({ locale }: ForumJourneyMapProps) {
     void import("leaflet").then((L) => {
       if (cancelled || !containerRef.current || mapRef.current) return;
 
-      const copy = locale === "cn"
+      const copy = locale === "zh-cn"
         ? {
             aria: "OpenStreetMap 地图：AI Vision Forum 于 10 月 14 至 15 日在珠海举行，闭幕后乘船前往深圳参加 GOSIM。",
             zhuhai: "珠海 · 10 月 14–15 日",
@@ -150,7 +150,7 @@ export function ForumJourneyMap({ locale }: ForumJourneyMapProps) {
     };
   }, [locale]);
 
-  const ariaLabel = locale === "cn"
+  const ariaLabel = locale === "zh-cn"
     ? "珠海至深圳活动行程地图"
     : "Forum journey map from Zhuhai to Shenzhen";
 

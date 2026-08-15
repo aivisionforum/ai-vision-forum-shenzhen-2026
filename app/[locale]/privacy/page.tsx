@@ -5,13 +5,13 @@ import { ArrowLeft } from "lucide-react";
 import { useTranslation } from "@/lib/i18n";
 
 export default function PrivacyPage() {
-  const { t } = useTranslation();
+  const { locale, t } = useTranslation();
 
   return (
     <div className="min-h-screen bg-background px-4 py-32">
       <div className="container mx-auto max-w-4xl">
         <Link
-          href="/"
+          href={`/${locale}/`}
           className="mb-8 inline-flex items-center gap-2 text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
         >
           <ArrowLeft className="h-4 w-4" />

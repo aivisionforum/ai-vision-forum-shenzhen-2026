@@ -1,18 +1,19 @@
 "use client";
 
 import Link from "next/link";
-import { ArrowLeft, Mail, Twitter, Github, Linkedin } from "lucide-react";
+import { ArrowLeft, Mail, Github } from "lucide-react";
 import { SOCIAL_LINKS } from "@/lib/constants";
 import { useTranslation } from "@/lib/i18n";
 
 export default function ContactPage() {
-  const { t } = useTranslation();
+  const { locale, t } = useTranslation();
+  const homeHref = `/${locale}/`;
 
   return (
     <div className="min-h-screen bg-background px-4 py-32">
       <div className="container mx-auto max-w-4xl">
         <Link
-          href="/"
+          href={homeHref}
           className="mb-8 inline-flex items-center gap-2 text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
         >
           <ArrowLeft className="h-4 w-4" />
@@ -103,13 +104,13 @@ export default function ContactPage() {
                 {t.contactPage.requestInvitation}
               </a>
               <Link
-                href="/#programs"
+                href={`${homeHref}#programs`}
                 className="block rounded-lg border border-border bg-background p-4 font-medium transition-all hover:border-primary hover:bg-primary/5"
               >
                 {t.contactPage.exploreTracks}
               </Link>
               <Link
-                href="/#about"
+                href={`${homeHref}#about`}
                 className="block rounded-lg border border-border bg-background p-4 font-medium transition-all hover:border-secondary hover:bg-secondary/5"
               >
                 {t.contactPage.aboutForum}

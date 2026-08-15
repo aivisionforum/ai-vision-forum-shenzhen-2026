@@ -20,7 +20,7 @@ const copy = {
     ctaButton: "Request an invitation",
     nextDay: "Continue to the other day",
   },
-  cn: {
+  "zh-cn": {
     back: "返回两日议程",
     question: "本日核心问题",
     who: "参与者",
@@ -48,7 +48,7 @@ export function ProgramDayPage({ dayId }: { dayId: ProgramDay }) {
     <main className="bg-background pt-24 text-foreground">
       <section className="border-b border-foreground px-5 pb-16 pt-10 md:px-10 md:pb-24 lg:px-16">
         <div className="mx-auto max-w-[1440px]">
-          <Link href="/#programs" className="link-arrow mb-16">
+          <Link href={`/${locale}/#programs`} className="link-arrow mb-16">
             <ArrowLeft className="h-4 w-4" /> {c.back}
           </Link>
 

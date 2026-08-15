@@ -39,10 +39,12 @@ export function TrackLayout({
 }: TrackLayoutProps) {
   const { locale, t } = useTranslation();
   const isOpenDay = title.toLowerCase().includes("open source") || title.toLowerCase().includes("mobile") || title.includes("开源");
-  const dayRoute = isOpenDay ? "/open-source-day" : "/enterprise-day";
+  const dayRoute = isOpenDay
+    ? `/${locale}/#open-source-day`
+    : `/${locale}/#enterprise-day`;
   const dayLabel = isOpenDay
-    ? (locale === "cn" ? "10 月 14 日 · 开源日" : "14 OCT · OPEN SOURCE DAY")
-    : (locale === "cn" ? "10 月 15 日 · 企业日" : "15 OCT · ENTERPRISE DAY");
+    ? (locale === "zh-cn" ? "10 月 14 日 · 开源日" : "14 OCT · OPEN SOURCE DAY")
+    : (locale === "zh-cn" ? "10 月 15 日 · 企业日" : "15 OCT · ENTERPRISE DAY");
   const accentClass = isOpenDay ? "text-open" : "text-enterprise";
 
   return (
@@ -50,7 +52,7 @@ export function TrackLayout({
       <section className="border-b border-foreground px-5 pb-20 pt-10 md:px-10 md:pb-28 lg:px-16">
         <div className="mx-auto max-w-[1200px]">
           <Link href={dayRoute} className="link-arrow mb-16">
-            <ArrowLeft className="h-4 w-4" /> {locale === "cn" ? "返回当日议程" : "Back to the day program"}
+            <ArrowLeft className="h-4 w-4" /> {locale === "zh-cn" ? "返回当日议程" : "Back to the day program"}
           </Link>
           <div className="grid gap-10 lg:grid-cols-[180px_1fr] lg:items-start">
             <div className={accentClass}>{icon}</div>
@@ -108,7 +110,7 @@ export function TrackLayout({
             <p className="text-sm font-black uppercase tracking-[0.16em] text-open">{dayLabel}</p>
             <h2 className="editorial-type mt-5 max-w-4xl text-[clamp(2.75rem,5vw,4.5rem)] leading-[1.04] tracking-[-0.025em]">
               {EVENT_CONFIG.status === "completed"
-                ? (locale === "cn" ? "阅读完整论坛报告" : "Read the full forum report")
+                ? (locale === "zh-cn" ? "阅读完整论坛报告" : "Read the full forum report")
                 : t.trackDetail.interestedInTrack}
             </h2>
           </div>

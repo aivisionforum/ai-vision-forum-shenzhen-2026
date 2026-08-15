@@ -18,7 +18,6 @@ import {
 import { ForumJourneyMap } from "@/components/venue/ForumJourneyMap";
 import { useTranslation } from "@/lib/i18n";
 import type { Translations } from "@/lib/i18n";
-import { EVENT_CONFIG } from "@/lib/constants";
 import { PAST_ORGANIZATIONS } from "@/lib/past-organizations";
 import { PROGRAM_DAYS } from "@/lib/program";
 
@@ -71,7 +70,7 @@ const copy = {
     collaborationLabel: "IN CONJUNCTION WITH",
     collaborationName: "GOSIM SHENZHEN 2026",
   },
-  cn: {
+  "zh-cn": {
     eyebrow: "2026 年 10 月 14–15 日 · 中国珠海",
     heroTitle: "构建人机协同新范式",
     intro: "两天聚焦四个议题：开源、Mobile Agentic OS、智能体软件工程与 AI 原生组织。",
@@ -128,7 +127,7 @@ const TOPIC_MODAL_EXIT_MS = 420;
 export default function Home() {
   const { locale, t } = useTranslation();
   const c = copy[locale];
-  const gosimHref = locale === "cn"
+  const gosimHref = locale === "zh-cn"
     ? "https://shenzhen2026.gosim.org/zh/"
     : "https://shenzhen2026.gosim.org/?lang=en";
   const [activeTopicSlug, setActiveTopicSlug] = useState<string | null>(null);
@@ -618,7 +617,7 @@ export default function Home() {
             <div className="relative min-h-[280px] overflow-hidden border border-foreground/25 md:min-h-[390px]">
               <Image
                 src="/images/venue/phoenix-bay-aerial.jpg"
-                alt={locale === "cn" ? "珠海凤凰湾悦榕庄航拍景观" : "Aerial view of Banyan Tree Zhuhai Phoenix Bay"}
+                alt={locale === "zh-cn" ? "珠海凤凰湾悦榕庄航拍景观" : "Aerial view of Banyan Tree Zhuhai Phoenix Bay"}
                 fill
                 sizes="(min-width: 1024px) 60vw, 100vw"
                 className="object-cover"

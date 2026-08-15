@@ -22,7 +22,7 @@ const copy = {
     rule: "Chatham House Rule",
     note: "Zhuhai · 14–15 October · Invitation-only · EN / 中文 interpretation",
   },
-  cn: {
+  "zh-cn": {
     line: "用两天，讨论智能体时代的根本问题。",
     program: "议程",
     open: "开源日 · 10 月 14 日",
@@ -43,7 +43,7 @@ const copy = {
 export function Footer() {
   const { locale } = useTranslation();
   const c = copy[locale];
-  const gosimHref = locale === "cn"
+  const gosimHref = locale === "zh-cn"
     ? "https://shenzhen2026.gosim.org/zh/"
     : "https://shenzhen2026.gosim.org/?lang=en";
 
@@ -57,9 +57,9 @@ export function Footer() {
           </div>
 
           <FooterColumn title={c.program} links={[
-            [c.open, "/#open-source-day"],
-            [c.enterprise, "/#enterprise-day"],
-            [c.schedule, "/#schedule"],
+            [c.open, `/${locale}/#open-source-day`],
+            [c.enterprise, `/${locale}/#enterprise-day`],
+            [c.schedule, `/${locale}/#schedule`],
           ]} />
 
           <FooterColumn title={c.forum} external links={[
@@ -69,8 +69,8 @@ export function Footer() {
           ]} />
 
           <FooterColumn title={c.legal} links={[
-            [c.privacy, "/privacy"],
-            [c.contact, "/contact"],
+            [c.privacy, `/${locale}/privacy/`],
+            [c.contact, `/${locale}/contact/`],
           ]} extra={c.rule} extraHref="https://www.chathamhouse.org/about-us/chatham-house-rule" />
         </div>
 
