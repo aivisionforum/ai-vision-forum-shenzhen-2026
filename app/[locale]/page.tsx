@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useLayoutEffect, useRef, useState } from "react";
+import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import {
@@ -13,11 +13,9 @@ import {
   MapPin,
   Plane,
   Users,
-  X,
 } from "lucide-react";
 import { ForumJourneyMap } from "@/components/venue/ForumJourneyMap";
 import { useTranslation } from "@/lib/i18n";
-import type { Translations } from "@/lib/i18n";
 import { PAST_ORGANIZATIONS } from "@/lib/past-organizations";
 import { PROGRAM_DAYS } from "@/lib/program";
 
@@ -122,82 +120,17 @@ const pastEditions = [
   { url: "https://paris2025.gosim.org/os-ai-strategy-forum/", reportUrl: "" },
 ];
 
-const TOPIC_MODAL_EXIT_MS = 420;
-
 export default function Home() {
   const { locale, t } = useTranslation();
   const c = copy[locale];
   const gosimHref = locale === "zh-cn"
     ? "https://shenzhen2026.gosim.org/zh/"
     : "https://shenzhen2026.gosim.org/?lang=en";
-  const [activeTopicSlug, setActiveTopicSlug] = useState<string | null>(null);
-  const [isTopicModalVisible, setIsTopicModalVisible] = useState(false);
   const [openAboutPanels, setOpenAboutPanels] = useState({ why: false, model: false });
-  const topicModalClosingRef = useRef(false);
-  const topicModalTimerRef = useRef<number | null>(null);
-  const topicModalFrameRef = useRef<number | null>(null);
-  const activeTrack = activeTopicSlug
-    ? PROGRAM_DAYS.flatMap((day) => day.topics.map((topic) => ({ day, topic }))).find(
-        ({ topic }) => topic.slug === activeTopicSlug,
-      )
-    : undefined;
-  const activeDetail = activeTrack ? getTrackDetail(activeTrack.topic.slug, t) : undefined;
 
   const toggleAboutPanel = (panel: "why" | "model") => {
     setOpenAboutPanels((current) => ({ ...current, [panel]: !current[panel] }));
   };
-
-  const openTopicModal = (slug: string) => {
-    if (topicModalTimerRef.current !== null) window.clearTimeout(topicModalTimerRef.current);
-    if (topicModalFrameRef.current !== null) window.cancelAnimationFrame(topicModalFrameRef.current);
-    topicModalClosingRef.current = false;
-    setIsTopicModalVisible(false);
-    setActiveTopicSlug(slug);
-    topicModalFrameRef.current = window.requestAnimationFrame(() => {
-      topicModalFrameRef.current = window.requestAnimationFrame(() => {
-        setIsTopicModalVisible(true);
-        topicModalFrameRef.current = null;
-      });
-    });
-  };
-
-  const closeTopicModal = useCallback(() => {
-    if (!activeTopicSlug || topicModalClosingRef.current) return;
-
-    topicModalClosingRef.current = true;
-    setIsTopicModalVisible(false);
-    const exitDelay = window.matchMedia("(prefers-reduced-motion: reduce)").matches ? 0 : TOPIC_MODAL_EXIT_MS;
-    topicModalTimerRef.current = window.setTimeout(() => {
-      setActiveTopicSlug(null);
-      topicModalClosingRef.current = false;
-      topicModalTimerRef.current = null;
-    }, exitDelay);
-  }, [activeTopicSlug]);
-
-  useLayoutEffect(() => {
-    if (!activeTopicSlug) return;
-
-    const root = document.documentElement;
-    const previousOverflow = document.body.style.overflow;
-    const previousPaddingRight = document.body.style.paddingRight;
-    const scrollbarWidth = Math.max(0, window.innerWidth - root.clientWidth);
-    const bodyPaddingRight = Number.parseFloat(window.getComputedStyle(document.body).paddingRight) || 0;
-    const closeOnEscape = (event: KeyboardEvent) => {
-      if (event.key === "Escape") closeTopicModal();
-    };
-
-    if (scrollbarWidth > 0) document.body.style.paddingRight = `${bodyPaddingRight + scrollbarWidth}px`;
-    document.body.style.overflow = "hidden";
-    window.addEventListener("keydown", closeOnEscape);
-
-    return () => {
-      document.body.style.overflow = previousOverflow;
-      document.body.style.paddingRight = previousPaddingRight;
-      window.removeEventListener("keydown", closeOnEscape);
-      if (topicModalTimerRef.current !== null) window.clearTimeout(topicModalTimerRef.current);
-      if (topicModalFrameRef.current !== null) window.cancelAnimationFrame(topicModalFrameRef.current);
-    };
-  }, [activeTopicSlug, closeTopicModal]);
 
   return (
     <main className="bg-background text-foreground">
@@ -253,15 +186,15 @@ export default function Home() {
               {PROGRAM_DAYS.map((day, index) => (
                 <Link
                   key={day.id}
-                  href={day.route}
-                  className={`group hero-program-day ${index > 0 ? "border-t border-foreground/15 md:border-l md:border-t-0" : ""}`}
+                  href={`/${locale}${day.route}`}
+                  className={`group hero-program-day hero-program-day-${day.id} ${index > 0 ? "border-t border-foreground/15 md:border-l md:border-t-0" : ""}`}
                 >
-                  <span className={`editorial-type text-5xl leading-none ${day.id === "open" ? "text-open" : "text-enterprise"}`}>
+                  <span className={`editorial-type text-5xl leading-none ${day.id === "open" ? "text-day-one" : "text-enterprise"}`}>
                     {day.dateNumber}
                   </span>
                   <span className="min-w-0 flex-1">
                     <strong className="block text-base font-black tracking-[-0.01em]">
-                      OCT · {day.shortName[locale]}
+                      {locale === "zh-cn" ? `10月${day.dateNumber}日 · ${day.shortName[locale]}` : `OCT · ${day.shortName[locale]}`}
                     </strong>
                     <span className="mt-1 block text-sm leading-snug text-muted-foreground">
                       {day.topics.map((topic) => topic.title[locale]).join(" · ")}
@@ -369,7 +302,7 @@ export default function Home() {
             <div className="forum-facts grid border-y border-foreground md:grid-cols-4">
               <Fact icon={<Users />} value="100–150" label={t.about.invitedParticipants} />
               <Fact icon={<Lock />} value={t.about.inviteOnly} label={t.about.exclusiveAccess} />
-              <Fact icon={<CalendarDays />} value="14–15 OCT" label={c.placeValue} />
+              <Fact icon={<CalendarDays />} value={locale === "zh-cn" ? "10月14–15日" : "14–15 OCT"} label={c.placeValue} />
               <Fact icon={<Handshake />} value="GOSIM" label={t.about.colocated} />
             </div>
           </div>
@@ -393,30 +326,43 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="mt-10 space-y-5">
+          <div className="mt-10 space-y-8">
             {PROGRAM_DAYS.map((day) => (
-              <section key={day.id} id={`${day.id === "open" ? "open-source" : "enterprise"}-day`} className="scroll-mt-24">
-                <header className={`mb-4 border-b pb-3 program-day-header-${day.id}`}>
-                  <div className="flex items-baseline gap-4">
-                    <span className={`editorial-type text-5xl leading-none ${day.id === "open" ? "text-open" : "text-enterprise"}`}>{day.dateNumber}</span>
-                    <h3 className="text-xl font-black">{day.shortName[locale]}</h3>
+              <section
+                key={day.id}
+                id={`${day.id === "open" ? "open-source" : "enterprise"}-day`}
+                className={`program-overview-day program-overview-day-${day.id} scroll-mt-24`}
+              >
+                <header className="program-overview-day-header">
+                  <span className={`editorial-type text-[clamp(4rem,7vw,6rem)] leading-[0.8] ${day.id === "open" ? "text-day-one" : "text-enterprise"}`}>
+                    {day.dateNumber}
+                  </span>
+                  <div>
+                    <p className={`text-sm font-black uppercase tracking-[0.14em] ${day.id === "open" ? "text-day-one" : "text-enterprise"}`}>
+                      {day.dateLabel[locale]} · {day.shortName[locale]}
+                    </p>
+                    <h3 className="editorial-type mt-3 max-w-4xl text-[clamp(2rem,3.5vw,3.25rem)] leading-[1.04] tracking-[-0.03em]">
+                      {day.title[locale]}
+                    </h3>
+                    <p className="mt-4 max-w-3xl text-base leading-relaxed text-muted-foreground">{day.deck[locale]}</p>
                   </div>
+                  <Link href={`/${locale}${day.route}`} className="button-ink group self-start">
+                    {c.explore}
+                    <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-1 group-hover:translate-x-1" />
+                  </Link>
                 </header>
 
                 <div className="grid gap-4 lg:grid-cols-2">
                   {day.topics.map((topic) => (
-                    <button
+                    <Link
                       key={topic.slug}
                       id={`topic-${topic.slug}`}
-                      type="button"
-                      aria-haspopup="dialog"
-                      aria-expanded={activeTopicSlug === topic.slug}
-                      onClick={() => openTopicModal(topic.slug)}
+                      href={`/${locale}${day.route}#${topic.slug}`}
                       className={`topic-card topic-card-${day.id} group flex min-h-[230px] flex-col border border-foreground/20 p-6 text-left focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-open md:p-7`}
                     >
                       <div className="flex items-start justify-between gap-5">
-                        <span className={`font-mono text-sm font-bold ${day.id === "open" ? "text-open" : "text-enterprise"}`}>{topic.number}</span>
-                        <ArrowUpRight className={`h-5 w-5 transition-transform group-hover:-translate-y-1 group-hover:translate-x-1 ${day.id === "open" ? "text-open" : "text-enterprise"}`} />
+                        <span className={`font-mono text-sm font-bold ${day.id === "open" ? "text-day-one" : "text-enterprise"}`}>{topic.number}</span>
+                        <ArrowUpRight className={`h-5 w-5 transition-transform group-hover:-translate-y-1 group-hover:translate-x-1 ${day.id === "open" ? "text-day-one" : "text-enterprise"}`} />
                       </div>
                       <h4 className="editorial-type mt-4 text-[clamp(1.9rem,2.7vw,2.4rem)] leading-[1.04]">{topic.title[locale]}</h4>
                       <p className="mt-3 text-[15px] font-semibold leading-snug text-muted-foreground">{topic.subtitle[locale]}</p>
@@ -425,7 +371,7 @@ export default function Home() {
                           <li key={prompt} className="border border-foreground/20 px-3 py-1.5 text-sm font-semibold">{prompt}</li>
                         ))}
                       </ul>
-                    </button>
+                    </Link>
                   ))}
                 </div>
               </section>
@@ -433,78 +379,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
-      {activeTrack && activeDetail && (
-        <div
-          className="topic-modal-backdrop fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-8"
-          data-state={isTopicModalVisible ? "open" : "closed"}
-          onPointerDown={(event) => {
-            if (event.target === event.currentTarget) closeTopicModal();
-          }}
-        >
-          <section
-            role="dialog"
-            aria-modal="true"
-            aria-labelledby="topic-dialog-title"
-            className={`topic-modal-panel topic-modal-panel-${activeTrack.day.id} max-h-[88vh] w-full max-w-[1040px] overflow-y-auto overscroll-contain border border-foreground/25 bg-background shadow-[0_28px_90px_rgba(20,42,56,0.28)]`}
-            data-state={isTopicModalVisible ? "open" : "closed"}
-          >
-            <header className="sticky top-0 z-10 flex items-start justify-between gap-6 border-b border-foreground/20 bg-background/95 p-5 backdrop-blur-md md:p-7">
-              <div>
-                <p className={`text-sm font-black uppercase tracking-[0.1em] ${activeTrack.day.id === "open" ? "text-open" : "text-enterprise"}`}>
-                  {activeTrack.day.dateNumber} OCT · {activeTrack.day.shortName[locale]}
-                </p>
-                <h2 id="topic-dialog-title" className="editorial-type mt-3 text-[clamp(2.25rem,5vw,4rem)] leading-[1.02]">
-                  {activeTrack.topic.title[locale]}
-                </h2>
-              </div>
-              <button
-                type="button"
-                autoFocus
-                onClick={closeTopicModal}
-                className="shrink-0 border border-foreground/25 p-2 transition-colors hover:bg-surface"
-                aria-label={c.closeDetails}
-              >
-                <X className="h-5 w-5" />
-              </button>
-            </header>
-
-            <div className="p-5 md:p-7">
-              <p className="max-w-4xl text-lg leading-relaxed text-muted-foreground">{activeDetail.overview}</p>
-              <div className="mt-7 grid gap-8 border-t border-foreground/20 pt-7 md:grid-cols-[1.08fr_0.92fr]">
-                <div>
-                  <h3 className="text-sm font-black uppercase tracking-[0.1em]">{t.trackDetail.keyTopics}</h3>
-                  <ul className="mt-4 space-y-3 text-base leading-relaxed text-muted-foreground">
-                    {activeDetail.keyTopics.map((item) => <li key={item}>— {item}</li>)}
-                  </ul>
-                </div>
-                <div className="space-y-8">
-                  <div>
-                    <h3 className="text-sm font-black uppercase tracking-[0.1em]">{activeDetail.spotlightTitle}</h3>
-                    <p className="mt-4 text-base leading-relaxed text-muted-foreground">{activeDetail.spotlightText}</p>
-                  </div>
-                  <div>
-                    <h3 className="text-sm font-black uppercase tracking-[0.1em]">{activeDetail.outcomesTitle}</h3>
-                    <ul className="mt-4 space-y-3 text-base leading-relaxed text-muted-foreground">
-                      {activeDetail.outcomes.map((item) => <li key={item}>— {item}</li>)}
-                    </ul>
-                  </div>
-                </div>
-              </div>
-              <div className={`mt-8 flex flex-col gap-5 border-t pt-6 sm:flex-row sm:items-end sm:justify-between ${activeTrack.day.id === "open" ? "border-open/35" : "border-enterprise/35"}`}>
-                <div>
-                  <h3 className="text-xl font-bold">{t.trackDetail.interestedInTrack}</h3>
-                  <p className="mt-1 text-base text-muted-foreground">{t.trackDetail.requestInvitationToJoin}</p>
-                </div>
-                <a href="https://register.gosim.org/" target="_blank" rel="noopener noreferrer" className="button-ink group shrink-0">
-                  {t.trackDetail.requestInvitation}
-                  <ArrowUpRight className="h-5 w-5 transition-transform group-hover:-translate-y-1 group-hover:translate-x-1" />
-                </a>
-              </div>
-            </div>
-          </section>
-        </div>
-      )}
 
       <section id="schedule" className="px-5 py-16 md:px-10 md:py-20 lg:px-16">
         <div className="mx-auto max-w-[1320px]">
@@ -523,13 +397,17 @@ export default function Home() {
               {PROGRAM_DAYS.map((day, dayIndex) => {
                 const allSessions = dayIndex === 0 ? t.scheduleSection.items.slice(0, 8) : t.scheduleSection.items.slice(8);
                 return (
-                  <section key={day.id} className={`schedule-day-${day.id} border-b border-r border-foreground/20 bg-card`}>
+                  <section key={day.id} className={`schedule-day-${day.id} border-b border-r border-foreground/20`}>
                     <header className="flex min-h-24 items-center gap-4 border-b border-foreground/20 px-5 py-4">
-                      <span className={`editorial-type text-5xl leading-none ${day.id === "open" ? "text-open" : "text-enterprise"}`}>{day.dateNumber}</span>
-                      <div>
+                      <span className={`editorial-type text-5xl leading-none ${day.id === "open" ? "text-day-one" : "text-enterprise"}`}>{day.dateNumber}</span>
+                      <div className="min-w-0 flex-1">
                         <h3 className="text-lg font-black">{day.shortName[locale]}</h3>
                         <p className="mt-1 text-sm font-semibold text-muted-foreground">{day.dateLabel[locale]}</p>
                       </div>
+                      <Link href={`/${locale}${day.route}`} className={`group inline-flex items-center gap-2 text-sm font-black ${day.id === "open" ? "text-day-one" : "text-enterprise"}`}>
+                        {c.viewDay}
+                        <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                      </Link>
                     </header>
                     <div>
                       {allSessions.map((session) => (
@@ -673,19 +551,4 @@ function VenueDetail({ icon, text }: { icon: React.ReactNode; text: string }) {
       <p className="text-base leading-relaxed text-muted-foreground">{text}</p>
     </div>
   );
-}
-
-function getTrackDetail(slug: string, t: Translations) {
-  switch (slug) {
-    case "agentic-engineering":
-      return t.trackAgenticSE;
-    case "ai-native-org":
-      return t.trackAiNativeOrg;
-    case "open-source":
-      return t.trackOpenSource;
-    case "mobile-agentic-os":
-      return t.trackMobileLinux;
-    default:
-      return t.trackOpenSource;
-  }
 }

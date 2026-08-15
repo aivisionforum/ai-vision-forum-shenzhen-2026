@@ -39,8 +39,8 @@ export function Header() {
   }, []);
 
   const navItems = [
-    { label: c.open, href: `/${locale}/#open-source-day` },
-    { label: c.enterprise, href: `/${locale}/#enterprise-day` },
+    { label: c.open, href: `/${locale}/day-one/` },
+    { label: c.enterprise, href: `/${locale}/day-two/` },
     { label: c.schedule, href: `/${locale}/#schedule` },
     { label: c.venue, href: `/${locale}/#venue` },
   ];

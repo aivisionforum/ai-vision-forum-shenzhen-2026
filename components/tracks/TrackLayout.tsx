@@ -40,12 +40,13 @@ export function TrackLayout({
   const { locale, t } = useTranslation();
   const isOpenDay = title.toLowerCase().includes("open source") || title.toLowerCase().includes("mobile") || title.includes("开源");
   const dayRoute = isOpenDay
-    ? `/${locale}/#open-source-day`
-    : `/${locale}/#enterprise-day`;
+    ? `/${locale}/day-one/`
+    : `/${locale}/day-two/`;
   const dayLabel = isOpenDay
     ? (locale === "zh-cn" ? "10 月 14 日 · 开源日" : "14 OCT · OPEN SOURCE DAY")
     : (locale === "zh-cn" ? "10 月 15 日 · 企业日" : "15 OCT · ENTERPRISE DAY");
-  const accentClass = isOpenDay ? "text-open" : "text-enterprise";
+  const accentClass = isOpenDay ? "text-day-one" : "text-enterprise";
+  const ctaBorderClass = isOpenDay ? "border-day-one" : "border-enterprise";
 
   return (
     <main className="min-h-screen bg-background pt-24">
@@ -105,9 +106,9 @@ export function TrackLayout({
       )}
 
       <section className="border-t border-foreground/30 bg-white px-5 py-20 md:px-10 md:py-24 lg:px-16">
-        <div className="mx-auto flex max-w-[1200px] flex-col gap-10 border-2 border-open p-7 md:p-10 lg:flex-row lg:items-end lg:justify-between">
+        <div className={`mx-auto flex max-w-[1200px] flex-col gap-10 border-2 p-7 md:p-10 lg:flex-row lg:items-end lg:justify-between ${ctaBorderClass}`}>
           <div>
-            <p className="text-sm font-black uppercase tracking-[0.16em] text-open">{dayLabel}</p>
+            <p className={`text-sm font-black uppercase tracking-[0.16em] ${accentClass}`}>{dayLabel}</p>
             <h2 className="editorial-type mt-5 max-w-4xl text-[clamp(2.75rem,5vw,4.5rem)] leading-[1.04] tracking-[-0.025em]">
               {EVENT_CONFIG.status === "completed"
                 ? (locale === "zh-cn" ? "阅读完整论坛报告" : "Read the full forum report")

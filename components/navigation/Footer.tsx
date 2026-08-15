@@ -57,8 +57,8 @@ export function Footer() {
           </div>
 
           <FooterColumn title={c.program} links={[
-            [c.open, `/${locale}/#open-source-day`],
-            [c.enterprise, `/${locale}/#enterprise-day`],
+            [c.open, `/${locale}/day-one/`],
+            [c.enterprise, `/${locale}/day-two/`],
             [c.schedule, `/${locale}/#schedule`],
           ]} />
 
