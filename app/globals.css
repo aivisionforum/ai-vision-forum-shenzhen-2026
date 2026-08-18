@@ -314,6 +314,24 @@
     display: block;
   }
 
+  .hero-event-brand {
+    display: flex !important;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.08em 0.3em;
+    line-height: 1;
+  }
+
+  .hero-event-name-zh {
+    font-size: 0.74em;
+    letter-spacing: -0.055em;
+  }
+
+  .hero-event-name-en {
+    font-size: 0.46em;
+    letter-spacing: -0.025em;
+  }
+
   .hero-event-location {
     margin-top: 0.16em;
     color: var(--open);
@@ -344,6 +362,20 @@
     .hero-event-title {
       font-size: clamp(3rem, 15vw, 3.8rem);
       line-height: 0.94;
+    }
+
+    .hero-event-brand {
+      align-items: flex-start;
+      flex-direction: column;
+      gap: 0.12em;
+    }
+
+    .hero-event-name-zh {
+      font-size: 0.82em;
+    }
+
+    .hero-event-name-en {
+      font-size: 0.52em;
     }
 
     .hero-collaboration {

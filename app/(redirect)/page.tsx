@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { EVENT_BRAND } from "@/lib/constants";
 
 const redirectScript = `
 (() => {
@@ -32,7 +33,7 @@ export default function LocaleRedirectPage() {
       <script dangerouslySetInnerHTML={{ __html: redirectScript }} />
       <div>
         <p className="text-sm font-black uppercase tracking-[0.14em] text-muted-foreground">
-          AI Vision Forum Shenzhen 2026
+          {EVENT_BRAND.bilingual} Shenzhen 2026
         </p>
         <p className="mt-4 text-lg font-semibold">Choosing your language…</p>
         <noscript>

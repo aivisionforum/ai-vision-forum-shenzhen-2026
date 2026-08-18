@@ -3,6 +3,12 @@
 // (Robotics & AI Hardware). Most copy is placeholder pending program-committee
 // curation; the constants shape is preserved so components reuse cleanly.
 
+export const EVENT_BRAND = {
+  zh: "AI愿景论坛",
+  en: "AI Vision Forum",
+  bilingual: "AI愿景论坛 · AI Vision Forum",
+} as const;
+
 export const EVENT_CONFIG = {
   name: "AI Vision Forum Shenzhen 2026",
   tagline: "Open Foundations. Agentic Enterprises.",

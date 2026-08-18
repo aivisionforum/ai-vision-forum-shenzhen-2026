@@ -4,6 +4,7 @@ import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { Logo } from "@/components/branding/Logo";
 import { useTranslation } from "@/lib/i18n";
+import { EVENT_BRAND } from "@/lib/constants";
 
 const copy = {
   en: {
@@ -75,7 +76,7 @@ export function Footer() {
         </div>
 
         <div className="mt-14 flex flex-col gap-3 border-t border-foreground pt-5 text-sm font-semibold tracking-[0.06em] text-muted-foreground sm:flex-row sm:justify-between">
-          <span>© 2026 AI Vision Forum</span>
+          <span>© 2026 {EVENT_BRAND.bilingual}</span>
           <span>{c.note}</span>
         </div>
       </div>

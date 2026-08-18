@@ -5,7 +5,7 @@ import { getMessages, setRequestLocale } from "next-intl/server";
 import { Bodoni_Moda, Inter } from "next/font/google";
 import "leaflet/dist/leaflet.css";
 import "../globals.css";
-import { EVENT_CONFIG } from "@/lib/constants";
+import { EVENT_BRAND, EVENT_CONFIG } from "@/lib/constants";
 import { Header } from "@/components/navigation/Header";
 import { Footer } from "@/components/navigation/Footer";
 import { LanguageProvider } from "@/lib/i18n";
@@ -26,16 +26,16 @@ const isCompleted = EVENT_CONFIG.status === "completed";
 
 const metadataCopy = {
   en: {
-    title: `${EVENT_CONFIG.name} | ${EVENT_CONFIG.tagline}`,
+    title: `${EVENT_BRAND.bilingual} Shenzhen 2026 | ${EVENT_CONFIG.tagline}`,
     description: isCompleted
       ? `Forum Report from ${EVENT_CONFIG.name} (${EVENT_CONFIG.dateDisplay}, ${EVENT_CONFIG.location.city}) — ${EVENT_CONFIG.tagline}. Executive summary, panel findings, and multimedia recap.`
       : `Two focused forums in ${EVENT_CONFIG.location.city}: Open Source Day on October 14 and Enterprise Day on October 15, covering Mobile Agentic OS, Agentic Software Engineering, and the AI-Native Organization.`,
     imageAlt: `${EVENT_CONFIG.name} — Open Source Day and Enterprise Day`,
   },
   "zh-cn": {
-    title: "AI Vision Forum 深圳 2026｜构建人机协同新范式",
+    title: `${EVENT_BRAND.bilingual} 深圳 2026｜构建人机协同新范式`,
     description: "2026 年 10 月 14–15 日在珠海举行的两日闭门论坛，聚焦智能体时代的开源、Mobile Agentic OS、智能体软件工程与 AI 原生组织。",
-    imageAlt: "AI Vision Forum 深圳 2026——开源日与企业日",
+    imageAlt: `${EVENT_BRAND.bilingual} 深圳 2026——开源日与企业日`,
   },
 } as const;
 
@@ -59,6 +59,7 @@ export async function generateMetadata({ params }: Omit<LayoutProps, "children">
     description: copy.description,
     keywords: [
       "AI Vision Forum",
+      "AI愿景论坛",
       "Shenzhen 2026",
       "Zhuhai",
       "Open Source",
@@ -79,7 +80,7 @@ export async function generateMetadata({ params }: Omit<LayoutProps, "children">
       title: copy.title,
       description: copy.description,
       url: `/${locale}/`,
-      siteName: EVENT_CONFIG.name,
+      siteName: `${EVENT_BRAND.bilingual} Shenzhen 2026`,
       locale: locale === "zh-cn" ? "zh_CN" : "en_US",
       alternateLocale: locale === "zh-cn" ? ["en_US"] : ["zh_CN"],
       type: "website",
@@ -110,7 +111,9 @@ export default async function LocaleLayout({ children, params }: LayoutProps) {
   const eventJsonLd = {
     "@context": "https://schema.org",
     "@type": "Event",
-    name: locale === "zh-cn" ? "AI Vision Forum 深圳 2026" : EVENT_CONFIG.name,
+    name: locale === "zh-cn"
+      ? `${EVENT_BRAND.bilingual} 深圳 2026`
+      : `${EVENT_BRAND.bilingual} Shenzhen 2026`,
     description: copy.description,
     startDate: "2026-10-14T09:00:00+08:00",
     endDate: "2026-10-15T20:30:00+08:00",
@@ -127,7 +130,7 @@ export default async function LocaleLayout({ children, params }: LayoutProps) {
         addressCountry: "CN",
       },
     },
-    organizer: { "@type": "Organization", name: "AI Vision Forum" },
+    organizer: { "@type": "Organization", name: EVENT_BRAND.bilingual },
     url: `https://${EVENT_CONFIG.domain}/${locale}/`,
     image: [`https://${EVENT_CONFIG.domain}${EVENT_CONFIG.ogImageUrl}`],
   };

@@ -16,6 +16,7 @@ import {
 } from "lucide-react";
 import { ForumJourneyMap } from "@/components/venue/ForumJourneyMap";
 import { useTranslation } from "@/lib/i18n";
+import { EVENT_BRAND } from "@/lib/constants";
 import { PAST_ORGANIZATIONS } from "@/lib/past-organizations";
 import { PROGRAM_DAYS } from "@/lib/program";
 
@@ -152,7 +153,10 @@ export default function Home() {
           <div className="max-w-[700px] pt-2 md:pt-8">
             <p className="section-kicker text-foreground/70">{c.eyebrow}</p>
             <h1 className="hero-event-title mt-5">
-              <span className="hero-event-name">AI Vision Forum</span>
+              <span className="hero-event-brand">
+                <span className="hero-event-name-zh">{EVENT_BRAND.zh}</span>
+                <span className="hero-event-name-en">{EVENT_BRAND.en}</span>
+              </span>
               <span className="hero-event-location">Shenzhen 2026</span>
             </h1>
             <p className="mt-6 max-w-[560px] text-[clamp(1.3rem,2vw,1.7rem)] font-semibold leading-[1.25] tracking-[-0.02em]">

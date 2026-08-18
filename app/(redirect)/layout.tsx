@@ -1,10 +1,11 @@
 import { Inter } from "next/font/google";
 import type { Metadata } from "next";
 import "../globals.css";
+import { EVENT_BRAND } from "@/lib/constants";
 
 export const metadata: Metadata = {
-  title: "AI Vision Forum Shenzhen 2026",
-  description: "Choose English or Chinese for AI Vision Forum Shenzhen 2026.",
+  title: `${EVENT_BRAND.bilingual} Shenzhen 2026`,
+  description: `Choose English or Chinese for ${EVENT_BRAND.bilingual} Shenzhen 2026.`,
   robots: { index: false, follow: true },
   alternates: {
     languages: {
