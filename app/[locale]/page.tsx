@@ -394,9 +394,7 @@ export default function Home() {
           </div>
 
           <div className="mt-9 grid border-l border-t border-foreground/20 lg:grid-cols-2">
-              {PROGRAM_DAYS.map((day, dayIndex) => {
-                const allSessions = dayIndex === 0 ? t.scheduleSection.items.slice(0, 8) : t.scheduleSection.items.slice(8);
-                return (
+              {PROGRAM_DAYS.map((day) => (
                   <section key={day.id} className={`schedule-day-${day.id} border-b border-r border-foreground/20`}>
                     <header className="flex min-h-24 items-center gap-4 border-b border-foreground/20 px-5 py-4">
                       <span className={`editorial-type text-5xl leading-none ${day.id === "open" ? "text-day-one" : "text-enterprise"}`}>{day.dateNumber}</span>
@@ -410,23 +408,18 @@ export default function Home() {
                       </Link>
                     </header>
                     <div>
-                      {allSessions.map((session) => (
+                      {day.schedule.map((session) => (
                         <div key={session.time} className="grid min-h-[66px] grid-cols-[72px_1fr] gap-3 border-b border-foreground/15 px-5 py-3 last:border-b-0">
-                          <time className="font-mono text-sm font-bold tabular-nums">{session.time.replace(/^.*?·\s*/, "")}</time>
+                          <time className="font-mono text-sm font-bold tabular-nums">{session.time}</time>
                           <div>
-                            <p className="text-sm font-bold leading-snug">{session.title}</p>
-                            {(session.subtitle || session.format) && (
-                              <p className="mt-1 text-sm leading-snug text-muted-foreground">
-                                {[session.subtitle, session.format].filter(Boolean).join(" · ")}
-                              </p>
-                            )}
+                            <p className="text-sm font-bold leading-snug">{session.title[locale]}</p>
+                            {session.note && <p className="mt-1 text-sm leading-snug text-muted-foreground">{session.note[locale]}</p>}
                           </div>
                         </div>
                       ))}
                     </div>
                   </section>
-                );
-              })}
+              ))}
           </div>
         </div>
       </section>
