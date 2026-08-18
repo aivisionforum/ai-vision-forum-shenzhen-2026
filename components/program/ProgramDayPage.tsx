@@ -168,7 +168,7 @@ export function ProgramDayPage({ dayId }: { dayId: ProgramDay }) {
           </div>
           <div className="border-t-2 border-foreground">
             {day.schedule.map((session) => (
-              <div key={session.time} className="grid grid-cols-[76px_1fr] border-b border-foreground py-5 md:grid-cols-[110px_1fr]">
+              <div key={session.time} className="grid grid-cols-[112px_1fr] border-b border-foreground py-5 md:grid-cols-[132px_1fr]">
                 <time className="font-mono text-sm font-bold tabular-nums">{session.time}</time>
                 <div className="flex flex-col justify-between gap-2 sm:flex-row sm:gap-8">
                   <span className="text-lg font-bold">{session.title[locale]}</span>

@@ -409,7 +409,7 @@ export default function Home() {
                     </header>
                     <div>
                       {day.schedule.map((session) => (
-                        <div key={session.time} className="grid min-h-[66px] grid-cols-[72px_1fr] gap-3 border-b border-foreground/15 px-5 py-3 last:border-b-0">
+                        <div key={session.time} className="grid min-h-[66px] grid-cols-[112px_1fr] gap-3 border-b border-foreground/15 px-5 py-3 last:border-b-0 md:grid-cols-[124px_1fr]">
                           <time className="font-mono text-sm font-bold tabular-nums">{session.time}</time>
                           <div>
                             <p className="text-sm font-bold leading-snug">{session.title[locale]}</p>
