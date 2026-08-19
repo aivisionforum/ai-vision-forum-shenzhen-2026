@@ -29,7 +29,7 @@ export const cn: Translations = {
   },
 
   about: {
-    title: "关于 AI愿景论坛 · AI Vision Forum",
+    title: "关于 AI 愿景论坛 AI Vision Forum",
     subtitle: "当智能体开始构建软件，人如何保有主体性",
     guidingQuestionLabel: "核心问题",
     guidingQuestion: "当 AI 智能体完成大部分软件开发工作，人如何继续掌握目标、决策与责任？",
@@ -146,7 +146,7 @@ export const cn: Translations = {
 
   cta: {
     title: "加入对话",
-    description: "AI愿景论坛 · AI Vision Forum 深圳 2026 在珠海举行，仅限受邀参加。如希望参与讨论，欢迎提交邀请申请。",
+    description: "AI 愿景论坛 AI Vision Forum 深圳 2026 在珠海举行，仅限受邀参加。如希望参与讨论，欢迎提交邀请申请。",
     button: "申请邀请",
     note: "申请将分批审核",
   },
@@ -160,19 +160,19 @@ export const cn: Translations = {
     legal: "法律信息",
     privacyPolicy: "隐私政策",
     contact: "联系我们",
-    mainSite: "AI愿景论坛 · AI Vision Forum 主站",
+    mainSite: "AI 愿景论坛 AI Vision Forum 主站",
     paris2026: "巴黎 2026 回顾",
     underChathamHouseRule: "遵循查塔姆宫规则",
     connect: "关注我们",
     colocatedWith: "联合举办",
-    copyright: "AI愿景论坛 · AI Vision Forum 版权所有",
-    organizedBy: "由 AI愿景论坛 · AI Vision Forum 社区发起 · 仅限受邀参加",
+    copyright: "AI 愿景论坛 AI Vision Forum 版权所有",
+    organizedBy: "由 AI 愿景论坛 AI Vision Forum 社区发起 · 仅限受邀参加",
   },
 
   registerPage: {
     backToHome: "返回首页",
     title: "申请邀请",
-    description: "AI愿景论坛 · AI Vision Forum 深圳 2026 在珠海举行，仅限受邀参加。请填写以下表格，提交参会申请。",
+    description: "AI 愿景论坛 AI Vision Forum 深圳 2026 在珠海举行，仅限受邀参加。请填写以下表格，提交参会申请。",
     fullName: "姓名 *",
     emailAddress: "电子邮箱 *",
     affiliation: "所属机构 / 组织",
@@ -199,7 +199,7 @@ export const cn: Translations = {
   contactPage: {
     backToHome: "返回首页",
     title: "联系我们",
-    description: "如果您对 AI愿景论坛 · AI Vision Forum 深圳 2026 有任何疑问，欢迎联系组委会。",
+    description: "如果您对 AI 愿景论坛 AI Vision Forum 深圳 2026 有任何疑问，欢迎联系组委会。",
     generalInquiries: "一般咨询",
     partnership: "合作与赞助",
     pressMedia: "新闻与媒体",
@@ -217,7 +217,7 @@ export const cn: Translations = {
     title: "隐私政策",
     lastUpdated: "最后更新：2026 年 2 月 10 日",
     overview: "概述",
-    overviewText: "AI愿景论坛 · AI Vision Forum 深圳 2026 致力于保护活动参与者、嘉宾和网站访问者的隐私。本政策概述了我们如何收集、使用和保护您的信息。",
+    overviewText: "AI 愿景论坛 AI Vision Forum 深圳 2026 致力于保护活动参与者、嘉宾和网站访问者的隐私。本政策概述了我们如何收集、使用和保护您的信息。",
     infoCollect: "我们收集的信息",
     infoRegistration: "报名信息：姓名、电子邮箱、所属机构和专业背景",
     infoParticipation: "参会信息：出席记录及提问情况（受查塔姆宫规则保护）",
@@ -329,19 +329,19 @@ export const cn: Translations = {
     readReport: "阅读论坛报告",
     editions: [
       {
-        name: "AI愿景论坛 · AI Vision Forum 巴黎 2026",
+        name: "AI 愿景论坛 AI Vision Forum 巴黎 2026",
         date: "2026 年 5 月 4 日 · 法国巴黎",
         description: "人机协同、治理与开源——已发布完整论坛报告。",
       },
       {
-        name: "AI愿景论坛 · AI Vision Forum 杭州 2025",
+        name: "AI 愿景论坛 AI Vision Forum 杭州 2025",
         date: "2025 年 9 月 12 日 · 中国杭州",
-        description: "首次以 AI愿景论坛 · AI Vision Forum 命名，聚焦 AI 时代人的核心价值。",
+        description: "首次以 AI 愿景论坛 AI Vision Forum 命名，聚焦 AI 时代人的核心价值。",
       },
       {
         name: "GOSIM 开源 AI 战略论坛",
         date: "2025 年 5 月 5 日 · 法国巴黎",
-        description: "AI愿景论坛 · AI Vision Forum 的前身：在 Station F 举行的闭门开源 AI 战略对话。",
+        description: "AI 愿景论坛 AI Vision Forum 的前身：在 Station F 举行的闭门开源 AI 战略对话。",
       },
     ],
   },

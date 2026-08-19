@@ -303,9 +303,9 @@
 
   .hero-event-title {
     font-family: var(--font-bodoni), "Songti SC", "STSong", "Noto Serif CJK SC", Georgia, serif;
-    font-size: clamp(3.45rem, 5.2vw, 5.15rem);
+    font-size: clamp(3.2rem, 5vw, 4.85rem);
     font-weight: 500;
-    line-height: 0.9;
+    line-height: 0.92;
     letter-spacing: -0.04em;
     text-wrap: balance;
   }
@@ -315,21 +315,12 @@
   }
 
   .hero-event-brand {
-    display: flex !important;
-    flex-wrap: wrap;
-    align-items: baseline;
-    gap: 0.08em 0.3em;
+    display: block !important;
     line-height: 1;
   }
 
-  .hero-event-name-zh {
-    font-size: 0.74em;
-    letter-spacing: -0.055em;
-  }
-
-  .hero-event-name-en {
-    font-size: 0.46em;
-    letter-spacing: -0.025em;
+  .hero-event-brand-part {
+    white-space: nowrap;
   }
 
   .hero-event-location {
@@ -360,22 +351,8 @@
 
   @media (max-width: 520px) {
     .hero-event-title {
-      font-size: clamp(3rem, 15vw, 3.8rem);
-      line-height: 0.94;
-    }
-
-    .hero-event-brand {
-      align-items: flex-start;
-      flex-direction: column;
-      gap: 0.12em;
-    }
-
-    .hero-event-name-zh {
-      font-size: 0.82em;
-    }
-
-    .hero-event-name-en {
-      font-size: 0.52em;
+      font-size: clamp(2.5rem, 12vw, 3rem);
+      line-height: 0.98;
     }
 
     .hero-collaboration {

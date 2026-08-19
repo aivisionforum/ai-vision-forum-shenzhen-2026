@@ -59,7 +59,7 @@ export async function generateMetadata({ params }: Omit<LayoutProps, "children">
     description: copy.description,
     keywords: [
       "AI Vision Forum",
-      "AI愿景论坛",
+      "AI 愿景论坛",
       "Shenzhen 2026",
       "Zhuhai",
       "Open Source",

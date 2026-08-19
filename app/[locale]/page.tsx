@@ -150,12 +150,12 @@ export default function Home() {
         <div className="hero-film-wash" aria-hidden="true" />
 
         <div className="hero-film-content">
-          <div className="max-w-[700px] pt-2 md:pt-8">
+          <div className="max-w-[1280px] pt-2 md:pt-8">
             <p className="section-kicker text-foreground/70">{c.eyebrow}</p>
             <h1 className="hero-event-title mt-5">
               <span className="hero-event-brand">
-                <span className="hero-event-name-zh">{EVENT_BRAND.zh}</span>
-                <span className="hero-event-name-en">{EVENT_BRAND.en}</span>
+                <span className="hero-event-brand-part">{EVENT_BRAND.zh}</span>{" "}
+                <span className="hero-event-brand-part">{EVENT_BRAND.en}</span>
               </span>
               <span className="hero-event-location">Shenzhen 2026</span>
             </h1>

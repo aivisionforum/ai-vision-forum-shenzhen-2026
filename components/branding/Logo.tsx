@@ -27,10 +27,7 @@ export function Logo({ variant = "full", className = "" }: LogoProps) {
 
   return (
     <Link href={homeHref} className={`inline-flex flex-col ${className}`} aria-label={`${EVENT_BRAND.bilingual} Shenzhen 2026 home`}>
-      <span className="editorial-type flex flex-wrap items-baseline gap-x-2 text-2xl tracking-[-0.015em]">
-        <span>{EVENT_BRAND.zh}</span>
-        <span>{EVENT_BRAND.en}</span>
-      </span>
+      <span className="editorial-type text-2xl tracking-[-0.015em]">{EVENT_BRAND.bilingual}</span>
       <span className="mt-1 text-[13px] font-bold uppercase tracking-[0.12em] text-muted-foreground">Zhuhai · 14–15 Oct 2026</span>
     </Link>
   );

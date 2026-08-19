@@ -4,9 +4,9 @@
 // curation; the constants shape is preserved so components reuse cleanly.
 
 export const EVENT_BRAND = {
-  zh: "AI愿景论坛",
+  zh: "AI 愿景论坛",
   en: "AI Vision Forum",
-  bilingual: "AI愿景论坛 · AI Vision Forum",
+  bilingual: "AI 愿景论坛 AI Vision Forum",
 } as const;
 
 export const EVENT_CONFIG = {
