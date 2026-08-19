@@ -171,7 +171,17 @@ export const PROGRAM_DAYS: ProgramDayContent[] = [
       { time: "12:30–14:00", title: { en: "Lunch & live demos", "zh-cn": "午餐与现场演示" } },
       { time: "14:00–15:30", title: { en: "Two working rooms", "zh-cn": "两场专题工作坊" }, note: { en: "Engineering systems · Organization design", "zh-cn": "工程体系 · 组织设计" } },
       { time: "16:00–16:40", title: { en: "Report-backs & closing synthesis", "zh-cn": "成果汇报与闭幕总结" } },
-      { time: "17:30–20:30", title: { en: "Closing cruise to Shenzhen", "zh-cn": "乘船前往深圳" }, note: { en: "Zhuhai → Shekou", "zh-cn": "珠海 → 蛇口" } },
+      {
+        time: "17:30–20:30",
+        title: {
+          en: "Coach transfer to GOSIM Shenzhen 2026",
+          "zh-cn": "会务大巴前往 GOSIM Shenzhen 2026 会场",
+        },
+        note: {
+          en: "Zhuhai → GOSIM Shenzhen 2026 venue",
+          "zh-cn": "珠海 → 深圳 · 会务组统一接驳",
+        },
+      },
     ],
   },
 ];

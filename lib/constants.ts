@@ -181,7 +181,7 @@ export const SCHEDULE_OUTLINE = [
   { time: "Oct 14 \u00b7 AM", title: "Open Source in the Agent Era \u2014 panel + working session" },
   { time: "Oct 14 \u00b7 PM", title: "Mobile Agentic OS \u2014 keynote, panel + roundtable" },
   { time: "Oct 15 \u00b7 AM", title: "Agentic Software Engineering \u00b7 The AI-Native Organization" },
-  { time: "Oct 15 \u00b7 PM", title: "Split working tracks \u00b7 closing synthesis \u00b7 cruise to GOSIM" },
+  { time: "Oct 15 \u00b7 PM", title: "Split working tracks \u00b7 closing synthesis \u00b7 coach transfer to GOSIM" },
 ] as const;
 
 export const CORE_TOPICS = [

@@ -898,6 +898,50 @@
     font-weight: 800;
   }
 
+  .forum-map-coach-marker {
+    position: relative;
+    border: 0;
+    background: transparent;
+  }
+
+  .forum-map-coach-marker::before,
+  .forum-map-coach-marker::after {
+    position: absolute;
+    bottom: 1px;
+    width: 8px;
+    height: 8px;
+    border: 2px solid #f7fbfd;
+    border-radius: 50%;
+    background: var(--ink);
+    box-shadow: 0 2px 5px rgba(20, 42, 56, 0.3);
+    content: "";
+    z-index: 2;
+  }
+
+  .forum-map-coach-marker::before {
+    left: 7px;
+  }
+
+  .forum-map-coach-marker::after {
+    right: 7px;
+  }
+
+  .forum-map-coach-body {
+    display: flex;
+    width: 46px;
+    height: 24px;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #f7fbfd;
+    background: var(--enterprise);
+    box-shadow: 0 5px 14px rgba(20, 42, 56, 0.25);
+    color: #fff;
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: 0.12em;
+    line-height: 1;
+  }
+
   .forum-city-label {
     padding: 0.2rem 0.4rem;
     border: 0;

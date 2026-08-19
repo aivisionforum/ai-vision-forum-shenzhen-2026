@@ -117,7 +117,7 @@ export const en: Translations = {
       { time: "Oct 15 \u00b7 12:30\u201314:00", title: "Lunch & live demos" },
       { time: "Oct 15 \u00b7 14:00\u201315:30", title: "Split working sessions", subtitle: "Agentic engineering pipeline \u00b7 AI-native reorganization", format: "Facilitated working sessions" },
       { time: "Oct 15 \u00b7 16:00\u201316:40", title: "Report-backs \u00b7 closing synthesis \u00b7 OAIC introduction" },
-      { time: "Oct 15 \u00b7 17:30\u201320:30", title: "Closing cruise: Zhuhai \u2192 Shenzhen Shekou", subtitle: "Reception & buffet \u2014 arriving for GOSIM Shenzhen" },
+      { time: "Oct 15 \u00b7 17:30\u201320:30", title: "Coach transfer to GOSIM Shenzhen 2026", subtitle: "Conference coach from Zhuhai directly to the GOSIM venue" },
     ],
   },
 
@@ -138,7 +138,7 @@ export const en: Translations = {
     title: "Venue",
     name: "Banyan Tree Zhuhai Phoenix Bay",
     venueDescription: "Banyan Tree Zhuhai Phoenix Bay \u2014 a mountain onsen resort in Xiangzhou District, with sessions and accommodation on-site.",
-    colocatedDescription: "After the forum closes on October 15, participants travel by boat from Zhuhai to Shenzhen Shekou for GOSIM Shenzhen (October 16\u201317).",
+    colocatedDescription: "After the forum closes on October 15, the organizers will provide coach transport from Zhuhai directly to the GOSIM Shenzhen 2026 venue.",
     accessDescription: "Reachable via Zhuhai (ZUH), Hong Kong (HKG), and Shenzhen (SZX) airports.",
     viewOnMap: "View on Google Maps \u2192",
     photosComingSoon: "Venue photos coming soon",

@@ -3,7 +3,7 @@
 Official website for **AI Vision Forum Shenzhen 2026** — the second edition of the AI Vision Forum, focused on **Human Agency in the Agent Era** — agentic software engineering, the AI-native organization, and open source in the agent era.
 
 - **Date:** October 14–15, 2026 (tentative)
-- **Location:** Zhuhai (venue TBA) · closing cruise to Shenzhen Shekou
+- **Location:** Zhuhai · conference coach transfer to GOSIM Shenzhen 2026
 - **Co-located with:** GOSIM Shenzhen 2026
 - **Format:** Invitation-only · Chatham House Rule
 - **Domain:** [shenzhen2026.visionforum.ai](https://shenzhen2026.visionforum.ai)

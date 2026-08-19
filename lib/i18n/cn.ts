@@ -117,7 +117,7 @@ export const cn: Translations = {
       { time: "10 月 15 日 · 12:30–14:00", title: "午餐与现场演示" },
       { time: "10 月 15 日 · 14:00–15:30", title: "分组工作坊", subtitle: "智能体工程体系；AI 原生组织设计", format: "引导式工作坊" },
       { time: "10 月 15 日 · 16:00–16:40", title: "成果汇报、闭幕总结与 OAIC 介绍" },
-      { time: "10 月 15 日 · 17:30–20:30", title: "乘船前往深圳蛇口", subtitle: "船上酒会与简餐，抵达后衔接 GOSIM 深圳大会" },
+      { time: "10 月 15 日 · 17:30–20:30", title: "会务大巴前往 GOSIM Shenzhen 2026 会场", subtitle: "会务组统一安排，从珠海直接送达 GOSIM 会场" },
     ],
   },
 
@@ -138,7 +138,7 @@ export const cn: Translations = {
     title: "会议地点",
     name: "珠海凤凰湾悦榕庄",
     venueDescription: "珠海凤凰湾悦榕庄位于香洲区，是一座山间温泉度假酒店；会议与住宿均安排在酒店内。",
-    colocatedDescription: "10 月 15 日论坛闭幕后，参会者将乘船从珠海前往深圳蛇口，衔接 10 月 16–17 日举行的 GOSIM 深圳大会。",
+    colocatedDescription: "10 月 15 日论坛闭幕后，会务组将统一安排大巴，从珠海直接送参会嘉宾前往 GOSIM Shenzhen 2026 会场。",
     accessDescription: "可从珠海（ZUH）、香港（HKG）或深圳（SZX）机场抵达。",
     viewOnMap: "在 Google 地图中查看 →",
     photosComingSoon: "场地照片即将发布",

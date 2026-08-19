@@ -6,6 +6,7 @@ import Link from "next/link";
 import {
   ArrowRight,
   ArrowUpRight,
+  Bus,
   CalendarDays,
   Handshake,
   Landmark,
@@ -506,7 +507,7 @@ export default function Home() {
 
           <div className="mt-10 grid border-t-2 border-foreground lg:grid-cols-3">
             <VenueDetail icon={<Landmark />} text={t.venue.venueDescription} />
-            <VenueDetail icon={<Handshake />} text={t.venue.colocatedDescription} />
+            <VenueDetail icon={<Bus />} text={t.venue.colocatedDescription} />
             <VenueDetail icon={<Plane />} text={t.venue.accessDescription} />
           </div>
 
