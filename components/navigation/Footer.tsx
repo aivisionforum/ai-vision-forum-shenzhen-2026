@@ -44,6 +44,7 @@ const copy = {
 export function Footer() {
   const { locale } = useTranslation();
   const c = copy[locale];
+  const brandName = locale === "zh-cn" ? EVENT_BRAND.bilingual : EVENT_BRAND.en;
   const gosimHref = locale === "zh-cn"
     ? "https://shenzhen2026.gosim.org/zh/"
     : "https://shenzhen2026.gosim.org/?lang=en";
@@ -76,7 +77,7 @@ export function Footer() {
         </div>
 
         <div className="mt-14 flex flex-col gap-3 border-t border-foreground pt-5 text-sm font-semibold tracking-[0.06em] text-muted-foreground sm:flex-row sm:justify-between">
-          <span>© 2026 {EVENT_BRAND.bilingual}</span>
+          <span>© 2026 {brandName}</span>
           <span>{c.note}</span>
         </div>
       </div>

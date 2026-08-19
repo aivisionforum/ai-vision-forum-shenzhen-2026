@@ -26,7 +26,7 @@ const isCompleted = EVENT_CONFIG.status === "completed";
 
 const metadataCopy = {
   en: {
-    title: `${EVENT_BRAND.bilingual} Shenzhen 2026 | ${EVENT_CONFIG.tagline}`,
+    title: `${EVENT_BRAND.en} Shenzhen 2026 | ${EVENT_CONFIG.tagline}`,
     description: isCompleted
       ? `Forum Report from ${EVENT_CONFIG.name} (${EVENT_CONFIG.dateDisplay}, ${EVENT_CONFIG.location.city}) — ${EVENT_CONFIG.tagline}. Executive summary, panel findings, and multimedia recap.`
       : `Two focused forums in ${EVENT_CONFIG.location.city}: Open Source Day on October 14 and Enterprise Day on October 15, covering Mobile Agentic OS, Agentic Software Engineering, and the AI-Native Organization.`,
@@ -59,7 +59,7 @@ export async function generateMetadata({ params }: Omit<LayoutProps, "children">
     description: copy.description,
     keywords: [
       "AI Vision Forum",
-      "AI 愿景论坛",
+      ...(locale === "zh-cn" ? ["AI 愿景论坛"] : []),
       "Shenzhen 2026",
       "Zhuhai",
       "Open Source",
@@ -80,7 +80,9 @@ export async function generateMetadata({ params }: Omit<LayoutProps, "children">
       title: copy.title,
       description: copy.description,
       url: `/${locale}/`,
-      siteName: `${EVENT_BRAND.bilingual} Shenzhen 2026`,
+      siteName: locale === "zh-cn"
+        ? `${EVENT_BRAND.bilingual} 深圳 2026`
+        : EVENT_CONFIG.name,
       locale: locale === "zh-cn" ? "zh_CN" : "en_US",
       alternateLocale: locale === "zh-cn" ? ["en_US"] : ["zh_CN"],
       type: "website",
@@ -113,7 +115,7 @@ export default async function LocaleLayout({ children, params }: LayoutProps) {
     "@type": "Event",
     name: locale === "zh-cn"
       ? `${EVENT_BRAND.bilingual} 深圳 2026`
-      : `${EVENT_BRAND.bilingual} Shenzhen 2026`,
+      : EVENT_CONFIG.name,
     description: copy.description,
     startDate: "2026-10-14T09:00:00+08:00",
     endDate: "2026-10-15T20:30:00+08:00",
@@ -130,7 +132,10 @@ export default async function LocaleLayout({ children, params }: LayoutProps) {
         addressCountry: "CN",
       },
     },
-    organizer: { "@type": "Organization", name: EVENT_BRAND.bilingual },
+    organizer: {
+      "@type": "Organization",
+      name: locale === "zh-cn" ? EVENT_BRAND.bilingual : EVENT_BRAND.en,
+    },
     url: `https://${EVENT_CONFIG.domain}/${locale}/`,
     image: [`https://${EVENT_CONFIG.domain}${EVENT_CONFIG.ogImageUrl}`],
   };
