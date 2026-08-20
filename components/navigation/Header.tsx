@@ -16,8 +16,8 @@ const labels = {
     menu: "Open menu",
   },
   "zh-cn": {
-    open: "14 日 · 开源论坛",
-    enterprise: "15 日 · 企业论坛",
+    open: "14 日 · 开源日",
+    enterprise: "15 日 · 企业日",
     schedule: "议程",
     venue: "场地",
     register: "申请邀请",
