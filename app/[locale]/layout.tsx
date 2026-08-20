@@ -29,13 +29,13 @@ const metadataCopy = {
     title: `${EVENT_BRAND.en} Shenzhen 2026 | ${EVENT_CONFIG.tagline}`,
     description: isCompleted
       ? `Forum Report from ${EVENT_CONFIG.name} (${EVENT_CONFIG.dateDisplay}, ${EVENT_CONFIG.location.city}) — ${EVENT_CONFIG.tagline}. Executive summary, panel findings, and multimedia recap.`
-      : `Two focused forums in ${EVENT_CONFIG.location.city}: Open Source Day on October 14 and Enterprise Day on October 15, covering Mobile Agentic OS, Agentic Software Engineering, and the AI-Native Organization.`,
-    imageAlt: `${EVENT_CONFIG.name} — Open Source Day and Enterprise Day`,
+      : `Two separate one-day forums in ${EVENT_CONFIG.location.city}, each with its own topics and attendees: the Open Source Forum on October 14 and the Enterprise Forum on October 15.`,
+    imageAlt: `${EVENT_CONFIG.name} — Open Source Forum and Enterprise Forum`,
   },
   "zh-cn": {
     title: `${EVENT_BRAND.bilingual} 深圳 2026｜构建人机协同新范式`,
-    description: "2026 年 10 月 14–15 日在珠海举行的两日闭门论坛，聚焦智能体时代的开源、Mobile Agentic OS、智能体软件工程与 AI 原生组织。",
-    imageAlt: `${EVENT_BRAND.bilingual} 深圳 2026——开源日与企业日`,
+    description: "2026 年 10 月 14–15 日在珠海举行的两场独立一日闭门论坛，每场设置不同议题与参会嘉宾，聚焦智能体时代的开源、Mobile Agentic OS、智能体软件工程与 AI 原生组织。",
+    imageAlt: `${EVENT_BRAND.bilingual} 深圳 2026——开源论坛与企业论坛`,
   },
 } as const;
 

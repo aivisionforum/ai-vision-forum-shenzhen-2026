@@ -43,8 +43,8 @@ export function TrackLayout({
     ? `/${locale}/day-one/`
     : `/${locale}/day-two/`;
   const dayLabel = isOpenDay
-    ? (locale === "zh-cn" ? "10 月 14 日 · 开源日" : "14 OCT · OPEN SOURCE DAY")
-    : (locale === "zh-cn" ? "10 月 15 日 · 企业日" : "15 OCT · ENTERPRISE DAY");
+    ? (locale === "zh-cn" ? "10 月 14 日 · 开源论坛" : "14 OCT · OPEN SOURCE FORUM")
+    : (locale === "zh-cn" ? "10 月 15 日 · 企业论坛" : "15 OCT · ENTERPRISE FORUM");
   const accentClass = isOpenDay ? "text-day-one" : "text-enterprise";
   const ctaBorderClass = isOpenDay ? "border-day-one" : "border-enterprise";
 
@@ -53,7 +53,7 @@ export function TrackLayout({
       <section className="border-b border-foreground px-5 pb-20 pt-10 md:px-10 md:pb-28 lg:px-16">
         <div className="mx-auto max-w-[1200px]">
           <Link href={dayRoute} className="link-arrow mb-16">
-            <ArrowLeft className="h-4 w-4" /> {locale === "zh-cn" ? "返回当日议程" : "Back to the day program"}
+            <ArrowLeft className="h-4 w-4" /> {locale === "zh-cn" ? "返回本场论坛议程" : "Back to the forum program"}
           </Link>
           <div className="grid gap-10 lg:grid-cols-[180px_1fr] lg:items-start">
             <div className={accentClass}>{icon}</div>

@@ -8,10 +8,10 @@ import { EVENT_BRAND } from "@/lib/constants";
 
 const copy = {
   en: {
-    line: "Two days for the questions beneath the agent era.",
+    line: "Two one-day forums for the questions beneath the agent era.",
     program: "Program",
-    open: "Open Source Day · Oct 14",
-    enterprise: "Enterprise Day · Oct 15",
+    open: "Open Source Forum · Oct 14",
+    enterprise: "Enterprise Forum · Oct 15",
     schedule: "Full program",
     forum: "Forum",
     about: "AI Vision Forum main site",
@@ -24,10 +24,10 @@ const copy = {
     note: "Zhuhai · 14–15 October · Invitation-only · EN / 中文 interpretation",
   },
   "zh-cn": {
-    line: "用两天，讨论智能体时代的根本问题。",
+    line: "两场独立的一日论坛，讨论智能体时代的根本问题。",
     program: "议程",
-    open: "开源日 · 10 月 14 日",
-    enterprise: "企业日 · 10 月 15 日",
+    open: "开源论坛 · 10 月 14 日",
+    enterprise: "企业论坛 · 10 月 15 日",
     schedule: "完整议程",
     forum: "论坛",
     about: "AI Vision Forum 主站",
