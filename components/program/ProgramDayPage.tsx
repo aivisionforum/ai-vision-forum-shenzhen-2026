@@ -149,7 +149,7 @@ export function ProgramDayPage({ dayId }: { dayId: ProgramDay }) {
                       <li key={prompt} className="border-b border-foreground/25 py-3 text-sm font-semibold">{prompt}</li>
                     ))}
                   </ul>
-                  <Link href={`/tracks/${topic.slug}`} className="link-arrow mt-8">
+                  <Link href={`/${locale}/tracks/${topic.slug}`} className="link-arrow mt-8">
                     {c.topicLink} <ArrowRight className="h-4 w-4" />
                   </Link>
                 </div>
