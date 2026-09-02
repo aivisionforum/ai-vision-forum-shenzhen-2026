@@ -136,8 +136,8 @@ export const en: Translations = {
 
   venue: {
     title: "Venue",
-    name: "Banyan Tree Zhuhai Phoenix Bay",
-    venueDescription: "Banyan Tree Zhuhai Phoenix Bay \u2014 a mountain onsen resort in Xiangzhou District, with sessions and accommodation on-site.",
+    name: "Angsana Zhuhai Phoenix Bay",
+    venueDescription: "Angsana Zhuhai Phoenix Bay \u2014 a mountain onsen resort in Xiangzhou District, with sessions and accommodation on-site.",
     colocatedDescription: "After the forum closes on October 15, the organizers will provide coach transport from Zhuhai directly to the GOSIM Shenzhen 2026 venue.",
     accessDescription: "Reachable via Zhuhai (ZUH), Hong Kong (HKG), and Shenzhen (SZX) airports.",
     viewOnMap: "View on Google Maps \u2192",

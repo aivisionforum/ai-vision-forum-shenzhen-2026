@@ -19,7 +19,7 @@ export const EVENT_CONFIG = {
   location: {
     city: "Zhuhai",
     country: "China",
-    venue: "Banyan Tree Zhuhai Phoenix Bay",
+    venue: "Angsana Zhuhai Phoenix Bay",
     colocated: "GOSIM Shenzhen 2026",
   },
   scale: "100–150 invited participants",

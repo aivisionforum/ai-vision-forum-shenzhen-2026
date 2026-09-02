@@ -124,7 +124,7 @@ export default async function LocaleLayout({ children, params }: LayoutProps) {
     inLanguage: getHtmlLang(locale),
     location: {
       "@type": "Place",
-      name: locale === "zh-cn" ? "珠海凤凰湾悦榕庄" : EVENT_CONFIG.location.venue,
+      name: locale === "zh-cn" ? "珠海凤凰湾悦椿酒店" : EVENT_CONFIG.location.venue,
       address: {
         "@type": "PostalAddress",
         addressLocality: "Zhuhai",

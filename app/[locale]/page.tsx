@@ -497,7 +497,7 @@ export default function Home() {
             <div className="relative min-h-[280px] overflow-hidden border border-foreground/25 md:min-h-[390px]">
               <Image
                 src="/images/venue/phoenix-bay-aerial.jpg"
-                alt={locale === "zh-cn" ? "珠海凤凰湾悦榕庄航拍景观" : "Aerial view of Banyan Tree Zhuhai Phoenix Bay"}
+                alt={locale === "zh-cn" ? "珠海凤凰湾悦椿酒店航拍景观" : "Aerial view of Angsana Zhuhai Phoenix Bay"}
                 fill
                 sizes="(min-width: 1024px) 60vw, 100vw"
                 className="object-cover"

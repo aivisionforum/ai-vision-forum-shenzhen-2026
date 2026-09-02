@@ -136,8 +136,8 @@ export const cn: Translations = {
 
   venue: {
     title: "会议地点",
-    name: "珠海凤凰湾悦榕庄",
-    venueDescription: "珠海凤凰湾悦榕庄位于香洲区，是一座山间温泉度假酒店；会议与住宿均安排在酒店内。",
+    name: "珠海凤凰湾悦椿酒店",
+    venueDescription: "珠海凤凰湾悦椿酒店位于香洲区，是一座山间温泉度假酒店；会议与住宿均安排在酒店内。",
     colocatedDescription: "10 月 15 日论坛闭幕后，会务组将统一安排大巴，从珠海直接送参会嘉宾前往 GOSIM Shenzhen 2026 会场。",
     accessDescription: "可从珠海（ZUH）、香港（HKG）或深圳（SZX）机场抵达。",
     viewOnMap: "在 Google 地图中查看 →",
