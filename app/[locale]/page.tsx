@@ -73,7 +73,7 @@ const copy = {
   "zh-cn": {
     eyebrow: "2026 年 10 月 14–15 日 · 中国珠海",
     heroTitle: "构建人机协同新范式",
-    intro: "两天聚焦四个议题：开源、Mobile Agentic OS、智能体软件工程与 AI 原生组织。",
+    intro: "两天聚焦四个议题：开源、AgentOS、智能体软件工程与 AI 原生组织。",
     primaryCta: "查看议题",
     secondaryCta: "查看日程",
     dateLabel: "日期",
@@ -89,7 +89,7 @@ const copy = {
     facts: "论坛信息",
     splitKicker: "两日议题",
     splitTitle: "一个论坛，四个议题，两天展开。",
-    splitIntro: "10 月 14 日聚焦开源与移动智能体操作系统；10 月 15 日讨论智能体软件工程与 AI 原生组织。",
+    splitIntro: "10 月 14 日聚焦开源与智能体操作系统（AgentOS）；10 月 15 日讨论智能体软件工程与 AI 原生组织。",
     explore: "进入当天议程",
     workingThemes: "工作专题",
     topicDetails: "查看详情",

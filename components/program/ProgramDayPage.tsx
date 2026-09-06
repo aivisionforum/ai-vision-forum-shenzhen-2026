@@ -4,6 +4,7 @@ import Link from "next/link";
 import { ArrowLeft, ArrowRight, ArrowUpRight } from "lucide-react";
 import { useTranslation } from "@/lib/i18n";
 import { getProgramDay, type ProgramDay } from "@/lib/program";
+import { HeroGradientBackground } from "@/components/hero/AnimatedGradientBackground";
 
 const copy = {
   en: {
@@ -55,6 +56,7 @@ export function ProgramDayPage({ dayId }: { dayId: ProgramDay }) {
   return (
     <main className={`program-day-page program-day-page-${day.id} text-foreground`}>
       <section className={`program-subhero program-subhero-${day.id}`}>
+        <HeroGradientBackground accent={day.id} className="program-subhero-bg" aria-hidden="true" />
         <div className="program-subhero-shell">
           <div className="program-subhero-topline">
             <Link href={`/${locale}/#programs`} className="link-arrow">
@@ -69,7 +71,17 @@ export function ProgramDayPage({ dayId }: { dayId: ProgramDay }) {
                 <span>{day.id === "open" ? "01" : "02"}</span>
                 {day.audience[locale]}
               </p>
-              <h1>{day.title[locale]}</h1>
+              <h1>
+                {day.title[locale]
+                  .replace(/^AVF’26\s/, "")
+                  .split("：")
+                  .map((part, i, arr) => (
+                    <span className="block" key={i}>
+                      {part}
+                      {i < arr.length - 1 ? "：" : ""}
+                    </span>
+                  ))}
+              </h1>
               <p className="program-subhero-deck">{day.deck[locale]}</p>
               <a href="#topics" className="button-ink group mt-7">
                 {c.topics}
@@ -77,16 +89,6 @@ export function ProgramDayPage({ dayId }: { dayId: ProgramDay }) {
               </a>
             </div>
 
-            <figure className="program-subhero-media">
-              <video autoPlay muted playsInline preload="metadata" poster="/images/hero-video-poster.jpg" aria-hidden="true">
-                <source src="/videos/aivf-hero.mp4" type="video/mp4" />
-              </video>
-              <div className="program-subhero-tint" aria-hidden="true" />
-              <figcaption>
-                <span>{c.videoLabel}</span>
-                <strong>{compactDate(day)}</strong>
-              </figcaption>
-            </figure>
           </div>
 
           <div className="program-subhero-tracks">
@@ -120,9 +122,17 @@ export function ProgramDayPage({ dayId }: { dayId: ProgramDay }) {
             <p className="text-sm font-black uppercase tracking-[0.16em] opacity-80">{c.question}</p>
             <p className="editorial-type text-[clamp(2.1rem,3.8vw,3.4rem)] leading-[1.08] tracking-[-0.02em]">“{day.question[locale]}”</p>
           </div>
-          <div className="flex min-h-[360px] flex-col justify-between border border-foreground bg-white p-7 md:p-10">
+          <div className="flex min-h-[360px] flex-col border border-foreground bg-white p-7 md:p-10">
             <p className="text-sm font-black uppercase tracking-[0.16em] text-muted-foreground">{c.who}</p>
-            <p className="editorial-type text-[clamp(2.1rem,3.8vw,3.4rem)] leading-tight tracking-[-0.02em]">{day.participants[locale]}</p>
+            <ul className="flex flex-1 flex-wrap content-center gap-x-4 gap-y-2">
+              {day.participants[locale]
+                .split("·")
+                .map((item) => item.trim())
+                .filter(Boolean)
+                .map((role) => (
+                  <li key={role} className="editorial-type text-2xl md:text-3xl font-semibold tracking-[-0.02em]">{role}</li>
+                ))}
+            </ul>
           </div>
         </div>
       </section>
@@ -141,8 +151,8 @@ export function ProgramDayPage({ dayId }: { dayId: ProgramDay }) {
                   <span className={`editorial-type text-6xl ${accentClass}`}>{topic.number}</span>
                   <span className="text-sm font-bold uppercase tracking-[0.12em] text-muted-foreground">{topic.subtitle[locale]}</span>
                 </div>
-                <div className="mt-auto pt-16">
-                  <h3 className="editorial-type max-w-xl text-[clamp(2.3rem,4vw,3.4rem)] leading-[1.05] tracking-[-0.025em]">{topic.title[locale]}</h3>
+                <div className="pt-16">
+                  <h3 className="editorial-type text-[clamp(1.8rem,3.2vw,2.6rem)] leading-[1.05] tracking-[-0.025em]">{topic.title[locale]}</h3>
                   <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground">{topic.description[locale]}</p>
                   <ul className="mt-8 border-t border-foreground">
                     {topic.prompts[locale].map((prompt) => (
