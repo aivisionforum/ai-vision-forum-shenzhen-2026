@@ -2,6 +2,21 @@
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
 
+/* HanaMin font is loaded via <style> in layout.tsx to bypass Tailwind CSS optimization */
+/* Force HanaMin for CJK serif elements — must override Tailwind's font-sans */
+@layer utilities {
+  .program-subhero-copy h1,
+  .program-subhero-label,
+  .editorial-type,
+  .program-day-context p,
+  .program-day-topic-card h3,
+  .program-day-topic-card p,
+  .section-kicker,
+  body {
+    font-family: "HanaMin", var(--font-bodoni), "Songti SC", Georgia, serif !important;
+  }
+}
+
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
@@ -28,7 +43,7 @@
   --color-paper: var(--paper);
   --color-surface: var(--surface);
   --color-ink: var(--ink);
-  --font-sans: var(--font-inter);
+  --font-sans: "HanaMin", var(--font-inter), "Songti SC", Georgia, serif;
   --font-editorial: var(--font-bodoni), "Songti SC", "STSong", "Noto Serif CJK SC", Georgia, serif;
   --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
   --radius-sm: 0;
@@ -46,10 +61,10 @@
   --ink: #182a35;
   --open: #14758f;
   --open-soft: #d8edf2;
-  --day-one: #5f7f42;
-  --day-one-soft: #e1ecd6;
-  --enterprise: #a94f43;
-  --enterprise-soft: #f2ded9;
+  --day-one: #b0732a;
+  --day-one-soft: #f3e6d0;
+  --enterprise: #b0732a;
+  --enterprise-soft: #f3e6d0;
   --card: #f7fbfd;
   --card-foreground: #142a38;
   --popover: #f7fbfd;
@@ -104,6 +119,7 @@
     font-size: 16px;
     line-height: 1.6;
     font-feature-settings: "rlig" 1, "calt" 1, "ss01" 1;
+    font-family: "HanaMin", var(--font-inter), "Songti SC", Georgia, serif;
   }
 
   ::selection {
@@ -153,9 +169,62 @@
   }
 
   .program-day-page-enterprise {
-    --program-page-bg: #f7ebe8;
-    --program-page-surface: #f1dfdb;
-    --program-page-card: #fdf8f7;
+    --program-page-bg: #edf3e7;
+    --program-page-surface: #dfead5;
+    --program-page-card: #f7fbf4;
+  }
+
+  /* "Working question" blocks in dawn light — pale gold → pink-cyan morning gradient, dark text (both days) */
+  .program-day-page-open .program-day-context .bg-day-one,
+  .program-day-page-enterprise .program-day-context .bg-enterprise {
+    background: linear-gradient(
+      135deg,
+      #f7e8c8 0%,
+      #f3ddd3 38%,
+      #dcebf2 72%,
+      #cfe4ee 100%
+    );
+    color: #000000;
+    border: 1px solid color-mix(in srgb, var(--day-one) 35%, transparent);
+    box-shadow: 18px 18px 0 color-mix(in srgb, var(--day-one) 12%, transparent);
+  }
+
+  .program-day-page-open .program-day-context .bg-day-one p:first-child,
+  .program-day-page-enterprise .program-day-context .bg-enterprise p:first-child {
+    color: color-mix(in srgb, var(--day-one) 78%, var(--ink));
+  }
+
+  /* question text itself carries .text-white — override it to black inside the dawn block */
+  .program-day-page-open .program-day-context .bg-day-one.text-white,
+  .program-day-page-open .program-day-context .bg-day-one .editorial-type,
+  .program-day-page-enterprise .program-day-context .bg-enterprise.text-white,
+  .program-day-page-enterprise .program-day-context .bg-enterprise .editorial-type {
+    color: #000000;
+  }
+
+  /* Participants block: identical style to the "working question" dawn block (both days) */
+  .program-day-page-open .program-day-context .bg-white,
+  .program-day-page-enterprise .program-day-context .bg-white {
+    background: linear-gradient(
+      135deg,
+      #f7e8c8 0%,
+      #f3ddd3 38%,
+      #dcebf2 72%,
+      #cfe4ee 100%
+    );
+    border-color: color-mix(in srgb, var(--day-one) 35%, transparent);
+    box-shadow: 18px 18px 0 color-mix(in srgb, var(--day-one) 12%, transparent);
+    color: #000000;
+    /* vertically center the content */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1.5rem;
+  }
+
+  .program-day-page-open .program-day-context .bg-white .text-muted-foreground,
+  .program-day-page-enterprise .program-day-context .bg-white .text-muted-foreground {
+    color: color-mix(in srgb, var(--day-one) 78%, var(--ink));
   }
 
   .program-day-context,
@@ -211,7 +280,7 @@
   }
 
   .section-title {
-    font-family: var(--font-bodoni), "Songti SC", "STSong", "Noto Serif CJK SC", Georgia, serif;
+    font-family: "HanaMin", var(--font-bodoni), "Songti SC", "STSong", "Noto Serif CJK SC", Georgia, serif;
     font-size: clamp(2.5rem, 5vw, 4.25rem);
     font-weight: 500;
     line-height: 1.04;
@@ -219,7 +288,7 @@
   }
 
   .subsection-title {
-    font-family: var(--font-bodoni), "Songti SC", "STSong", "Noto Serif CJK SC", Georgia, serif;
+    font-family: "HanaMin", var(--font-bodoni), "Songti SC", "STSong", "Noto Serif CJK SC", Georgia, serif;
     font-size: clamp(2rem, 3.5vw, 3rem);
     font-weight: 500;
     line-height: 1.08;
@@ -227,7 +296,7 @@
   }
 
   .editorial-type {
-    font-family: var(--font-bodoni), "Songti SC", "STSong", "Noto Serif CJK SC", Georgia, serif;
+    font-family: "HanaMin", var(--font-bodoni), "Songti SC", "STSong", "Noto Serif CJK SC", Georgia, serif;
     font-weight: 500;
   }
 
@@ -302,7 +371,7 @@
   }
 
   .hero-event-title {
-    font-family: var(--font-bodoni), "Songti SC", "STSong", "Noto Serif CJK SC", Georgia, serif;
+    font-family: "HanaMin", var(--font-bodoni), "Songti SC", "STSong", "Noto Serif CJK SC", Georgia, serif;
     font-size: clamp(3.2rem, 5vw, 4.85rem);
     font-weight: 500;
     line-height: 0.92;
@@ -377,6 +446,127 @@
       linear-gradient(135deg, #efd5cf 0%, #e9f3f8 58%, #f1dfdb 100%);
   }
 
+  /* Hero Ken Burns image background */
+  .program-subhero-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+
+  .hero-image-bg {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+  }
+
+  .hero-ken-burns-image {
+    position: absolute;
+    inset: -8%;
+    background-size: cover;
+    background-position: center;
+    animation: hero-ken-burns 40s ease-in-out infinite;
+    will-change: transform;
+  }
+
+  .hero-ken-burns-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      180deg,
+      rgb(10 22 30 / 0.62) 0%,
+      rgb(10 22 30 / 0.42) 45%,
+      rgb(10 22 30 / 0.72) 100%
+    );
+  }
+
+  /* hero over photo: light text */
+  .program-subhero .program-subhero-topline,
+  .program-subhero .program-subhero-topline a {
+    color: rgb(255 255 255 / 0.82);
+    border-bottom-color: rgb(255 255 255 / 0.35);
+  }
+
+  .program-subhero .program-subhero-copy h1 {
+    color: #ffffff;
+    text-shadow: 0 2px 24px rgb(0 0 0 / 0.45);
+  }
+
+  .program-subhero .program-subhero-deck {
+    color: rgb(255 255 255 / 0.88);
+    text-shadow: 0 1px 12px rgb(0 0 0 / 0.4);
+  }
+
+  .program-subhero .program-subhero-label {
+    color: #ffffff;
+  }
+
+  .program-subhero .program-subhero-label span {
+    border-color: rgb(255 255 255 / 0.75);
+  }
+
+  /* Day pages: header (logo + nav) over dark hero photo — white text */
+  /* Use :has() to target header when page contains .program-day-page */
+  body:has(.program-day-page) header a,
+  body:has(.program-day-page) header span,
+  body:has(.program-day-page) header button,
+  body:has(.program-day-page) header .text-muted-foreground,
+  body:has(.program-day-page) header .text-foreground {
+    color: rgb(253 247 236 / 0.95) !important;
+    text-shadow: 0 1px 8px rgb(0 0 0 / 0.4);
+  }
+
+  body:has(.program-day-page) header .border-foreground {
+    border-color: rgb(253 247 236 / 0.8) !important;
+  }
+
+  /* Warm light hero text over the photo — identical tones on both days */
+  .program-subhero-open .program-subhero-copy h1,
+  .program-subhero-enterprise .program-subhero-copy h1 {
+    color: rgb(253 247 236 / 0.94);
+    text-shadow: 0 2px 20px rgb(30 12 0 / 0.42);
+  }
+
+  .program-subhero-open .program-subhero-deck,
+  .program-subhero-enterprise .program-subhero-deck {
+    color: rgb(250 240 224 / 0.82);
+  }
+
+  .program-subhero-open .program-subhero-topline,
+  .program-subhero-open .program-subhero-topline a,
+  .program-subhero-enterprise .program-subhero-topline,
+  .program-subhero-enterprise .program-subhero-topline a {
+    color: rgb(250 240 224 / 0.7);
+    border-bottom-color: rgb(255 235 200 / 0.3);
+  }
+
+  .program-subhero-open .program-subhero-label,
+  .program-subhero-enterprise .program-subhero-label {
+    color: rgb(255 214 160 / 0.95);
+  }
+
+  .program-subhero-open .program-subhero-label span,
+  .program-subhero-enterprise .program-subhero-label span {
+    border-color: rgb(255 214 160 / 0.6);
+  }
+
+  @keyframes hero-ken-burns {
+    0% {
+      transform: scale(1) translate(0, 0);
+    }
+    50% {
+      transform: scale(1.12) translate(-1.5%, 1%);
+    }
+    100% {
+      transform: scale(1) translate(0, 0);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hero-ken-burns-image {
+      animation: none;
+    }
+  }
+
   .program-subhero::before {
     position: absolute;
     inset: 5rem 0 auto;
@@ -387,6 +577,7 @@
 
   .program-subhero-shell {
     position: relative;
+    z-index: 1;
     width: min(100% - 2.5rem, 1440px);
     margin-inline: auto;
   }
@@ -418,12 +609,12 @@
   }
 
   .program-subhero-enterprise .program-subhero-copy {
-    grid-column: 2;
+    grid-column: 1;
     grid-row: 1;
   }
 
   .program-subhero-enterprise .program-subhero-media {
-    grid-column: 1;
+    grid-column: 2;
     grid-row: 1;
   }
 
@@ -450,7 +641,7 @@
 
   .program-subhero-copy h1 {
     margin-top: 1.5rem;
-    font-family: var(--font-bodoni), "Songti SC", "STSong", "Noto Serif CJK SC", Georgia, serif;
+    font-family: "HanaMin", var(--font-bodoni), "Songti SC", "STSong", "Noto Serif CJK SC", Georgia, serif;
     font-size: clamp(3rem, 5.2vw, 5.4rem);
     font-weight: 500;
     letter-spacing: -0.045em;
@@ -502,12 +693,14 @@
     color: var(--subhero-accent);
   }
 
-  .program-subhero-open .program-subhero-tracks {
-    background: rgba(243, 248, 238, 0.82);
+  .program-subhero-open .program-subhero-tracks,
+  .program-subhero-enterprise .program-subhero-tracks {
+    background: rgba(250, 243, 232, 0.85);
   }
 
-  .program-subhero-open .program-subhero-media {
-    background: #dfe9d5;
+  .program-subhero-open .program-subhero-media,
+  .program-subhero-enterprise .program-subhero-media {
+    background: #f0e2cd;
   }
 
   .program-subhero-media figcaption {
@@ -1014,7 +1207,7 @@
   .prose h1,
   .prose h2,
   .prose h3 {
-    font-family: var(--font-bodoni), "Songti SC", "STSong", "Noto Serif CJK SC", Georgia, serif;
+    font-family: "HanaMin", var(--font-bodoni), "Songti SC", "STSong", "Noto Serif CJK SC", Georgia, serif;
     color: var(--foreground);
     font-weight: 500;
     letter-spacing: -0.025em;

@@ -20,7 +20,7 @@ export function Logo({ variant = "full", className = "" }: LogoProps) {
         <span className="border-2 border-foreground px-2 py-1 text-sm font-black tracking-[-0.04em]">AIVF</span>
         <span className="text-[10px] font-bold leading-[1.1] tracking-[0.035em] min-[360px]:text-[11px]">
           <span className="block whitespace-nowrap">{brandName}</span>
-          <span className="mt-0.5 block uppercase tracking-[0.1em] text-muted-foreground">Shenzhen 2026</span>
+          <span className="mt-0.5 block uppercase tracking-[0.1em] text-foreground">Shenzhen 2026</span>
         </span>
       </Link>
     );

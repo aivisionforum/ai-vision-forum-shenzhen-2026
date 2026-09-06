@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages, setRequestLocale } from "next-intl/server";
-import { Bodoni_Moda, Inter } from "next/font/google";
+import { Inter } from "next/font/google";
 import "leaflet/dist/leaflet.css";
 import "../globals.css";
 import { EVENT_BRAND, EVENT_CONFIG } from "@/lib/constants";
@@ -14,13 +14,10 @@ import { getHtmlLang, isAppLocale, routing, type AppLocale } from "@/i18n/routin
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
-});
-
-const bodoni = Bodoni_Moda({
-  subsets: ["latin"],
-  variable: "--font-bodoni",
   display: "swap",
 });
+
+
 
 const isCompleted = EVENT_CONFIG.status === "completed";
 
@@ -29,12 +26,12 @@ const metadataCopy = {
     title: `${EVENT_BRAND.en} Shenzhen 2026 | ${EVENT_CONFIG.tagline}`,
     description: isCompleted
       ? `Forum Report from ${EVENT_CONFIG.name} (${EVENT_CONFIG.dateDisplay}, ${EVENT_CONFIG.location.city}) — ${EVENT_CONFIG.tagline}. Executive summary, panel findings, and multimedia recap.`
-      : `Two focused forums in ${EVENT_CONFIG.location.city}: Open Source Day on October 14 and Enterprise Day on October 15, covering Mobile Agentic OS, Agentic Software Engineering, and the AI-Native Organization.`,
+      : `Two focused forums in ${EVENT_CONFIG.location.city}: Open Source Day on October 14 and Enterprise Day on October 15, covering AgentOS, Agentic Software Engineering, and the AI-Native Organization.`,
     imageAlt: `${EVENT_CONFIG.name} — Open Source Day and Enterprise Day`,
   },
   "zh-cn": {
     title: `${EVENT_BRAND.bilingual} 深圳 2026｜构建人机协同新范式`,
-    description: "2026 年 10 月 14–15 日在珠海举行的两日闭门论坛，聚焦智能体时代的开源、Mobile Agentic OS、智能体软件工程与 AI 原生组织。",
+    description: "2026 年 10 月 14–15 日在珠海举行的两日闭门论坛，聚焦智能体时代的开源、AgentOS、智能体软件工程与 AI 原生组织。",
     imageAlt: `${EVENT_BRAND.bilingual} 深圳 2026——开源日与企业日`,
   },
 } as const;
@@ -63,7 +60,7 @@ export async function generateMetadata({ params }: Omit<LayoutProps, "children">
       "Shenzhen 2026",
       "Zhuhai",
       "Open Source",
-      "Mobile Agentic OS",
+      "AgentOS",
       "Agentic Software Engineering",
       "AI-Native Organization",
     ],
@@ -143,12 +140,30 @@ export default async function LocaleLayout({ children, params }: LayoutProps) {
   return (
     <html lang={getHtmlLang(locale)}>
       <head>
+        <style dangerouslySetInnerHTML={{ __html: `
+          @font-face {
+            font-family: "SourceHanSerif";
+            src: url("/fonts/SourceHanSerifCN-subset.woff2") format("woff2");
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+            unicode-range: U+4E00-9FFF, U+3000-303F, U+FF00-FFEF, U+2000-206F;
+          }
+          /* 强制全局：中文思源宋体，英文 Bodoni 衬线 */
+          * {
+            font-family: "SourceHanSerif", "Bodoni MT", "Didot", "Songti SC", Georgia, serif !important;
+          }
+          /* 但保留 mono 的特殊场景 */
+          code, pre, .font-mono, [class*="mono"] {
+            font-family: ui-monospace, monospace !important;
+          }
+        `}} />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(eventJsonLd) }}
         />
       </head>
-      <body className={`${inter.variable} ${bodoni.variable} font-sans antialiased`}>
+      <body className={`${inter.variable} antialiased`} style={{ fontFamily: '"HanaMin", var(--font-inter), "Songti SC", Georgia, serif' }}>
         <NextIntlClientProvider locale={locale} messages={messages}>
           <LanguageProvider>
             <Header />

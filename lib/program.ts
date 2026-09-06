@@ -80,12 +80,12 @@ export const PROGRAM_DAYS: ProgramDayContent[] = [
         slug: "mobile-agentic-os",
         number: "02",
         title: {
-          en: "Bloom: Mobile Agentic OS and the New Device Frontier",
-          "zh-cn": "绽放：Mobile Agentic OS 与新设备前沿",
+          en: "Bloom: AgentOS and the New Device Frontier",
+          "zh-cn": "绽放：AgentOS 与新设备前沿",
         },
         subtitle: { en: "MOBILE · AMBIENT · OPEN", "zh-cn": "移动 · 环境智能 · 开放" },
         description: {
-          en: "Imagine a vendor-neutral mobile base where on-device agents can act across new form factors without surrendering user control.",
+          en: "Imagine a vendor-neutral mobile base where on-device agents can act across new device form factors without surrendering user control.",
           "zh-cn": "构想一个厂商中立的移动底座，让端侧智能体跨越全新设备形态，同时不牺牲用户控制权。",
         },
         prompts: {
@@ -98,7 +98,7 @@ export const PROGRAM_DAYS: ProgramDayContent[] = [
       { time: "09:00–09:30", title: { en: "Registration & coffee", "zh-cn": "签到与咖啡" } },
       { time: "09:30–10:00", title: { en: "Opening keynote: Human Agency in the Agent Era", "zh-cn": "开幕主旨演讲：智能体时代，人的主体性何在" } },
       { time: "10:00–11:10", title: { en: "Roots: Open Source Holding Ground in the Agentic Era", "zh-cn": "根系：智能体时代，开源如何守住阵地" }, note: { en: "Keynote + panel", "zh-cn": "主旨演讲 + 圆桌讨论" } },
-      { time: "11:30–12:40", title: { en: "Bloom: Mobile Agentic OS and the New Device Frontier", "zh-cn": "绽放：Mobile Agentic OS 与新设备前沿" }, note: { en: "Keynote + panel", "zh-cn": "主旨演讲 + 圆桌讨论" } },
+      { time: "11:30–12:40", title: { en: "Bloom: AgentOS and the New Device Frontier", "zh-cn": "绽放：AgentOS 与新设备前沿" }, note: { en: "Keynote + panel", "zh-cn": "主旨演讲 + 圆桌讨论" } },
       { time: "12:40–14:00", title: { en: "Lunch", "zh-cn": "午餐" } },
       { time: "14:00–15:30", title: { en: "Two working rooms", "zh-cn": "两场专题工作坊" }, note: { en: "Open-source trust · Shared mobile base", "zh-cn": "开源信任 · 共享移动底座" } },
       { time: "16:00–17:00", title: { en: "Report-backs & Day 2 preview", "zh-cn": "成果汇报与次日预告" } },
@@ -122,7 +122,7 @@ export const PROGRAM_DAYS: ProgramDayContent[] = [
     },
     question: {
       en: "How do we govern the transition without freezing it — and engineer an organization designed for intelligence from inception?",
-      "zh-cn": "如何在不扼杀转型的前提下治理转型，并从源头打造为智能而生的组织？",
+      "zh-cn": "如何治理转型而不使其停滞，并让企业从第一天起就是 AI 原生组织？",
     },
     participants: {
       en: "CTOs · CIOs · Engineering leaders · Organization designers · Founders · Researchers",
@@ -133,8 +133,8 @@ export const PROGRAM_DAYS: ProgramDayContent[] = [
         slug: "agentic-engineering",
         number: "01",
         title: {
-          en: "Rewire: Governing the Agentic Transformation of the Enterprise",
-          "zh-cn": "重连：治理企业的智能体转型",
+          en: "Rewire: Enterprise Agentic Transformation",
+          "zh-cn": "重连：企业的智能体转型",
         },
         subtitle: { en: "GOVERNANCE · CONTROL · TRANSFORMATION", "zh-cn": "治理 · 控制 · 转型" },
         description: {
@@ -166,7 +166,7 @@ export const PROGRAM_DAYS: ProgramDayContent[] = [
     ],
     schedule: [
       { time: "09:00–09:20", title: { en: "The Agentic Economy", "zh-cn": "智能体经济" }, note: { en: "Opening keynote", "zh-cn": "开场主旨演讲" } },
-      { time: "09:20–10:40", title: { en: "Rewire: Governing the Agentic Transformation of the Enterprise", "zh-cn": "重连：治理企业的智能体转型" }, note: { en: "Keynote + panel", "zh-cn": "主旨演讲 + 圆桌讨论" } },
+      { time: "09:20–10:40", title: { en: "Rewire: Enterprise Agentic Transformation", "zh-cn": "重连：企业的智能体转型" }, note: { en: "Keynote + panel", "zh-cn": "主旨演讲 + 圆桌讨论" } },
       { time: "11:10–12:30", title: { en: "Inception: Engineering the AI-Native Organization", "zh-cn": "初始：打造 AI 原生组织" }, note: { en: "Keynote + panel", "zh-cn": "主旨演讲 + 圆桌讨论" } },
       { time: "12:30–14:00", title: { en: "Lunch & live demos", "zh-cn": "午餐与现场演示" } },
       { time: "14:00–15:30", title: { en: "Two working rooms", "zh-cn": "两场专题工作坊" }, note: { en: "Engineering systems · Organization design", "zh-cn": "工程体系 · 组织设计" } },

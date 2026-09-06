@@ -67,7 +67,7 @@ export const cn: Translations = {
 
   tracksSection: {
     title: "四个核心议题",
-    subtitle: "智能体软件工程、AI 原生组织、智能体时代的开源，以及 Mobile Agentic OS",
+    subtitle: "智能体软件工程、AI 原生组织、智能体时代的开源，以及 AgentOS",
     featured: "重点",
     narrativeArc: "构建 → 重组 → 可持续",
     tracks: [
@@ -90,7 +90,7 @@ export const cn: Translations = {
         keywords: ["AI-BOM", "溯源", "维护者可持续性", "可信贡献"],
       },
       {
-        title: "Mobile Agentic OS（移动智能体操作系统）",
+        title: "AgentOS（智能体操作系统）",
         subtitle: "智能体移动时代的中立底座",
         description: "构建不依赖 Android、由社区共同治理的移动 Linux 底座，推动不同发行版与社区共建共享基础设施。",
         keywords: ["中立 OS 底座", "发行版协作", "端侧智能体", "移动 Linux"],
@@ -106,7 +106,7 @@ export const cn: Translations = {
       { time: "10 月 14 日 · 09:00–09:30", title: "签到与咖啡" },
       { time: "10 月 14 日 · 09:30–10:00", title: "开幕主旨演讲：智能体时代，人的主体性何在" },
       { time: "10 月 14 日 · 10:00–11:10", title: "智能体时代的开源", subtitle: "代码托管平台、基金会与社区", format: "主旨演讲 + 圆桌讨论" },
-      { time: "10 月 14 日 · 11:30–12:40", title: "Mobile Agentic OS（移动智能体操作系统）", subtitle: "面向智能体移动时代的中立 Linux 底座", format: "主旨演讲 + 圆桌讨论" },
+      { time: "10 月 14 日 · 11:30–12:40", title: "AgentOS（智能体操作系统）", subtitle: "面向智能体移动时代的中立 Linux 底座", format: "主旨演讲 + 圆桌讨论" },
       { time: "10 月 14 日 · 12:40–14:00", title: "午餐" },
       { time: "10 月 14 日 · 14:00–15:30", title: "分组工作坊", subtitle: "智能体参与代码贡献后，开源如何保持可信；不同发行版如何共建移动底座", format: "引导式工作坊" },
       { time: "10 月 14 日 · 16:00–17:00", title: "成果汇报与次日预告" },
@@ -182,7 +182,7 @@ export const cn: Translations = {
       "智能体软件工程",
       "AI 原生组织",
       "智能体时代的开源",
-      "Mobile Agentic OS",
+      "AgentOS",
     ],
     motivation: "您希望参与哪些讨论？ *",
     motivationPlaceholder: "请简要介绍您关注的问题……",
@@ -352,7 +352,7 @@ export const cn: Translations = {
   },
 
   trackMobileLinux: {
-    title: "Mobile Agentic OS（移动智能体操作系统）",
+    title: "AgentOS（智能体操作系统）",
     overview: "构建面向移动智能体、不依赖 Android 的中立 Linux 底座。它由社区共同治理，任何厂商和项目都可使用，并能兼容现有应用、连接不同模型。",
     keyTopics: [
       "移动操作系统为何需要中立底座——超越当前双寡头格局",
