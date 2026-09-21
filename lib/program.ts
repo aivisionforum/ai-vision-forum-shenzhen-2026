@@ -130,16 +130,33 @@ export const PROGRAM_DAYS: ProgramDayContent[] = [
     },
     topics: [
       {
-        slug: "agentic-engineering",
+        slug: "ai-native-org",
         number: "01",
         title: {
-          en: "Rewire: Enterprise Agentic Transformation",
-          "zh-cn": "重连：企业的智能体转型",
+          en: "Reshape: Building the AI-Native Organization",
+          "zh-cn": "重塑：构建 AI 原生组织",
         },
-        subtitle: { en: "GOVERNANCE · CONTROL · TRANSFORMATION", "zh-cn": "治理 · 控制 · 转型" },
+        subtitle: { en: "DESIGN · CONTEXT · RESPONSIBILITY", "zh-cn": "设计 · 上下文 · 责任" },
         description: {
-          en: "Redesign the controls, incentives, and delivery systems that let capable agents move from experiments into accountable enterprise operations.",
-          "zh-cn": "重新设计控制、激励与交付体系，让高能力智能体从实验走向可问责的企业运营。",
+          en: "Build the organization around continuous intelligence from day one: fast context flow, distributed judgment, and clear human responsibility.",
+          "zh-cn": "从第一天就围绕持续智能构建组织：让上下文快速流动、判断分布协作，并明确人的责任。",
+        },
+        prompts: {
+          en: ["Context as infrastructure", "Distributed judgment", "Clear human responsibility"],
+          "zh-cn": ["作为基础设施的上下文", "分布式协作判断", "明确人的责任"],
+        },
+      },
+      {
+        slug: "agentic-engineering",
+        number: "02",
+        title: {
+          en: "Rewire: Software Engineering Around Agents",
+          "zh-cn": "重构：围绕智能体的软件工程",
+        },
+        subtitle: { en: "GOVERNANCE · EVIDENCE · ACCOUNTABILITY", "zh-cn": "治理 · 证据 · 问责" },
+        description: {
+          en: "Redesign the relationship between people, agents, and deterministic systems, so agents move from experiments into accountable enterprise operation.",
+          "zh-cn": "重新设计人、智能体和确定性系统的关系，让智能体从实验走向可问责的企业运营。",
         },
         prompts: {
           en: ["Intent-driven engineering", "Human and agent decision rights", "Evidence, controls, and accountability"],
@@ -147,41 +164,50 @@ export const PROGRAM_DAYS: ProgramDayContent[] = [
         },
       },
       {
-        slug: "ai-native-org",
-        number: "02",
+        slug: "agentic-practice",
+        number: "03",
         title: {
-          en: "Inception: Engineering the AI-Native Organization",
-          "zh-cn": "初始：打造 AI 原生组织",
+          en: "Reconnect: Agentic Engineering in Practice",
+          "zh-cn": "重连：智能体工程应用实践",
         },
-        subtitle: { en: "DESIGN · CONTEXT · ADAPTATION", "zh-cn": "设计 · 上下文 · 适应" },
+        subtitle: { en: "DEPLOYMENT · EVALUATION · LESSONS", "zh-cn": "落地 · 评估 · 经验" },
         description: {
-          en: "Build the organization around continuous intelligence from day one: fast context flow, distributed judgment, and clear human responsibility.",
-          "zh-cn": "从第一天就围绕持续智能构建组织：让上下文快速流动、判断分布协作，并明确人的责任。",
+          en: "The challenges and hands-on experience of real agentic applications — reports from teams running agents in production.",
+          "zh-cn": "智能体应用的挑战和实践体验——来自在生产环境中运行智能体的团队的一线报告。",
         },
         prompts: {
-          en: ["Context as infrastructure", "Adaptive teams and agent capacity", "The new shape of management"],
-          "zh-cn": ["作为基础设施的上下文", "自适应团队与智能体能力", "管理的新形态"],
+          en: ["What breaks in production", "Evaluation in the wild", "Agents beside deterministic systems"],
+          "zh-cn": ["生产环境中什么会坏", "真实环境中的评估", "智能体与确定性系统并肩"],
+        },
+      },
+      {
+        slug: "ai-native-startup",
+        number: "04",
+        title: {
+          en: "Native: AI-Native Startups and the One-Person Company",
+          "zh-cn": "原生：AI 原生创业与一人公司",
+        },
+        subtitle: { en: "OPC · DELEGATION · DISTRIBUTION", "zh-cn": "一人公司 · 委托 · 分发" },
+        description: {
+          en: "Agents enabling AI-native and one-person-company entrepreneurship — the most radical test of the AI-native organization.",
+          "zh-cn": "智能体赋能 AI 原生与一人公司（OPC）创业——对 AI 原生组织最极端的检验。",
+        },
+        prompts: {
+          en: ["The one-person-company stack", "What founders never delegate", "What is scarce when execution is cheap"],
+          "zh-cn": ["一人公司的技术栈", "创始人绝不委托什么", "当执行廉价，什么稀缺"],
         },
       },
     ],
     schedule: [
-      { time: "09:00–09:20", title: { en: "The Agentic Economy", "zh-cn": "智能体经济" }, note: { en: "Opening keynote", "zh-cn": "开场主旨演讲" } },
-      { time: "09:20–10:40", title: { en: "Rewire: Enterprise Agentic Transformation", "zh-cn": "重连：企业的智能体转型" }, note: { en: "Keynote + panel", "zh-cn": "主旨演讲 + 圆桌讨论" } },
-      { time: "11:10–12:30", title: { en: "Inception: Engineering the AI-Native Organization", "zh-cn": "初始：打造 AI 原生组织" }, note: { en: "Keynote + panel", "zh-cn": "主旨演讲 + 圆桌讨论" } },
-      { time: "12:30–14:00", title: { en: "Lunch & live demos", "zh-cn": "午餐与现场演示" } },
-      { time: "14:00–15:30", title: { en: "Two working rooms", "zh-cn": "两场专题工作坊" }, note: { en: "Engineering systems · Organization design", "zh-cn": "工程体系 · 组织设计" } },
-      { time: "16:00–16:40", title: { en: "Report-backs & closing synthesis", "zh-cn": "成果汇报与闭幕总结" } },
-      {
-        time: "17:30–20:30",
-        title: {
-          en: "Coach transfer to GOSIM Shenzhen 2026",
-          "zh-cn": "会务大巴前往 GOSIM Shenzhen 2026 会场",
-        },
-        note: {
-          en: "Zhuhai → GOSIM Shenzhen 2026 venue",
-          "zh-cn": "珠海 → 深圳 · 会务组统一接驳",
-        },
-      },
+      { time: "09:00–09:30", title: { en: "Registration & coffee", "zh-cn": "签到与咖啡" } },
+      { time: "09:30–10:30", title: { en: "Reshape: Building the AI-Native Organization", "zh-cn": "重塑：构建 AI 原生组织" }, note: { en: "Panel", "zh-cn": "圆桌讨论" } },
+      { time: "10:30–11:00", title: { en: "Coffee break", "zh-cn": "茶歇" } },
+      { time: "11:00–12:00", title: { en: "Rewire: Software Engineering Around Agents", "zh-cn": "重构：围绕智能体的软件工程" }, note: { en: "Panel", "zh-cn": "圆桌讨论" } },
+      { time: "12:00–14:00", title: { en: "Lunch & live demos", "zh-cn": "午餐与现场演示" } },
+      { time: "14:00–15:00", title: { en: "Reconnect: Agentic Engineering in Practice", "zh-cn": "重连：智能体工程应用实践" }, note: { en: "Panel", "zh-cn": "圆桌讨论" } },
+      { time: "15:00–15:30", title: { en: "Coffee break", "zh-cn": "茶歇" } },
+      { time: "15:30–16:30", title: { en: "Native: AI-Native Startups and the One-Person Company", "zh-cn": "原生：AI 原生创业与一人公司" }, note: { en: "Panel", "zh-cn": "圆桌讨论" } },
+      { time: "17:30–19:00", title: { en: "Dinner", "zh-cn": "晚宴" } },
     ],
   },
 ];

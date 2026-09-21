@@ -3,7 +3,7 @@ import { ProgramDayPage } from "@/components/program/ProgramDayPage";
 
 export const metadata: Metadata = {
   title: "Day Two — The Enterprise | AVF’26",
-  description: "Rewire and Inception: governing the agentic transformation and engineering the AI-native organization.",
+  description: "Reshape, Rewire, Reconnect, Native: building the AI-native organization, engineering around agents, practice in production, and one-person companies.",
 };
 
 export default function DayTwoPage() {
