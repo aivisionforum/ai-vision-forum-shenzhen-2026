@@ -1,0 +1,174 @@
+@font-face {
+  font-family: 'Preview Literata';
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url(/fonts/preview/literata-latin-ext.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+@font-face {
+  font-family: 'Preview Literata';
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url(/fonts/preview/literata-latin.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'Preview Lora';
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url(/fonts/preview/lora-latin-ext.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+@font-face {
+  font-family: 'Preview Lora';
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url(/fonts/preview/lora-latin.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'Preview Source Sans 3';
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url(/fonts/preview/source-sans-3-latin-ext.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+@font-face {
+  font-family: 'Preview Source Sans 3';
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url(/fonts/preview/source-sans-3-latin.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'Preview Source Serif 4';
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url(/fonts/source-serif-4-latin-ext.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+@font-face {
+  font-family: 'Preview Source Serif 4';
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url(/fonts/source-serif-4-latin.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* These overrides are confined to this specimen page. */
+.page { padding: 140px 32px 72px; background: #f6f5f0; color: #203b43; }
+.page, .page * { font-family: "SourceHanSerif", var(--font-inter), sans-serif !important; }
+.shell { max-width: 1440px; margin: auto; }
+.topline { display: flex; justify-content: space-between; gap: 20px; padding-bottom: 24px; border-bottom: 1px solid #203b4338; font-size: 11px; letter-spacing: .1em; }
+.topline a { letter-spacing: 0; }
+.intro { display: flex; justify-content: space-between; gap: 32px; align-items: end; padding: 44px 0 36px; }
+.kicker { font-size: 13px; letter-spacing: .14em; margin-bottom: 12px; color: #50685e; }
+.intro h1 { font-size: clamp(32px, 4vw, 54px); font-weight: 500; line-height: 1.3; letter-spacing: -.03em; }
+.intro > p { font-size: 15px; line-height: 1.9; }
+.intro > p span { font-size: 12px; color: #697877; }
+.choices { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
+.choice { display: flex; flex-direction: column; text-align: left; padding: 22px; border: 1px solid #203b4333; background: #ffffff70; cursor: pointer; transition: background .15s, border-color .15s; }
+.choice:hover { border-color: #466652; background: #fff; }
+.choice[aria-pressed="true"] { background: #e5ecdf; border-color: #44624e; box-shadow: inset 0 0 0 1px #44624e; }
+.choiceTop { display: flex; justify-content: space-between; width: 100%; font-size: 11px; color: #536a61; }
+.page .choiceName { font-family: var(--sample-font) !important; font-size: clamp(22px, 2vw, 29px); font-weight: 600; line-height: 1.3; margin: 26px 0 16px; }
+.choiceTag { font-size: 14px; font-weight: 600; }
+.choiceDescription { font-size: 12px; color: #5b6d69; line-height: 1.85; margin-top: 10px; }
+.controls { padding: 26px; margin-top: 20px; border: 1px solid #203b4333; background: #fff9; }
+.controlGrid { display: grid; grid-template-columns: repeat(3, 1fr) .8fr; gap: 36px; }
+.controlGrid label { display: block; font-size: 13px; }
+.controlGrid output { float: right; color: #486453; font-variant-numeric: tabular-nums; }
+.controlGrid input[type="range"] { display: block; width: 100%; margin-top: 19px; accent-color: #44624e; cursor: pointer; }
+.controlGrid select { display: block; width: 100%; border: 1px solid #203b4333; padding: 7px 10px; margin-top: 8px; background: #fff; }
+.controlFooter { display: flex; justify-content: space-between; gap: 20px; align-items: center; margin-top: 24px; padding-top: 18px; border-top: 1px solid #203b4320; font-size: 13px; }
+.controlFooter > div { display: flex; gap: 28px; flex-wrap: wrap; }
+.controlFooter label { display: inline-flex; align-items: center; gap: 8px; cursor: pointer; }
+.controlFooter input { accent-color: #44624e; width: 16px; height: 16px; }
+.controlFooter button { cursor: pointer; text-decoration: underline; text-underline-offset: 4px; }
+.customText { font-size: 13px; margin-top: 20px; }
+.customText summary { cursor: pointer; color: #536a61; }
+.customText label { display: block; margin-top: 16px; }
+.customText textarea { width: 100%; background: white; padding: 12px; border: 1px solid #203b4333; margin-top: 8px; line-height: 1.6; resize: vertical; }
+.previewHeading { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-top: 44px; }
+.previewHeading h2 { font-size: 22px; font-weight: 500; }
+.previewHeading > span { font-size: 12px; color: #536a61; }
+.compareNote { font-size: 12px; color: #63736e; margin: 12px 0 20px; line-height: 1.8; }
+.previewGrid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+.single { grid-template-columns: 1fr; }
+.specimen { min-width: 0; border: 1px solid #203b4333; background: #e9f3f8; color: #142a38; --sample-muted: #506977; --sample-line: #142a3833; --sample-button: #142a38; --sample-button-text: white; }
+.specimen[data-surface="white"] { background: #fff; }
+.specimen[data-surface="dark"] { background: #182e38; color: #f1f5ef; --sample-muted: #bbced4; --sample-line: #ffffff33; --sample-button: #e9f3f8; --sample-button-text: #142a38; }
+.sampleLabel { padding: 14px 20px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; border-bottom: 1px solid var(--sample-line); font-size: 11px; color: var(--sample-muted); }
+.sampleContent { padding: 30px; overflow-wrap: anywhere; }
+.page .sampleContent, .page .sampleContent * { font-family: var(--sample-font) !important; font-optical-sizing: auto; }
+.sampleNav { display: flex; justify-content: space-between; gap: 16px; font-size: 12px; font-weight: 600; padding-bottom: 24px; border-bottom: 1px solid var(--sample-line); }
+.eyebrow { font-size: 11px; font-weight: var(--sample-weight); letter-spacing: .12em; margin-top: 40px; }
+.chineseTitle { font-size: 24px; font-weight: 500; margin-top: 24px; }
+.sampleHeading { font-size: clamp(36px, 3.8vw, 58px); font-weight: var(--heading-weight); line-height: 1.08; letter-spacing: -.025em; margin-top: 12px; }
+.sampleHeading > span { display: block; font-size: .72em; margin-top: 10px; }
+.sampleSubtitle { font-size: 22px; font-weight: var(--heading-weight); line-height: 1.45; margin-top: 24px; }
+.sampleBody { font-size: var(--sample-size); font-weight: var(--sample-weight); line-height: 1.65; margin-top: 18px; color: var(--sample-muted); }
+.mixedBody { font-size: var(--sample-size); font-weight: 400; line-height: 1.8; margin-top: 18px; color: var(--sample-muted); }
+.sampleActions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 26px; font-size: 14px; font-weight: var(--heading-weight); }
+.sampleActions > span { padding: 12px 16px; border: 1px solid var(--sample-line); }
+.sampleActions > span:first-child { background: var(--sample-button); color: var(--sample-button-text); }
+.sampleSchedule { margin-top: 36px; border-top: 1px solid var(--sample-line); }
+.sampleSchedule > div { display: flex; gap: 22px; align-items: center; border-bottom: 1px solid var(--sample-line); padding: 20px 0; }
+.day { font-size: 42px; font-weight: var(--heading-weight); line-height: 1; }
+.sampleSchedule h3 { font-size: 20px; font-weight: var(--heading-weight); }
+.sampleSchedule p { font-size: 14px; font-weight: var(--sample-weight); color: var(--sample-muted); margin-top: 4px; }
+.smallSample { font-size: 12px; line-height: 1.6; margin-top: 26px; font-weight: 400; color: var(--sample-muted); }
+.smallSample > span { display: block; font-size: 14px; font-weight: var(--sample-weight); margin-top: 6px; }
+.single .sampleContent { max-width: 1000px; margin: auto; padding: 50px; }
+.single .sampleHeading { font-size: clamp(42px, 6vw, 78px); }
+.single .sampleBody { max-width: 700px; }
+.decision { display: flex; align-items: center; justify-content: space-between; gap: 24px; margin-top: 32px; padding: 30px; background: #e5ecdf; border-top: 2px solid #44624e; }
+.decision .selection { font-size: 20px; line-height: 1.6; }
+.decision p:last-child { font-size: 13px; margin-top: 10px; color: #536a61; }
+.decision button { flex-shrink: 0; padding: 14px 22px; background: #284936; color: white; cursor: pointer; font-size: 14px; }
+.sources { display: flex; gap: 16px; flex-wrap: wrap; font-size: 11px; margin-top: 24px; color: #62756e; }
+.sources a { text-decoration: underline; text-underline-offset: 3px; }
+.page button:focus-visible, .page a:focus-visible, .page input:focus-visible, .page select:focus-visible, .page textarea:focus-visible, .page summary:focus-visible { outline: 2px solid #14758f; outline-offset: 5px; }
+@media (max-width: 1000px) {
+  .choices { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .intro { align-items: start; }
+  .controlGrid { gap: 24px; }
+  .sampleContent { padding: 24px; }
+  .sampleNav { flex-direction: column; gap: 8px; }
+}
+@media (max-width: 700px) {
+  .page { padding: 110px 16px 40px; }
+  .topline { font-size: 9px; letter-spacing: .04em; }
+  .intro { flex-direction: column; gap: 18px; padding: 30px 0; }
+  .intro > p { font-size: 14px; }
+  .choices { gap: 10px; }
+  .choice { padding: 16px; }
+  .page .choiceName { font-size: 23px; margin: 22px 0 12px; }
+  .choiceTop { font-size: 10px; }
+  .controls { padding: 20px; }
+  .controlGrid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .controlFooter { align-items: start; flex-direction: column; }
+  .controlFooter > div { gap: 18px; }
+  .previewHeading { align-items: start; flex-direction: column; gap: 8px; }
+  .previewGrid { grid-template-columns: 1fr; }
+  .sampleHeading { font-size: 44px; }
+  .sampleLabel { padding: 14px 20px; }
+  .single .sampleContent { padding: 24px; }
+  .decision { align-items: start; flex-direction: column; padding: 24px; }
+  .decision .selection { font-size: 18px; }
+}

@@ -17,8 +17,6 @@ const inter = Inter({
   display: "swap",
 });
 
-
-
 const isCompleted = EVENT_CONFIG.status === "completed";
 
 const metadataCopy = {
@@ -140,30 +138,12 @@ export default async function LocaleLayout({ children, params }: LayoutProps) {
   return (
     <html lang={getHtmlLang(locale)}>
       <head>
-        <style dangerouslySetInnerHTML={{ __html: `
-          @font-face {
-            font-family: "SourceHanSerif";
-            src: url("/fonts/SourceHanSerifCN-subset.woff2") format("woff2");
-            font-weight: normal;
-            font-style: normal;
-            font-display: swap;
-            unicode-range: U+4E00-9FFF, U+3000-303F, U+FF00-FFEF, U+2000-206F;
-          }
-          /* 强制全局：中文思源宋体，英文 Bodoni 衬线 */
-          * {
-            font-family: "SourceHanSerif", "Bodoni MT", "Didot", "Songti SC", Georgia, serif !important;
-          }
-          /* 但保留 mono 的特殊场景 */
-          code, pre, .font-mono, [class*="mono"] {
-            font-family: ui-monospace, monospace !important;
-          }
-        `}} />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(eventJsonLd) }}
         />
       </head>
-      <body className={`${inter.variable} antialiased`} style={{ fontFamily: '"HanaMin", var(--font-inter), "Songti SC", Georgia, serif' }}>
+      <body className={`${inter.variable} antialiased`}>
         <NextIntlClientProvider locale={locale} messages={messages}>
           <LanguageProvider>
             <Header />
