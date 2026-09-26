@@ -43,8 +43,8 @@ export const PROGRAM_DAYS: ProgramDayContent[] = [
     audience: { en: "DAY ONE · THE OPEN COMMONS", "zh-cn": "第一日 · 开放共同体" },
     shortName: { en: "Day One", "zh-cn": "第一日" },
     title: {
-      en: "AVF’26 Surviving and Thriving: Open Source in the Agentic Era",
-      "zh-cn": "AVF’26 生存与繁荣：智能体时代的开源",
+      en: "AIVF’26 Surviving and Thriving: Open Source in the Agentic Era",
+      "zh-cn": "AIVF’26 生存与繁荣：智能体时代的开源",
     },
     deck: {
       en: "A day about what open source must preserve — and what it must become — as agents move from tools to participants, platforms, and operating environments.",

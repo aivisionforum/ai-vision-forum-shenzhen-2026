@@ -10,7 +10,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params;
   const topic = PROGRAM_DAYS.flatMap((d) => d.topics).find((t) => t.slug === slug);
   return {
-    title: topic ? `${topic.title.en} | AVF’26` : "Topic | AVF’26",
+    title: topic ? `${topic.title.en} | AIVF’26` : "Topic | AIVF’26",
     description: topic?.description.en,
   };
 }

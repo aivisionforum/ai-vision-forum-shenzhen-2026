@@ -30,6 +30,25 @@
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
+/* Separate Chinese faces keep Latin at 500 while using genuine 500/600 outlines. */
+@font-face {
+  font-family: "SourceHanSerifBody";
+  src: url("/fonts/source-han-serif-cn-medium.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+2E80-9FFF, U+F900-FAFF, U+FF00-FFEF, U+2000-206F;
+}
+
+@font-face {
+  font-family: "SourceHanSerifHeading";
+  src: url("/fonts/source-han-serif-cn-semibold.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+2E80-9FFF, U+F900-FAFF, U+FF00-FFEF, U+2000-206F;
+}
+
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
@@ -57,8 +76,8 @@
   --color-surface: var(--surface);
   --color-ink: var(--ink);
   --font-sans: var(--site-font);
-  --font-editorial: var(--site-font);
-  /* Approved typography: 500 headings and body, including legacy weight utilities. */
+  --font-editorial: var(--site-heading-font);
+  /* Latin stays at 500; Chinese weight is selected by the body/heading family. */
   --font-weight-normal: 500;
   --font-weight-medium: 500;
   --font-weight-semibold: 500;
@@ -76,7 +95,8 @@
 }
 
 :root {
-  --site-font: "SourceHanSerif", "Source Serif 4", "Songti SC", "STSong", Georgia, serif;
+  --site-font: "SourceHanSerifBody", "Source Serif 4", "SourceHanSerif", "Songti SC", Georgia, serif;
+  --site-heading-font: "SourceHanSerifHeading", "Source Serif 4", "SourceHanSerif", "Songti SC", Georgia, serif;
   --background: #e9f3f8;
   --foreground: #142a38;
   --paper: #c9dfeb;
@@ -147,7 +167,12 @@
     font-family: var(--site-font);
   }
 
-  h1, h2, h3, h4, h5, h6, strong, b {
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--site-heading-font);
+    font-weight: 500;
+  }
+
+  strong, b {
     font-weight: 500;
   }
 
@@ -309,7 +334,7 @@
   }
 
   .section-title {
-    font-family: var(--site-font);
+    font-family: var(--site-heading-font);
     font-size: clamp(2.5rem, 5vw, 4.25rem);
     font-weight: 500;
     line-height: 1.04;
@@ -317,7 +342,7 @@
   }
 
   .subsection-title {
-    font-family: var(--site-font);
+    font-family: var(--site-heading-font);
     font-size: clamp(2rem, 3.5vw, 3rem);
     font-weight: 500;
     line-height: 1.08;
@@ -325,7 +350,7 @@
   }
 
   .editorial-type {
-    font-family: var(--site-font);
+    font-family: var(--site-heading-font);
     font-weight: 500;
   }
 
@@ -400,7 +425,7 @@
   }
 
   .hero-event-title {
-    font-family: var(--site-font);
+    font-family: var(--site-heading-font);
     font-size: clamp(3.2rem, 5vw, 4.85rem);
     font-weight: 500;
     line-height: 0.92;
@@ -670,7 +695,7 @@
 
   .program-subhero-copy h1 {
     margin-top: 1.5rem;
-    font-family: var(--site-font);
+    font-family: var(--site-heading-font);
     font-size: clamp(3rem, 5.2vw, 5.4rem);
     font-weight: 500;
     letter-spacing: -0.045em;
@@ -1236,7 +1261,7 @@
   .prose h1,
   .prose h2,
   .prose h3 {
-    font-family: var(--site-font);
+    font-family: var(--site-heading-font);
     color: var(--foreground);
     font-weight: 500;
     letter-spacing: -0.025em;

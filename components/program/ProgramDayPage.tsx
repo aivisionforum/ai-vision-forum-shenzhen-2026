@@ -73,7 +73,7 @@ export function ProgramDayPage({ dayId }: { dayId: ProgramDay }) {
               </p>
               <h1>
                 {day.title[locale]
-                  .replace(/^AVF’26\s/, "")
+                  .replace(/^AIVF’26\s/, "")
                   .split("：")
                   .map((part, i, arr) => (
                     <span className="block" key={i}>
