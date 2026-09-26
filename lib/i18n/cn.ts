@@ -1,3 +1,4 @@
+import { PROGRAM_TOPICS, PROGRAM_TOPIC_COUNT_LABEL } from "@/lib/program";
 import type { Translations } from "./types";
 
 export const cn: Translations = {
@@ -66,36 +67,16 @@ export const cn: Translations = {
   },
 
   tracksSection: {
-    title: "四个核心议题",
-    subtitle: "智能体软件工程、AI 原生组织、智能体时代的开源，以及 AgentOS",
+    title: `${PROGRAM_TOPIC_COUNT_LABEL["zh-cn"]}个核心议题`,
+    subtitle: "开源、AgentOS、AI 原生组织、智能体软件工程、工程应用实践与 AI 原生创业",
     featured: "重点",
     narrativeArc: "构建 → 重组 → 可持续",
-    tracks: [
-      {
-        title: "智能体软件工程",
-        subtitle: "理论与实践",
-        description: "当智能体承担大部分编码工作，软件工程将如何变化？",
-        keywords: ["多智能体协作", "规范驱动开发", "智能体运行框架", "MCP / A2A"],
-      },
-      {
-        title: "AI 原生组织",
-        subtitle: "从恐龙到章鱼",
-        description: "从层级分明的组织，走向能够感知变化、快速适应的组织。",
-        keywords: ["章鱼型组织", "决策权下放", "信息流动", "智能体经济"],
-      },
-      {
-        title: "智能体时代的开源",
-        subtitle: "信任与可持续发展",
-        description: "当智能体开始贡献代码，开源如何保持可追溯、可持续和值得信任？",
-        keywords: ["AI-BOM", "溯源", "维护者可持续性", "可信贡献"],
-      },
-      {
-        title: "AgentOS（智能体操作系统）",
-        subtitle: "智能体移动时代的中立底座",
-        description: "构建不依赖 Android、由社区共同治理的移动 Linux 底座，推动不同发行版与社区共建共享基础设施。",
-        keywords: ["中立 OS 底座", "发行版协作", "端侧智能体", "移动 Linux"],
-      },
-    ],
+    tracks: PROGRAM_TOPICS.map((topic) => ({
+      title: topic.title["zh-cn"],
+      subtitle: topic.subtitle["zh-cn"],
+      description: topic.description["zh-cn"],
+      keywords: topic.prompts["zh-cn"],
+    })),
   },
 
   scheduleSection: {

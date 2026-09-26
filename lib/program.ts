@@ -212,6 +212,19 @@ export const PROGRAM_DAYS: ProgramDayContent[] = [
   },
 ];
 
+export const PROGRAM_TOPICS = PROGRAM_DAYS.flatMap((day) => day.topics);
+export const PROGRAM_TOPIC_COUNT = PROGRAM_TOPICS.length;
+
+const topicCountWords = {
+  en: ["Zero", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten"],
+  "zh-cn": ["零", "一", "二", "三", "四", "五", "六", "七", "八", "九", "十"],
+};
+
+export const PROGRAM_TOPIC_COUNT_LABEL: LocalizedText = {
+  en: topicCountWords.en[PROGRAM_TOPIC_COUNT] ?? String(PROGRAM_TOPIC_COUNT),
+  "zh-cn": topicCountWords["zh-cn"][PROGRAM_TOPIC_COUNT] ?? String(PROGRAM_TOPIC_COUNT),
+};
+
 export function getProgramDay(id: ProgramDay) {
   return PROGRAM_DAYS.find((day) => day.id === id)!;
 }

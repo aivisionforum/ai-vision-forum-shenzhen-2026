@@ -3,11 +3,11 @@
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { useTranslation } from "@/lib/i18n";
-import { PROGRAM_DAYS } from "@/lib/program";
+import { PROGRAM_DAYS, PROGRAM_TOPIC_COUNT_LABEL } from "@/lib/program";
 
 const copy = {
-  en: { splitKicker: "TWO FOCUSED PROGRAMS", splitTitle: "One forum. Four connected topics across two days.", explore: "Explore this day" },
-  "zh-cn": { splitKicker: "两日议题", splitTitle: "一个论坛，四个议题，两天展开。", explore: "进入当天议程" },
+  en: { splitKicker: "TWO FOCUSED PROGRAMS", splitTitle: `One forum. ${PROGRAM_TOPIC_COUNT_LABEL.en} connected topics across two days.`, explore: "Explore this day" },
+  "zh-cn": { splitKicker: "两日议题", splitTitle: `一个论坛，${PROGRAM_TOPIC_COUNT_LABEL["zh-cn"]}个议题，两天展开。`, explore: "进入当天议程" },
 };
 
 /** Shared by the homepage and the Chinese typography preview. */

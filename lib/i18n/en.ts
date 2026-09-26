@@ -1,3 +1,4 @@
+import { PROGRAM_TOPICS, PROGRAM_TOPIC_COUNT_LABEL } from "@/lib/program";
 import type { Translations } from "./types";
 
 export const en: Translations = {
@@ -66,36 +67,16 @@ export const en: Translations = {
   },
 
   tracksSection: {
-    title: "Four Tracks",
-    subtitle: "Agentic software engineering, the AI-native organization, open source in the agent era, and AgentOS",
+    title: `${PROGRAM_TOPIC_COUNT_LABEL.en} Tracks`,
+    subtitle: "Open source, AgentOS, AI-native organizations, agentic software engineering, engineering practice, and AI-native startups",
     featured: "Featured",
     narrativeArc: "Build it \u2192 Reorganize around it \u2192 Sustain it",
-    tracks: [
-      {
-        title: "Agentic Software Engineering",
-        subtitle: "Theory and practice",
-        description: "What engineering becomes when agents write most of the code.",
-        keywords: ["Agent Swarms", "Spec-Driven Development", "Harness Engineering", "MCP / A2A"],
-      },
-      {
-        title: "The AI-Native Organization",
-        subtitle: "From dinosaur to octopus",
-        description: "From dinosaur to octopus: structures that sense and adapt.",
-        keywords: ["Octopus Organization", "Judgment Distribution", "Context Flow", "Agentic Economy"],
-      },
-      {
-        title: "Open Source in the Agent Era",
-        subtitle: "Survival and prosperity",
-        description: "Provenance, sustainability, and trust when agents contribute.",
-        keywords: ["AI-BOM", "Provenance", "Maintainer Sustainability", "Trusted Contributions"],
-      },
-      {
-        title: "AgentOS",
-        subtitle: "A neutral base for the agentic mobile era",
-        description: "A vendor-neutral, Android-free Linux base for mobile agentic computing \u2014 aligning distros and communities on shared infrastructure.",
-        keywords: ["Neutral OS Base", "Distro Alignment", "On-Device Agents", "Mobile Linux"],
-      },
-    ],
+    tracks: PROGRAM_TOPICS.map((topic) => ({
+      title: topic.title["en"],
+      subtitle: topic.subtitle["en"],
+      description: topic.description["en"],
+      keywords: topic.prompts["en"],
+    })),
   },
 
   scheduleSection: {

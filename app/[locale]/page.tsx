@@ -20,13 +20,13 @@ import { useTranslation } from "@/lib/i18n";
 import { EVENT_BRAND } from "@/lib/constants";
 import { PAST_ORGANIZATIONS } from "@/lib/past-organizations";
 import { ProgramOverview } from "@/components/program/ProgramOverview";
-import { PROGRAM_DAYS } from "@/lib/program";
+import { PROGRAM_DAYS, PROGRAM_TOPIC_COUNT_LABEL } from "@/lib/program";
 
 const copy = {
   en: {
     eyebrow: "14–15 OCTOBER 2026 · ZHUHAI, CHINA",
     heroTitle: "Architecting Human-AI Synergy.",
-    intro: "Two days and four connected topics across open source, mobile, software engineering, and organizations.",
+    intro: `Two days and ${PROGRAM_TOPIC_COUNT_LABEL.en.toLowerCase()} connected topics: open source, AgentOS, AI-native organizations, agentic software engineering, engineering practice, and AI-native startups.`,
     primaryCta: "Explore topics",
     secondaryCta: "View schedule",
     dateLabel: "Date",
@@ -40,11 +40,6 @@ const copy = {
     whyNow: "Why this conversation, now",
     forumModel: "The forum model",
     facts: "Forum facts",
-    splitKicker: "TWO FOCUSED PROGRAMS",
-    splitTitle: "One forum. Four connected topics across two days.",
-    splitIntro:
-      "The four topics are arranged under two program lenses: open source on October 14 and enterprise on October 15.",
-    explore: "Explore this day",
     workingThemes: "Working themes",
     topicDetails: "Open brief",
     closeDetails: "Close topic brief",
@@ -74,7 +69,7 @@ const copy = {
   "zh-cn": {
     eyebrow: "2026 年 10 月 14–15 日 · 中国珠海",
     heroTitle: "构建人机协同新范式",
-    intro: "两天聚焦四个议题：开源、AgentOS、智能体软件工程与 AI 原生组织。",
+    intro: `两天聚焦${PROGRAM_TOPIC_COUNT_LABEL["zh-cn"]}个议题：开源、AgentOS、AI 原生组织、智能体软件工程、工程应用实践与 AI 原生创业。`,
     primaryCta: "查看议题",
     secondaryCta: "查看日程",
     dateLabel: "日期",
@@ -88,10 +83,6 @@ const copy = {
     whyNow: "为什么是现在",
     forumModel: "讨论方式",
     facts: "论坛信息",
-    splitKicker: "两日议题",
-    splitTitle: "一个论坛，四个议题，两天展开。",
-    splitIntro: "10 月 14 日聚焦开源与智能体操作系统（AgentOS）；10 月 15 日讨论智能体软件工程与 AI 原生组织。",
-    explore: "进入当天议程",
     workingThemes: "工作专题",
     topicDetails: "查看详情",
     closeDetails: "关闭专题详情",

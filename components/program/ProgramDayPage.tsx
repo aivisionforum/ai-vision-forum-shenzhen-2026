@@ -45,6 +45,7 @@ export function ProgramDayPage({ dayId }: { dayId: ProgramDay }) {
   const { locale } = useTranslation();
   const c = copy[locale];
   const day = getProgramDay(dayId);
+  const topicCount = String(day.topics.length).padStart(2, "0");
   const otherDay = getProgramDay(dayId === "open" ? "enterprise" : "open");
   const accentClass = day.id === "open" ? "text-day-one" : "text-enterprise";
   const blockClass = day.id === "open" ? "bg-day-one text-white" : "bg-enterprise text-white";
@@ -94,7 +95,7 @@ export function ProgramDayPage({ dayId }: { dayId: ProgramDay }) {
           <div className="program-subhero-tracks">
             <div className="program-subhero-tracks-meta">
               <span>{day.shortName[locale]}</span>
-              <strong>02 TRACKS</strong>
+              <strong>{topicCount} TRACKS</strong>
             </div>
             <div className="program-subhero-track-grid">
               {day.topics.map((topic, index) => (
@@ -141,7 +142,7 @@ export function ProgramDayPage({ dayId }: { dayId: ProgramDay }) {
         <div className="mx-auto max-w-[1440px]">
           <div className="mb-12 flex items-end justify-between border-b-2 border-foreground pb-5">
             <h2 className="section-title">{c.topics}</h2>
-            <span className="font-mono text-sm font-bold">02</span>
+            <span className="font-mono text-sm font-bold">{topicCount}</span>
           </div>
 
           <div className="grid gap-8 lg:grid-cols-2">
